@@ -6,12 +6,12 @@ const { transparent = false } = Astro.props;
 const links = [
   { href: "/bridal-makeup/", label: "Bridal" },
   { href: "/groom-makeup/", label: "Groom" },
-  { href: "/services/", label: "Services" },
+  { href: "/sikh-wedding-makeup/", label: "Sikh Weddings" },
+  { href: "/hindu-punjabi-wedding-makeup/", label: "Hindu Punjabi" },
   { href: "/packages/", label: "Packages" },
   { href: "/portfolio/", label: "Portfolio" },
   { href: "/areas/", label: "Areas" },
   { href: "/blog/", label: "Blog" },
-  { href: "/about/", label: "About" },
 ];
 const current = Astro.url.pathname;
 ---
@@ -26,7 +26,7 @@ const current = Astro.url.pathname;
       </span>
     </a>
 
-    <div class="hidden items-center gap-6 lg:flex">
+    <div class="hidden items-center gap-5 lg:flex">
       {links.map((l) => (
         <a href={l.href} class:list={["text-[13.5px] font-semibold tracking-wide transition hover:text-gold", current.startsWith(l.href) && "underline decoration-gold decoration-2 underline-offset-8"]}>{l.label}</a>
       ))}
@@ -48,7 +48,9 @@ const current = Astro.url.pathname;
     {links.map((l) => (
       <a href={l.href} class="block border-b border-ink/8 py-3 text-base font-semibold">{l.label}</a>
     ))}
+    <a href="/services/" class="block border-b border-ink/8 py-3 text-base font-semibold">All services</a>
     <a href="/testimonials/" class="block border-b border-ink/8 py-3 text-base font-semibold">Reviews</a>
+    <a href="/about/" class="block border-b border-ink/8 py-3 text-base font-semibold">About</a>
     <a href="/contact/" class="block border-b border-ink/8 py-3 text-base font-semibold">Contact</a>
     <div class="mt-4 grid grid-cols-2 gap-2">
       <a href="/contact/" class="btn btn-maroon">Book your date</a>

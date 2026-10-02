@@ -20,7 +20,7 @@ const title = `Bridal Makeup Artist in ${shortCity} — HD & Airbrush, Groom Mak
 const description = `Professional bridal and groom makeup artist for weddings in ${city}: HD and airbrush bridal makeup, hair styling and draping for Anand Karaj, pheras, engagement, sangeet and reception. ${area.distanceKm === 0 ? "Based in Jalandhar." : `Travelling from Jalandhar (${area.distanceKm} km).`}`;
 const faqs = [...area.faqs, ...generalFaqs.slice(0, 4)];
 const others = areas.filter((a) => a.slug !== area.slug).slice(0, 8);
-const heroImgs: Record<string, string> = { jalandhar: "bride-red-kaleere", amritsar: "couple-sikh-wide", chandigarh: "couple-reception", ludhiana: "bride-white-night", patiala: "bride-maroon-gold", mohali: "couple-sikh-pink", pathankot: "bride-orange", phagwara: "couple-punjabi-steps", kapurthala: "bride-red-seated", hoshiarpur: "couple-pink-turban", nawanshahr: "anand-karaj", moga: "bride-red-smile" };
+const heroImgs: Record<string, string> = { jalandhar: "couple-sikh-laughing", amritsar: "anand-karaj-laavan", chandigarh: "couple-sikh-reception", ludhiana: "couple-sikh-red-hall", patiala: "bride-chooda-red", mohali: "couple-sikh-embrace", pathankot: "couple-sikh-forest", phagwara: "couple-punjabi-steps-red", kapurthala: "bride-red-suit-kaleere", hoshiarpur: "couple-sikh-kirpan", nawanshahr: "anand-karaj-palki", moga: "couple-punjabi-pink" };
 const hero = heroImgs[area.slug] || "hero-wide";
 const schema = [
   breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Areas", path: "/areas/" }, { name: shortCity, path: `/areas/${area.slug}/` }]),

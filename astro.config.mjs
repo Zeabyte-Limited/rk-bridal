@@ -12,7 +12,7 @@ export default defineConfig({
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
-      filter: (page) => !page.includes('/preview/'),
+      filter: (page) => !page.includes('/preview/') && !page.includes('/admin/'),
     }),
   ],
   vite: { plugins: [tailwindcss()] },

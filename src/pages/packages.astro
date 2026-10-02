@@ -13,12 +13,12 @@ const description = "Bridal makeup packages in Jalandhar: Classic HD, Luxe Airbr
 // Prices are DELIBERATELY blank until the studio confirms its rate card.
 // Fill `price` (e.g. "from ₹18,000") and it appears automatically.
 const packages = [
-  { name: "Classic HD Bridal", tag: "Most booked", price: "", for: "The wedding day", items: ["HD base, eyes, lips, contour, lashes", "Bridal hairstyle", "Dupatta / saree draping", "Trial at the studio", "Touch-up kit"] },
-  { name: "Luxe Airbrush Bridal", tag: "Long days & summer", price: "", for: "The wedding day", items: ["Airbrush base (12–16 hr wear)", "Everything in Classic HD", "Artist on standby through the ceremony", "Second look touch-up for the doli"] },
-  { name: "Groom Grooming", tag: "", price: "", for: "Wedding / reception / shoot", items: ["Invisible HD skin", "Beard + hair styling", "Sehra / dastaar-friendly finish", "30–45 minutes, on site"] },
-  { name: "Engagement / Reception", tag: "", price: "", for: "Per event", items: ["Soft-glam or evening glam", "Hair + draping", "Flash-tested finish", "Family add-ons available"] },
-  { name: "Mehndi · Sangeet · Haldi", tag: "", price: "", for: "Per event", items: ["Festive, sweat-proof makeup", "Open / floral hairstyles", "Haldi-safe skin prep", "Group rates for family"] },
-  { name: "Family & Party", tag: "", price: "", for: "Per person", items: ["Mothers, sisters, bhabhis, bridesmaids", "Makeup + hair", "At home or at the venue", "Group discounts for 5+"] },
+  { key: "bridal-hd", name: "Classic HD Bridal", tag: "Most booked", price: "", for: "The wedding day", items: ["HD base, eyes, lips, contour, lashes", "Bridal hairstyle", "Dupatta / saree draping", "Trial at the studio", "Touch-up kit"] },
+  { key: "bridal-airbrush", name: "Luxe Airbrush Bridal", tag: "Long days & summer", price: "", for: "The wedding day", items: ["Airbrush base (12–16 hr wear)", "Everything in Classic HD", "Artist on standby through the ceremony", "Second look touch-up for the doli"] },
+  { key: "groom", name: "Groom Grooming", tag: "", price: "", for: "Wedding / reception / shoot", items: ["Invisible HD skin", "Beard + hair styling", "Sehra / dastaar-friendly finish", "30–45 minutes, on site"] },
+  { key: "reception", name: "Roka / Shagun / Reception", tag: "", price: "", for: "Per event", items: ["Soft-glam or evening glam", "Hair + draping", "Flash-tested finish", "Family add-ons available"] },
+  { key: "mehndi-jaggo", name: "Mehndi · Jaggo · Maiyan", tag: "", price: "", for: "Per event", items: ["Festive, sweat-proof makeup", "Paranda / floral hairstyles", "Vatna-safe skin prep", "Group rates for family"] },
+  { key: "family", name: "Family & Party", tag: "", price: "", for: "Per person", items: ["Mothers, sisters, bhabhis, bridesmaids", "Makeup + hair", "At home or at the venue", "Group discounts for 5+"] },
 ];
 
 const factors = [
@@ -49,7 +49,7 @@ const schema = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Packages
             {p.tag && <span class="mb-3 w-fit rounded-full bg-gold-300/70 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-ink">{p.tag}</span>}
             <h2 class="text-3xl">{p.name}</h2>
             <p class="mt-1 text-sm text-mute">{p.for}</p>
-            <p class="mt-4 font-display text-2xl font-semibold text-maroon">{p.price || "Ask for a quote"}</p>
+            <p class="mt-4 font-display text-2xl font-semibold text-maroon" data-price-key={p.key}>{p.price || "Ask for a quote"}</p>
             <ul class="mt-5 flex-1 space-y-2">
               {p.items.map((i) => (<li class="flex items-start gap-2.5 text-[15px] text-ink-soft"><span class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blush text-[11px] font-bold text-maroon">✓</span>{i}</li>))}
             </ul>
@@ -79,5 +79,15 @@ const schema = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Packages
     <div class="mx-auto max-w-3xl px-4 sm:px-6"><BookingForm title="Get a written quote" /></div>
   </section>
 
-  <CtaBand image="bride-with-bridesmaids" title="Booking three or more events? Ask about the wedding-week package." />
+  <script is:inline>
+    fetch("/api/public/settings").then(function (r) { return r.json(); }).then(function (d) {
+      if (!d || !d.showPrices) return;
+      (d.prices || []).forEach(function (p) {
+        var el = document.querySelector('[data-price-key="' + p.key + '"]');
+        if (el && p.price > 0) el.textContent = "from ₹" + Math.round(p.price).toLocaleString("en-IN") + (p.unit ? " " + p.unit : "");
+      });
+    }).catch(function () {});
+  </script>
+
+  <CtaBand image="groomsmen-turbans" title="Booking three or more events? Ask about the wedding-week package." />
 </Layout>

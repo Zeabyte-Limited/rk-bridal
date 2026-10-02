@@ -17,6 +17,7 @@ DIST = os.path.join(ROOT, "dist")
 TOKEN = os.environ.get("CLOUDFLARE_API_TOKEN")
 ACC = os.environ.get("CLOUDFLARE_ACCOUNT_ID")
 SCRIPT = "rk-bridal"
+KV_ID = "109ef25f719b46b8baaeffcd397d579d"  # KV namespace rk-bridal-data (enquiries, quotes, settings)
 API = "https://api.cloudflare.com/client/v4"
 if not TOKEN or not ACC:
     sys.exit("Set CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in the environment.")
@@ -94,8 +95,9 @@ if not completion:
 metadata = {
     "main_module": "worker.js",
     "compatibility_date": "2026-06-01",
-    "assets": {"jwt": completion, "config": {"html_handling": "auto-trailing-slash", "not_found_handling": "404-page"}},
-    "bindings": [{"name": "ASSETS", "type": "assets"}],
+    "assets": {"jwt": completion, "config": {"html_handling": "auto-trailing-slash", "not_found_handling": "404-page", "run_worker_first": True}},
+    "bindings": [{"name": "ASSETS", "type": "assets"}, {"name": "DB", "type": "kv_namespace", "namespace_id": KV_ID}],
+    "keep_bindings": ["secret_text"],
 }
 data, ctype = multipart([("metadata", None, "application/json", json.dumps(metadata).encode()), ("worker.js", "worker.js", "application/javascript+module", worker_code)])
 st, body = req("PUT", f"{API}/accounts/{ACC}/workers/scripts/{SCRIPT}", {"Authorization": f"Bearer {TOKEN}", "Content-Type": ctype}, data)

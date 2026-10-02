@@ -1,0 +1,43 @@
+---
+// Renders reviews the owner adds in the Studio admin (fetched at view time).
+// Shows nothing (keeps the fallback slot) when there are none.
+interface Props { limit?: number; filters?: boolean }
+const { limit = 0, filters = false } = Astro.props;
+---
+<div class="live-reviews" data-limit={limit} data-filters={filters ? "1" : ""}>
+  <div class="lr-fallback"><slot /></div>
+  <div class="lr-filters mt-10 hidden flex-wrap justify-center gap-2"></div>
+  <div class="lr-grid mt-12 hidden columns-1 gap-5 md:columns-2 lg:columns-3"></div>
+</div>
+<script is:inline>
+  (function () {
+    document.querySelectorAll(".live-reviews").forEach(function (box) {
+      if (box.dataset.done) return; box.dataset.done = "1";
+      var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+      fetch("/api/public/reviews").then(function (r) { return r.json(); }).then(function (d) {
+        var list = (d && d.reviews) || []; if (!list.length) return;
+        var lim = +box.dataset.limit; if (lim) list = list.slice(0, lim);
+        var grid = box.querySelector(".lr-grid");
+        grid.innerHTML = list.map(function (t) {
+          var m = t.date ? new Date(t.date + "-01").toLocaleDateString("en-IN", { month: "short", year: "numeric" }) : "";
+          return '<figure class="card mb-5 break-inside-avoid p-7" data-ev="' + esc(t.event) + '">' +
+            '<p class="text-gold">' + "★".repeat(t.rating || 5) + '<span class="text-ink/15">' + "★".repeat(5 - (t.rating || 5)) + "</span></p>" +
+            '<blockquote class="mt-2 font-display text-xl leading-relaxed text-ink-soft">“' + esc(t.quote) + "”</blockquote>" +
+            '<figcaption class="mt-5 flex items-center gap-3">' + (t.photo ? '<img src="' + t.photo + '" alt="' + esc(t.name) + '" class="h-14 w-14 rounded-full object-cover" loading="lazy">' : '<span class="grid h-14 w-14 place-items-center rounded-full bg-blush font-display text-xl font-bold text-maroon">' + esc((t.name || "?")[0]) + "</span>") +
+            '<div><p class="font-semibold">' + esc(t.name) + '</p><p class="text-sm text-mute">' + esc([t.event, t.city, m].filter(Boolean).join(" · ")) + "</p></div></figcaption></figure>";
+        }).join("");
+        grid.classList.remove("hidden"); box.querySelector(".lr-fallback").classList.add("hidden");
+        if (box.dataset.filters) {
+          var evs = Array.from(new Set(list.map(function (t) { return t.event; }))); if (evs.length < 2) return;
+          var f = box.querySelector(".lr-filters"); f.classList.remove("hidden"); f.classList.add("flex");
+          f.innerHTML = ["All"].concat(evs).map(function (e, i) { return '<button data-rf="' + esc(e) + '" class="rounded-full border px-4 py-2 text-sm font-semibold ' + (i ? "border-ink/15 bg-white" : "border-maroon bg-maroon text-ivory") + '">' + esc(e) + "</button>"; }).join("");
+          f.querySelectorAll("button").forEach(function (b) { b.onclick = function () {
+            f.querySelectorAll("button").forEach(function (x) { x.className = "rounded-full border px-4 py-2 text-sm font-semibold border-ink/15 bg-white"; });
+            b.className = "rounded-full border px-4 py-2 text-sm font-semibold border-maroon bg-maroon text-ivory";
+            grid.querySelectorAll("[data-ev]").forEach(function (c) { c.style.display = b.dataset.rf === "All" || c.dataset.ev === b.dataset.rf ? "" : "none"; });
+          }; });
+        }
+      }).catch(function () {});
+    });
+  })();
+</script>

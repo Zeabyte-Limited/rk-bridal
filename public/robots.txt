@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /preview/
+Disallow: /admin/
+Disallow: /q/
+Disallow: /api/
 
 Sitemap: https://rk-bridal.zeabyte.workers.dev/sitemap-index.xml

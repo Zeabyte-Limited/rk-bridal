@@ -7,6 +7,20 @@ Bridal & groom makeup artist website for Jalandhar, Punjab. Built with **Astro 6
 - **Repo:** `Zeabyte-Limited/rk-bridal` — **push to `main` = live** in ~90 s (`.github/workflows/deploy.yml`)
 - **Owner:** Parminder (Zeabyte) manages the site for the studio.
 
+## Studio admin (for the owner)
+
+`/admin/` — phone-first app, password login (owner can change it in More → Settings).
+- **Enquiries:** every website booking form lands here (plus ones she adds by hand). Reply on WhatsApp in one tap.
+- **Quotes:** build from her price list, save, then "Send on WhatsApp". The client gets a link (`/q/<token>/`) with an
+  Accept button. Any change saves a new version; the link always shows the latest. Mark sent/accepted/booked.
+- **Messages:** ready-made WhatsApp templates ({name} {date} {link} {total} {advance} {studio}), editable.
+- **Reviews:** real reviews + photo, consent checkbox required; published ones appear on /testimonials/ and home.
+- **Prices:** her price list; optional "show from ₹… on website" switch (packages page reads it live).
+
+Storage = Cloudflare KV namespace `rk-bridal-data` (id `109ef25f719b46b8baaeffcd397d579d`, binding `DB`). Each
+collection has an index key `idx:<kind>` so saves show instantly. The worker runs first for every route
+(`run_worker_first`) so `/q/*` and redirects work for browser navigation.
+
 ## Change the business details (name, phone, WhatsApp, Instagram, email)
 
 Everything reads from **`src/config.ts`**. Edit that one file, push, done. The WhatsApp number there is a

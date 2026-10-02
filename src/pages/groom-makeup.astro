@@ -9,7 +9,7 @@ import { SITE, WHATSAPP_URL } from "../config";
 import { faqSchema, serviceSchema, breadcrumbSchema } from "../lib/schema";
 
 const title = `Groom Makeup & Grooming in Jalandhar — Natural, Camera-Ready | ${SITE.name}`;
-const description = "Groom makeup in Jalandhar, Punjab: invisible HD grooming, beard shaping, hair styling (dastaar and sehra friendly), pre-wedding and reception looks for grooms. Travelling across Punjab.";
+const description = "Groom makeup in Jalandhar for Sardar and Hindu Punjabi grooms: invisible HD grooming, beard shaping, dastaar- and sehra-friendly hair, pre-wedding and reception looks. Travelling across Punjab.";
 
 const what = [
   { t: "Skin that looks rested", d: "Light HD base matched to your neck, dark circles and razor marks evened out, oil controlled for a full day under lights. Nobody can tell — they just think you look great." },
@@ -44,7 +44,7 @@ const schema = [
 <Layout title={title} description={description} path="/groom-makeup/" transparentHeader schema={schema} image="/images/v-hero-groom.webp">
   <VideoHero video="hero-groom" poster="v-hero-groom" eyebrow="For the groom" min="min-h-[80svh]">
     <h1 class="max-w-4xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">Groom Makeup &amp; Grooming in Jalandhar — <span class="text-gold-300">invisible</span>, camera-ready</h1>
-    <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">Rested skin, a sharp beard, hair that holds under a sehra or dastaar. Natural grooming for the wedding, the pre-wedding shoot and the reception.</p>
+    <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">For Sardar and Hindu Punjabi grooms: rested skin, a sharp beard, a perfect dastaar line or hair that holds under the sehra. For the sehra bandi, the milni, the wedding and the reception.</p>
     <div slot="actions" class="mt-8 flex flex-wrap gap-3">
       <a href={WHATSAPP_URL("Hi! I'd like to enquire about groom makeup and grooming.")} target="_blank" rel="noopener" class="btn btn-whatsapp !px-7 !py-3.5 !text-[15px]">Enquire on WhatsApp</a>
       <a href="/portfolio/" class="btn btn-ghost-light !px-7 !py-3.5 !text-[15px]">See groom looks</a>
@@ -70,8 +70,8 @@ const schema = [
         <a href="/blog/groom-grooming-checklist-4-weeks/" class="btn btn-ghost mt-8">Read the full groom checklist</a>
       </div>
       <div class="grid grid-cols-2 gap-4">
-        <div class="img-frame aspect-[3/4]"><img src="/images/groom-sehra.webp" alt="Groom in sehra and cream sherwani" loading="lazy" class="h-full w-full object-cover" /></div>
-        <div class="img-frame mt-10 aspect-[3/4]"><img src="/images/groom-pink-turban.webp" alt="Groom in pink turban, natural grooming" loading="lazy" class="h-full w-full object-cover" /></div>
+        <div class="img-frame aspect-[3/4]"><img src="/images/groom-sikh-ivory.webp" alt="Sikh groom in ivory sherwani and red turban" loading="lazy" class="h-full w-full object-cover" /></div>
+        <div class="img-frame mt-10 aspect-[3/4]"><img src="/images/groom-pink-safa.webp" alt="Hindu Punjabi groom in a pink safa, natural grooming" loading="lazy" class="h-full w-full object-cover" /></div>
       </div>
     </div>
   </section>
@@ -87,5 +87,5 @@ const schema = [
     <div class="mx-auto max-w-3xl px-4 sm:px-6"><BookingForm title="Book groom grooming" /></div>
   </section>
 
-  <CtaBand image="couple-sikh-portrait" title="Bride and groom, one team, one finish." />
+  <CtaBand image="couple-sikh-closeup" title="Bride and groom, one team, one finish." />
 </Layout>

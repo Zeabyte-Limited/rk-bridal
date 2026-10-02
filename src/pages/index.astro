@@ -11,11 +11,12 @@ import { services } from "../data/services";
 import { areas } from "../data/areas";
 import { gallery } from "../data/gallery";
 import { generalFaqs } from "../data/faqs";
-import { testimonials } from "../data/testimonials";
 import { faqSchema } from "../lib/schema";
+import LiveReviews from "../components/LiveReviews.astro";
 
 const homeFaqs = generalFaqs.slice(0, 6);
-const looks = gallery.filter((g) => ["bride", "groom", "couples"].includes(g.cat)).slice(0, 8);
+const pick = ["couple-sikh-laughing", "bride-red-suit-kaleere", "groom-sikh-red-turban", "anand-karaj-laavan", "bride-pink-kaleere", "hair-bun-roses", "couple-punjabi-steps-red", "groom-pink-safa", "bride-chooda-red", "couple-sikh-kirpan", "hair-braided-bun", "bride-mehndi-hands"];
+const looks = pick.map((k) => gallery.find((g) => g.image === k)!).filter(Boolean);
 
 const steps = [
   { n: "01", t: "Say hello on WhatsApp", d: "Send your date, city and the events. We confirm availability the same day." },
@@ -29,19 +30,19 @@ const why = [
   { t: "Hair is where bridal looks fail. Ours don't.", d: "Our founder is a hair artist first — the bun that holds a 2-kg dupatta, the braid that survives giddha, the setting that keeps a maang tikka straight." },
   { t: "HD and airbrush, chosen for your skin", d: "Not one base for everyone. At the trial we test what your skin loves and what the venue lighting needs." },
   { t: "A full team, not a solo artist", d: "Makeup, hair, draping and mehndi travel together, so the bride, the groom and the family are ready at the same time." },
-  { t: "Built for Punjabi weddings", d: "Early Anand Karaj mornings, December fog, May heat, three events in two days — we plan the timeline around all of it." },
-  { t: "Travel anywhere in Punjab", d: "Jalandhar is home; Chandigarh, Ludhiana, Amritsar and every town between is a short drive. Destination weddings welcome." },
+  { t: "Only Sikh & Hindu Punjabi weddings", d: "Anand Karaj mornings, late-night pheras, choora and kaleere, jaggo nights, December fog and May heat — this is all we do, and we plan the timeline around all of it." },
+  { t: "Travel anywhere in Punjab", d: "Jalandhar is home; Chandigarh, Ludhiana, Amritsar and every town between is a short drive — and we travel with Punjabi families marrying elsewhere." },
   { t: "Honest quotes on WhatsApp", d: "Clear line items — events, family, travel. No surprises on the day." },
 ];
 ---
 
 <Layout path="/" transparentHeader schema={faqSchema(homeFaqs)}>
-  <VideoHero video="hero-home" poster="v-hero-home" eyebrow="Bridal & groom makeup artistry">
+  <VideoHero video="hero-home" poster="v-hero-home" eyebrow="For Sikh & Hindu Punjabi weddings">
     <h1 class="max-w-4xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">
       Bridal &amp; Groom Makeup Artist in <span class="text-gold-300">Jalandhar</span>, Punjab
     </h1>
     <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">
-      HD and airbrush bridal makeup, hair styling and draping for every ceremony — roka to reception. {SITE.baseLine}.
+      HD and airbrush bridal makeup, hair, chunni and kaleere setting for Sikh and Hindu Punjabi brides and grooms — roka to reception. {SITE.baseLine}.
     </p>
     <div slot="actions" class="mt-8 flex flex-wrap gap-3">
       <a href={WHATSAPP_URL("Hi! I'd like to check your availability for my wedding date.")} target="_blank" rel="noopener" class="btn btn-whatsapp !px-7 !py-3.5 !text-[15px]">Check your date on WhatsApp</a>
@@ -82,6 +83,50 @@ const why = [
               <p class="mt-4 text-sm font-bold text-maroon">Explore <span aria-hidden="true">→</span></p>
             </div>
           </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Communities -->
+  <section class="py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead center eyebrow="Our families" title="Sikh and Hindu Punjabi weddings — that’s all we do." sub="Every ritual has its own timing, light and outfit. We know them by heart." />
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        <a href="/sikh-wedding-makeup/" class="group relative isolate block overflow-hidden rounded-3xl">
+          <img src="/images/anand-karaj-laavan.webp" alt="Sikh couple at the Anand Karaj" loading="lazy" class="absolute inset-0 -z-20 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 -z-10 bg-gradient-to-t from-maroon-900/90 via-maroon-900/30 to-transparent"></div>
+          <div class="flex min-h-[26rem] flex-col justify-end p-8 text-ivory">
+            <p class="script text-3xl text-gold-300">Anand Karaj</p>
+            <h3 class="text-4xl">Sikh weddings</h3>
+            <p class="mt-2 max-w-md text-[15px] leading-7 text-ivory/85">Chunni chadana, jaggo, choora, the laavan and the doli — plus dastaar-ready grooming for the Sardar groom.</p>
+            <span class="btn btn-gold mt-5 w-fit">Sikh wedding makeup →</span>
+          </div>
+        </a>
+        <a href="/hindu-punjabi-wedding-makeup/" class="group relative isolate block overflow-hidden rounded-3xl">
+          <img src="/images/couple-punjabi-steps-red.webp" alt="Hindu Punjabi bride and groom" loading="lazy" class="absolute inset-0 -z-20 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 -z-10 bg-gradient-to-t from-maroon-900/90 via-maroon-900/30 to-transparent"></div>
+          <div class="flex min-h-[26rem] flex-col justify-end p-8 text-ivory">
+            <p class="script text-3xl text-gold-300">Pheras</p>
+            <h3 class="text-4xl">Hindu Punjabi weddings</h3>
+            <p class="mt-2 max-w-md text-[15px] leading-7 text-ivory/85">Roka, maiyan, choora, sehra bandi, ghodi and the pheras — and a fresh new look for the reception.</p>
+            <span class="btn btn-gold mt-5 w-fit">Hindu Punjabi makeup →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hairstyles -->
+  <section class="bg-blush/50 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <SectionHead eyebrow="Hair first" title="Bridal hairstyles that hold a heavy chunni all day." sub="Our founder started as a hair artist. Joodas, paranda braids, floral buns and soft waves — engineered for kaleere, tikka and a long day." />
+        <a href="/portfolio/" class="btn btn-ghost shrink-0">All hairstyles</a>
+      </div>
+      <div class="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+        {["hair-bun-jewellery", "hair-braided-bun", "hair-bun-pink-roses", "hair-side-swept", "hair-bun-roses", "hair-punjabi-braid", "hair-curly-updo", "hair-side-braids"].map((h) => (
+          <div class="img-frame aspect-[3/4]"><img src={`/images/${h}-sm.webp`} alt="Punjabi bridal hairstyle" loading="lazy" class="h-full w-full object-cover" /></div>
         ))}
       </div>
     </div>
@@ -136,24 +181,12 @@ const why = [
   <section class="bg-blush/60 py-20 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <SectionHead center eyebrow="Reviews" title="In our brides' own words" />
-      {testimonials.length > 0 ? (
-        <div class="mt-12 grid gap-5 md:grid-cols-3">
-          {testimonials.slice(0, 3).map((t) => (
-            <figure class="card p-7">
-              <blockquote class="font-display text-xl leading-relaxed text-ink-soft">“{t.quote}”</blockquote>
-              <figcaption class="mt-5 flex items-center gap-3">
-                {t.photo && <img src={`/images/clients/${t.photo}`} alt="" class="h-12 w-12 rounded-full object-cover" loading="lazy" />}
-                <div><p class="font-semibold">{t.name}</p><p class="text-sm text-mute">{t.event} · {t.city}</p></div>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      ) : (
+      <LiveReviews limit={6}>
         <div class="mx-auto mt-10 max-w-2xl text-center">
           <p class="text-[17px] leading-8 text-ink-soft">We publish only real reviews from real brides and grooms, with their permission and their photos. Our first featured brides of the season are on their way — ask us on WhatsApp and we’ll happily share recent work and references.</p>
           <a href="/testimonials/" class="btn btn-ghost mt-6">Read reviews</a>
         </div>
-      )}
+      </LiveReviews>
     </div>
   </section>
 

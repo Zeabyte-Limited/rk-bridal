@@ -4,9 +4,11 @@
   "name": "rk-bridal",
   "main": "src/worker.js",
   "compatibility_date": "2026-06-01",
+  "kv_namespaces": [{ "binding": "DB", "id": "109ef25f719b46b8baaeffcd397d579d" }],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "run_worker_first": true
   }
 }

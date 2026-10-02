@@ -2,6 +2,19 @@
 
 Every production change, issue and fix goes here (newest first).
 
+## 2026-10-03 — Sikh/Hindu Punjabi refocus + studio admin
+
+- Owner instruction: Sikh Punjabi and Hindu Punjabi weddings ONLY. Copy rewritten (rituals: chunni chadana, maiyan,
+  jaggo, choora, kaleere, sehra bandi, ghodi, laavan, pheras); new pages /sikh-wedding-makeup/ and
+  /hindu-punjabi-wedding-makeup/; nav updated; dandiya + western-groom photos removed; 77 new Pexels photos (Sikh
+  couples, Sardar + Hindu Punjabi grooms, chooda/kaleere brides, bridal hairstyles); hero videos rebuilt as reels of
+  Sikh/Punjabi couple photos (slow zoom) + real dhol / bhangra / chooda-bride clips.
+- Studio admin at /admin/ (enquiries, quotes with versions + client link, WhatsApp templates, reviews, prices).
+  KV namespace rk-bridal-data. Password hash (PBKDF2) in KV key `auth`; login rate-limited; same-origin check.
+- Bugs found in browser testing and fixed same day: (1) admin styles were Astro-scoped → `is:global`; (2) DELETE was
+  rejected by the JSON-only check; (3) `/q/<token>/` showed the 404 page on browser navigation because static
+  assets answered first → `run_worker_first: true`; (4) KV `list()` lags ~60 s → per-collection index keys.
+
 ## 2026-10-02 — CI fix + first live deploy via API
 
 - First two Actions runs failed in 0 s ("workflow file issue"): `secrets` is not allowed in a step `if`, and

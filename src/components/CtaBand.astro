@@ -1,7 +1,7 @@
 ---
 import { WHATSAPP_URL } from "../config";
 interface Props { title?: string; sub?: string; image?: string }
-const { title = "Your date, our calendar — let’s lock it in.", sub = "Tell us the date and the events. We reply on WhatsApp within a few hours with availability and a clear quote.", image = "couple-sikh-wide" } = Astro.props;
+const { title = "Your date, our calendar — let’s lock it in.", sub = "Tell us the date and the events. We reply on WhatsApp within a few hours with availability and a clear quote.", image = "couple-sikh-red-hall" } = Astro.props;
 ---
 <section class="relative isolate my-24 overflow-hidden">
   <img src={`/images/${image}.webp`} alt="" loading="lazy" class="absolute inset-0 -z-20 h-full w-full object-cover object-center" />

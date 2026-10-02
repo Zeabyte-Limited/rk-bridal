@@ -1,0 +1,434 @@
+---
+// Studio admin — a phone-first mini app for the owner. Static page; all data via /api/admin/*.
+import "../../styles/global.css";
+import { SITE } from "../../config";
+---
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#6b0f1a" />
+  <title>Studio — {SITE.name}</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style is:global>
+    body { background: #f6f1ea; }
+    .a-card { background: #fff; border: 1px solid rgba(30,20,25,.08); border-radius: 18px; box-shadow: 0 8px 24px -18px rgba(107,15,26,.35); }
+    .a-in { width: 100%; border: 1px solid rgba(30,20,25,.18); background: #fff; border-radius: 12px; padding: .8rem .9rem; font-size: 16px; outline: none; }
+    .a-in:focus { border-color: #6b0f1a; box-shadow: 0 0 0 3px rgba(107,15,26,.12); }
+    .a-lbl { display: block; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: #6f5f66; margin: 0 0 .35rem; }
+    .a-btn { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; border-radius: 999px; padding: .8rem 1.2rem; font-weight: 700; font-size: 15px; border: 0; cursor: pointer; transition: transform .15s; }
+    .a-btn:active { transform: scale(.97); }
+    .b-m { background: #6b0f1a; color: #fbf7f2; } .b-g { background: #c9a24a; color: #1e1419; } .b-w { background: #25d366; color: #fff; }
+    .b-o { background: #fff; color: #1e1419; border: 1px solid rgba(30,20,25,.18); } .b-r { background: #fff; color: #b42318; border: 1px solid #f1c3be; }
+    .chip { display: inline-block; border-radius: 999px; padding: .2rem .65rem; font-size: 12px; font-weight: 800; text-transform: capitalize; }
+    .st-new,.st-draft { background: #fdf2d6; color: #8a5a00; } .st-contacted,.st-sent { background: #e3eefc; color: #1d4f91; } .st-quoted,.st-accepted { background: #efe6fb; color: #5b2a9e; }
+    .st-booked { background: #dcf5e4; color: #146c2e; } .st-lost,.st-cancelled { background: #f1eeee; color: #6f5f66; }
+    .tab.on { color: #6b0f1a; } .tab.on .dot { background: #6b0f1a; }
+    .sheet { position: fixed; inset: 0; z-index: 60; background: rgba(30,20,25,.45); display: flex; align-items: flex-end; justify-content: center; }
+    .sheet > div { background: #fbf7f2; width: 100%; max-width: 640px; max-height: 92vh; overflow: auto; border-radius: 22px 22px 0 0; padding: 18px 16px calc(24px + env(safe-area-inset-bottom)); }
+    @media (min-width: 700px) { .sheet { align-items: center; } .sheet > div { border-radius: 22px; } }
+    .toast { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); background: #1e1419; color: #fff; padding: .7rem 1.1rem; border-radius: 999px; font-weight: 700; z-index: 80; font-size: 14px; }
+    .hide { display: none !important; }
+  </style>
+</head>
+<body class="min-h-screen text-ink">
+  <!-- LOGIN -->
+  <section id="login" class="hide flex min-h-screen items-center justify-center px-4">
+    <form id="login-form" class="a-card w-full max-w-sm p-6">
+      <div class="mb-5 flex items-center gap-3">
+        <span class="grid h-11 w-11 place-items-center rounded-xl bg-maroon font-display text-lg font-bold text-gold-300">RK</span>
+        <div><p class="font-display text-2xl font-bold leading-none">{SITE.name}</p><p class="text-sm text-mute">Studio login</p></div>
+      </div>
+      <label class="a-lbl" for="pw">Password</label>
+      <input id="pw" type="password" autocomplete="current-password" class="a-in" required />
+      <p id="login-err" class="mt-2 hidden text-sm font-semibold text-[#b42318]"></p>
+      <button class="a-btn b-m mt-4 w-full">Log in</button>
+      <p class="mt-4 text-center text-xs text-mute">Tip: on your phone, tap Share → “Add to Home Screen” to use this like an app.</p>
+    </form>
+  </section>
+
+  <!-- APP -->
+  <section id="app" class="hide pb-28">
+    <header class="sticky top-0 z-30 bg-maroon px-4 pb-3 pt-[calc(12px+env(safe-area-inset-top))] text-ivory">
+      <div class="mx-auto flex max-w-3xl items-center justify-between">
+        <div><p class="text-[11px] font-bold uppercase tracking-[.2em] text-gold-300">{SITE.name}</p><h1 id="title" class="font-display text-2xl font-bold leading-tight">Home</h1></div>
+        <a href="/" target="_blank" class="rounded-full border border-white/30 px-3 py-1.5 text-xs font-bold">View website ↗</a>
+      </div>
+    </header>
+    <main id="view" class="mx-auto max-w-3xl px-4 py-5"></main>
+    <nav class="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur">
+      <div class="mx-auto grid max-w-3xl grid-cols-5 text-center text-[11.5px] font-bold text-mute">
+        <button class="tab py-2.5" data-go="home"><div class="text-xl">🏠</div>Home<div class="dot mx-auto mt-1 h-1 w-1 rounded-full"></div></button>
+        <button class="tab py-2.5" data-go="leads"><div class="text-xl">📥</div>Enquiries<div class="dot mx-auto mt-1 h-1 w-1 rounded-full"></div></button>
+        <button class="tab py-2.5" data-go="quotes"><div class="text-xl">🧾</div>Quotes<div class="dot mx-auto mt-1 h-1 w-1 rounded-full"></div></button>
+        <button class="tab py-2.5" data-go="messages"><div class="text-xl">💬</div>Messages<div class="dot mx-auto mt-1 h-1 w-1 rounded-full"></div></button>
+        <button class="tab py-2.5" data-go="more"><div class="text-xl">⚙️</div>More<div class="dot mx-auto mt-1 h-1 w-1 rounded-full"></div></button>
+      </div>
+    </nav>
+  </section>
+  <div id="sheet-root"></div>
+
+  <script is:inline define:vars={{ STUDIO: SITE.name }}>
+  (function () {
+    // ------------------------------------------------------------ utils
+    var $ = function (s, r) { return (r || document).querySelector(s); };
+    var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+    var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+    var inr = function (n) { return "₹" + Math.round(Number(n) || 0).toLocaleString("en-IN"); };
+    var fmtDate = function (d) { if (!d) return ""; var x = new Date(d.length === 10 ? d + "T00:00:00" : d); return isNaN(x) ? d : x.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }); };
+    var daysTo = function (d) { if (!d) return null; return Math.round((new Date(d + "T00:00:00") - new Date(new Date().toDateString())) / 864e5); };
+    var waNum = function (p) { var d = String(p || "").replace(/\D/g, ""); if (d.length === 10) d = "91" + d; if (d.length === 11 && d[0] === "0") d = "91" + d.slice(1); return d; };
+    var waLink = function (phone, text) { return "https://wa.me/" + waNum(phone) + "?text=" + encodeURIComponent(text); };
+    function toast(msg) { var t = document.createElement("div"); t.className = "toast"; t.textContent = msg; document.body.appendChild(t); setTimeout(function () { t.remove(); }, 2200); }
+    async function api(path, opts) {
+      opts = opts || {};
+      var res = await fetch("/api/admin/" + path, { method: opts.method || "GET", headers: opts.body ? { "content-type": "application/json" } : {}, body: opts.body ? JSON.stringify(opts.body) : undefined, credentials: "same-origin" });
+      var data = await res.json().catch(function () { return { ok: false, error: "Network problem" }; });
+      if (res.status === 401 && path !== "login") { showLogin(); throw new Error("login"); }
+      if (!data.ok) { toast(data.error || "Something went wrong"); throw new Error(data.error); }
+      return data;
+    }
+    var SETTINGS = null;
+    async function settings(force) { if (!SETTINGS || force) SETTINGS = (await api("settings")).settings; return SETTINGS; }
+    function fill(text, v) { return String(text).replace(/\{(\w+)\}/g, function (_, k) { return v[k] != null && v[k] !== "" ? v[k] : (k === "studio" ? STUDIO : ""); }); }
+    function sheet(html, onMount) {
+      var root = $("#sheet-root");
+      root.innerHTML = '<div class="sheet"><div><div class="mb-3 flex justify-end"><button class="a-btn b-o !px-3 !py-1.5 text-sm" data-close>Close ✕</button></div>' + html + "</div></div>";
+      var s = root.firstChild;
+      s.addEventListener("click", function (e) { if (e.target === s || e.target.closest("[data-close]")) closeSheet(); });
+      if (onMount) onMount(s);
+      return s;
+    }
+    function closeSheet() { $("#sheet-root").innerHTML = ""; }
+
+    // ------------------------------------------------------------ auth
+    function showLogin() { $("#app").classList.add("hide"); $("#login").classList.remove("hide"); $("#pw").focus(); }
+    $("#login-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      var err = $("#login-err"); err.classList.add("hidden");
+      var res = await fetch("/api/admin/login", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ password: $("#pw").value }) });
+      var d = await res.json().catch(function () { return {}; });
+      if (d.ok) { $("#pw").value = ""; start(); } else { err.textContent = d.error || "Could not log in"; err.classList.remove("hidden"); }
+    });
+
+    // ------------------------------------------------------------ router
+    var TITLES = { home: "Home", leads: "Enquiries", quotes: "Quotes", messages: "Messages", more: "More", reviews: "Reviews", prices: "Prices", settings: "Settings", quote: "Quote" };
+    function go(view, arg) {
+      location.hash = view + (arg ? "/" + arg : "");
+    }
+    async function render() {
+      var h = (location.hash || "#home").slice(1).split("/");
+      var view = h[0] || "home", arg = h[1];
+      $("#title").textContent = TITLES[view] || "Studio";
+      $$(".tab").forEach(function (t) { t.classList.toggle("on", t.dataset.go === view || (view === "quote" && t.dataset.go === "quotes") || (["reviews", "prices", "settings"].indexOf(view) >= 0 && t.dataset.go === "more")); });
+      var v = $("#view"); v.innerHTML = '<p class="py-10 text-center text-mute">Loading…</p>';
+      try { await (VIEWS[view] || VIEWS.home)(v, arg); } catch (e) { if (e.message !== "login") v.innerHTML = '<p class="py-10 text-center text-mute">Could not load. Check your internet and try again.</p>'; }
+      window.scrollTo(0, 0);
+    }
+    $$(".tab").forEach(function (t) { t.addEventListener("click", function () { go(t.dataset.go); }); });
+    window.addEventListener("hashchange", render);
+
+    var LEAD_ST = ["new", "contacted", "quoted", "booked", "lost"];
+    var QUOTE_ST = ["draft", "sent", "accepted", "booked", "cancelled"];
+
+    var VIEWS = {};
+    // ------------------------------------------------------------ HOME
+    VIEWS.home = async function (v) {
+      var d = await api("dashboard");
+      var hello = new Date().getHours() < 12 ? "Good morning" : new Date().getHours() < 17 ? "Good afternoon" : "Good evening";
+      v.innerHTML =
+        '<p class="font-display text-3xl font-bold">' + hello + ' 🌸</p><p class="text-mute">Here is your studio today.</p>' +
+        '<div class="mt-5 grid grid-cols-2 gap-3">' +
+          '<button class="a-card p-4 text-left" data-to="leads"><p class="text-4xl font-extrabold text-maroon">' + d.newLeads + '</p><p class="font-bold">New enquiries</p><p class="text-xs text-mute">Tap to reply</p></button>' +
+          '<button class="a-card p-4 text-left" data-to="quotes"><p class="text-4xl font-extrabold text-maroon">' + d.openQuotes + '</p><p class="font-bold">Open quotes</p><p class="text-xs text-mute">Not booked yet</p></button>' +
+        "</div>" +
+        '<div class="mt-4 grid grid-cols-2 gap-3"><button class="a-btn b-m" id="nq">＋ New quote</button><button class="a-btn b-o" id="nl">＋ Add enquiry</button></div>' +
+        '<h2 class="mt-7 font-display text-2xl font-bold">Upcoming bookings</h2>' +
+        (d.bookings.length ? '<div class="mt-3 space-y-2">' + d.bookings.map(function (b) {
+          var n = daysTo(b.weddingDate);
+          return '<button class="a-card flex w-full items-center justify-between p-4 text-left" data-q="' + b.id + '"><div><p class="font-bold">' + esc(b.name) + '</p><p class="text-sm text-mute">' + fmtDate(b.weddingDate) + " · " + esc(b.number) + '</p></div><span class="chip st-booked">' + (n === 0 ? "Today" : n === 1 ? "Tomorrow" : "in " + n + " days") + "</span></button>";
+        }).join("") + "</div>" : '<p class="mt-2 text-mute">No bookings yet. When a client confirms, open their quote and tap “Booked”.</p>');
+      $$("[data-to]", v).forEach(function (b) { b.onclick = function () { go(b.dataset.to); }; });
+      $$("[data-q]", v).forEach(function (b) { b.onclick = function () { go("quote", b.dataset.q); }; });
+      $("#nq", v).onclick = function () { go("quote", "new"); };
+      $("#nl", v).onclick = function () { leadForm(); };
+    };
+
+    // ------------------------------------------------------------ LEADS
+    VIEWS.leads = async function (v) {
+      var d = await api("leads"); var filter = "open";
+      function draw() {
+        var list = d.leads.filter(function (l) { return filter === "all" || (filter === "open" ? ["new", "contacted", "quoted"].indexOf(l.status) >= 0 : l.status === filter); });
+        $("#list", v).innerHTML = list.length ? list.map(function (l) {
+          return '<button class="a-card w-full p-4 text-left" data-id="' + l.id + '"><div class="flex items-start justify-between gap-3"><div><p class="text-lg font-bold">' + esc(l.name) + '</p><p class="text-sm text-mute">' + (l.date ? "💍 " + fmtDate(l.date) + " · " : "") + esc(l.city || "") + '</p>' + (l.events ? '<p class="mt-1 text-sm">' + esc(l.events) + "</p>" : "") + '</div><span class="chip st-' + l.status + '">' + l.status + '</span></div><p class="mt-2 text-xs text-mute">Received ' + fmtDate(l.createdAt) + "</p></button>";
+        }).join("") : '<p class="py-8 text-center text-mute">Nothing here.</p>';
+        $$("[data-id]", v).forEach(function (b) { b.onclick = function () { leadSheet(b.dataset.id); }; });
+        $$("[data-f]", v).forEach(function (b) { b.className = "a-btn !px-3.5 !py-2 text-sm " + (b.dataset.f === filter ? "b-m" : "b-o"); });
+      }
+      v.innerHTML = '<div class="flex flex-wrap gap-2">' + ["open", "booked", "lost", "all"].map(function (f) { return '<button data-f="' + f + '" class="a-btn b-o !px-3.5 !py-2 text-sm">' + ({ open: "To do", booked: "Booked", lost: "Lost", all: "All" })[f] + "</button>"; }).join("") +
+        '<button class="a-btn b-g ml-auto !px-3.5 !py-2 text-sm" id="add">＋ Add</button></div><div id="list" class="mt-4 space-y-3"></div>';
+      $$("[data-f]", v).forEach(function (b) { b.onclick = function () { filter = b.dataset.f; draw(); }; });
+      $("#add", v).onclick = function () { leadForm(); };
+      draw();
+    };
+    function leadForm() {
+      sheet('<h2 class="font-display text-2xl font-bold">Add an enquiry</h2><p class="text-sm text-mute">For enquiries that came by phone, Instagram or in person.</p>' +
+        '<form id="lf" class="mt-4 space-y-3">' +
+        '<div><label class="a-lbl">Name *</label><input name="name" class="a-in" required></div>' +
+        '<div><label class="a-lbl">Phone / WhatsApp</label><input name="phone" class="a-in" inputmode="tel" placeholder="98xxxxxxxx"></div>' +
+        '<div class="grid grid-cols-2 gap-3"><div><label class="a-lbl">Wedding date</label><input name="date" type="date" class="a-in"></div><div><label class="a-lbl">City</label><input name="city" class="a-in"></div></div>' +
+        '<div><label class="a-lbl">Events</label><input name="events" class="a-in" placeholder="Roka, Mehndi, Anand Karaj…"></div>' +
+        '<div><label class="a-lbl">Where did they find you?</label><select name="source" class="a-in"><option>phone</option><option>instagram</option><option>walk-in</option><option>referral</option><option>other</option></select></div>' +
+        '<div><label class="a-lbl">Notes</label><textarea name="notes" rows="3" class="a-in"></textarea></div>' +
+        '<button class="a-btn b-m w-full">Save enquiry</button></form>', function (s) {
+        $("#lf", s).onsubmit = async function (e) { e.preventDefault(); var f = Object.fromEntries(new FormData(e.target)); await api("leads", { method: "POST", body: f }); closeSheet(); toast("Saved ✓"); go("leads"); render(); };
+      });
+    }
+    async function leadSheet(id) {
+      var l = (await api("leads/" + id)).lead; var s0 = await settings();
+      var thanks = (s0.templates.find(function (t) { return t.id === "thanks"; }) || s0.templates[0] || { text: "Hi {name}" }).text;
+      var s = sheet('<div class="flex items-start justify-between gap-3"><div><h2 class="font-display text-3xl font-bold">' + esc(l.name) + '</h2><p class="text-mute">' + esc(l.phone || "no phone") + "</p></div><span class=\"chip st-" + l.status + '">' + l.status + "</span></div>" +
+        '<div class="a-card mt-4 space-y-1 p-4 text-[15px]">' +
+          (l.date ? "<p>💍 <b>Wedding:</b> " + fmtDate(l.date) + "</p>" : "") + (l.city ? "<p>📍 <b>City:</b> " + esc(l.city) + "</p>" : "") +
+          (l.who ? "<p>👤 <b>For:</b> " + esc(l.who) + "</p>" : "") + (l.events ? "<p>🎉 <b>Events:</b> " + esc(l.events) + "</p>" : "") +
+          (l.message ? '<p class="pt-2 whitespace-pre-line">' + esc(l.message) + "</p>" : "") + '<p class="pt-2 text-xs text-mute">Received ' + fmtDate(l.createdAt) + " · " + esc(l.source || "") + "</p></div>" +
+        (l.phone ? '<div class="mt-3 grid grid-cols-2 gap-2"><a class="a-btn b-w" target="_blank" href="' + waLink(l.phone, fill(thanks, { name: l.name.split(" ")[0], date: fmtDate(l.date) })) + '">WhatsApp reply</a><a class="a-btn b-o" href="tel:' + esc(l.phone) + '">📞 Call</a></div>' : "") +
+        '<button id="mkq" class="a-btn b-m mt-2 w-full">🧾 Make a quote for ' + esc(l.name.split(" ")[0]) + "</button>" +
+        '<p class="a-lbl mt-5">Status</p><div class="flex flex-wrap gap-2">' + LEAD_ST.map(function (st) { return '<button data-st="' + st + '" class="a-btn !px-3.5 !py-2 text-sm ' + (st === l.status ? "b-m" : "b-o") + '">' + st + "</button>"; }).join("") + "</div>" +
+        '<label class="a-lbl mt-5">Your notes</label><textarea id="notes" rows="3" class="a-in">' + esc(l.notes || "") + '</textarea><button id="sn" class="a-btn b-o mt-2 w-full">Save notes</button>' +
+        '<button id="del" class="a-btn b-r mt-6 w-full">Delete enquiry</button>', function (s) {
+          $$("[data-st]", s).forEach(function (b) { b.onclick = async function () { await api("leads/" + id, { method: "PATCH", body: { status: b.dataset.st } }); toast("Marked " + b.dataset.st); closeSheet(); render(); }; });
+          $("#sn", s).onclick = async function () { await api("leads/" + id, { method: "PATCH", body: { notes: $("#notes", s).value } }); toast("Notes saved ✓"); };
+          $("#del", s).onclick = async function () { if (!confirm("Delete this enquiry? This cannot be undone.")) return; await api("leads/" + id, { method: "DELETE" }); closeSheet(); toast("Deleted"); render(); };
+          $("#mkq", s).onclick = function () { sessionStorage.setItem("rk_prefill", JSON.stringify({ leadId: id, client: { name: l.name, phone: l.phone }, weddingDate: l.date, city: l.city, events: l.events })); closeSheet(); go("quote", "new"); };
+        });
+    }
+
+    // ------------------------------------------------------------ QUOTES
+    VIEWS.quotes = async function (v) {
+      var d = await api("quotes");
+      v.innerHTML = '<button class="a-btn b-m w-full" id="nq">＋ New quote</button><div class="mt-4 space-y-3">' + (d.quotes.length ? d.quotes.map(function (q) {
+        return '<button class="a-card w-full p-4 text-left" data-id="' + q.id + '"><div class="flex items-start justify-between gap-3"><div><p class="text-lg font-bold">' + esc(q.name || "(no name)") + '</p><p class="text-sm text-mute">' + esc(q.number) + " · v" + q.version + (q.weddingDate ? " · 💍 " + fmtDate(q.weddingDate) : "") + '</p></div><div class="text-right"><p class="font-extrabold text-maroon">' + inr(q.total) + '</p><span class="chip st-' + q.status + '">' + q.status + "</span></div></div></button>";
+      }).join("") : '<p class="py-8 text-center text-mute">No quotes yet.</p>') + "</div>";
+      $("#nq", v).onclick = function () { go("quote", "new"); };
+      $$("[data-id]", v).forEach(function (b) { b.onclick = function () { go("quote", b.dataset.id); }; });
+    };
+    VIEWS.quote = async function (v, id) {
+      var s0 = await settings();
+      var q;
+      if (id === "new") { q = Object.assign({ client: { name: "", phone: "" }, items: [], discount: 0, advance: 0, notes: "", status: "draft" }, JSON.parse(sessionStorage.getItem("rk_prefill") || "{}")); sessionStorage.removeItem("rk_prefill"); }
+      else q = (await api("quotes/" + id)).quote;
+      var isNew = id === "new";
+      function totals() { var sub = q.items.reduce(function (a, i) { return a + (Number(i.qty) || 0) * (Number(i.price) || 0); }, 0); var tot = Math.max(0, sub - (Number(q.discount) || 0)); return { sub: sub, tot: tot, bal: Math.max(0, tot - (Number(q.advance) || 0)) }; }
+      function itemsHtml() {
+        return q.items.map(function (it, i) {
+          return '<div class="a-card p-3" data-i="' + i + '"><div class="flex gap-2"><input class="a-in flex-1 !py-2" data-k="label" value="' + esc(it.label) + '" placeholder="Item"><button class="a-btn b-r !px-3 !py-2" data-rm>✕</button></div>' +
+            '<div class="mt-2 grid grid-cols-3 gap-2"><div><span class="a-lbl">Qty</span><input class="a-in !py-2" data-k="qty" type="number" inputmode="numeric" min="1" value="' + (it.qty || 1) + '"></div><div><span class="a-lbl">Price ₹</span><input class="a-in !py-2" data-k="price" type="number" inputmode="numeric" min="0" value="' + (it.price || 0) + '"></div><div><span class="a-lbl">Amount</span><p class="py-2 font-extrabold" data-amt>' + inr(it.qty * it.price) + "</p></div></div>" +
+            '<input class="a-in mt-2 !py-2 text-sm" data-k="note" value="' + esc(it.note || "") + '" placeholder="Note (optional) e.g. Anand Karaj morning"></div>';
+        }).join("") || '<p class="text-sm text-mute">Tap the buttons above to add items.</p>';
+      }
+      function drawTotals() { var t = totals(); $("#t-sub", v).textContent = inr(t.sub); $("#t-tot", v).textContent = inr(t.tot); $("#t-bal", v).textContent = inr(t.bal); }
+      function bindItems() {
+        $$("[data-i]", v).forEach(function (row) {
+          var i = +row.dataset.i;
+          $$("[data-k]", row).forEach(function (inp) { inp.oninput = function () { q.items[i][inp.dataset.k] = inp.dataset.k === "qty" || inp.dataset.k === "price" ? Number(inp.value) : inp.value; $("[data-amt]", row).textContent = inr(q.items[i].qty * q.items[i].price); drawTotals(); }; });
+          $("[data-rm]", row).onclick = function () { q.items.splice(i, 1); $("#items", v).innerHTML = itemsHtml(); bindItems(); drawTotals(); };
+        });
+      }
+      var shareUrl = q.publicToken ? location.origin + "/q/" + q.publicToken + "/" : "";
+      var quoteTpl = (s0.templates.find(function (t) { return t.id === "quote"; }) || { text: "Hi {name}, your quote: {link}" }).text;
+      v.innerHTML =
+        (isNew ? "" : '<div class="a-card mb-4 p-4"><div class="flex items-center justify-between"><div><p class="font-display text-2xl font-bold">' + esc(q.number) + ' <span class="text-base text-mute">v' + q.version + '</span></p><span class="chip st-' + q.status + '">' + q.status + '</span></div><a class="a-btn b-o !px-3 !py-2 text-sm" target="_blank" href="' + shareUrl + '">Preview ↗</a></div>' +
+          '<div class="mt-3 grid grid-cols-2 gap-2"><a id="send" class="a-btn b-w" target="_blank">Send on WhatsApp</a><button id="copy" class="a-btn b-o">Copy link</button></div>' +
+          '<p class="a-lbl mt-4">Mark as</p><div class="flex flex-wrap gap-2">' + QUOTE_ST.map(function (st) { return '<button data-st="' + st + '" class="a-btn !px-3.5 !py-2 text-sm ' + (st === q.status ? "b-m" : "b-o") + '">' + st + "</button>"; }).join("") + "</div></div>") +
+        '<div class="space-y-3">' +
+          '<div class="grid grid-cols-2 gap-3"><div><label class="a-lbl">Client name *</label><input id="f-name" class="a-in" value="' + esc(q.client.name) + '"></div><div><label class="a-lbl">WhatsApp number</label><input id="f-phone" class="a-in" inputmode="tel" value="' + esc(q.client.phone) + '" placeholder="98xxxxxxxx"></div></div>' +
+          '<div class="grid grid-cols-2 gap-3"><div><label class="a-lbl">Wedding date</label><input id="f-date" type="date" class="a-in" value="' + esc(q.weddingDate || "") + '"></div><div><label class="a-lbl">City</label><input id="f-city" class="a-in" value="' + esc(q.city || "") + '"></div></div>' +
+          '<div><label class="a-lbl">Venue (optional)</label><input id="f-venue" class="a-in" value="' + esc(q.venue || "") + '"></div>' +
+          '<div><label class="a-lbl">Events</label><input id="f-events" class="a-in" value="' + esc(q.events || "") + '" placeholder="Roka, Mehndi, Jaggo, Anand Karaj, Reception"></div>' +
+        "</div>" +
+        '<h2 class="mt-6 font-display text-2xl font-bold">Items</h2><p class="text-sm text-mute">Tap to add from your price list — you can change any price.</p>' +
+        '<div class="mt-2 flex flex-wrap gap-2">' + s0.prices.map(function (p, i) { return '<button class="a-btn b-o !px-3 !py-1.5 text-[13px]" data-p="' + i + '">＋ ' + esc(p.label.replace(/ \(.*\)/, "")) + "</button>"; }).join("") + '<button class="a-btn b-g !px-3 !py-1.5 text-[13px]" data-p="custom">＋ Other</button></div>' +
+        '<div id="items" class="mt-3 space-y-2"></div>' +
+        '<div class="a-card mt-4 space-y-2 p-4">' +
+          '<div class="flex justify-between"><span>Subtotal</span><b id="t-sub"></b></div>' +
+          '<div class="flex items-center justify-between gap-3"><span>Discount ₹</span><input id="f-disc" type="number" inputmode="numeric" class="a-in !w-36 !py-2 text-right" value="' + (q.discount || 0) + '"></div>' +
+          '<div class="flex justify-between border-t border-ink/10 pt-2 text-lg"><span class="font-bold">Total</span><b id="t-tot" class="text-maroon"></b></div>' +
+          '<div class="flex items-center justify-between gap-3"><span>Advance ₹ <button id="pct" class="ml-1 rounded-full bg-blush px-2 py-0.5 text-xs font-bold text-maroon">' + s0.advancePercent + '%</button></span><input id="f-adv" type="number" inputmode="numeric" class="a-in !w-36 !py-2 text-right" value="' + (q.advance || 0) + '"></div>' +
+          '<div class="flex justify-between text-mute"><span>Balance</span><b id="t-bal"></b></div>' +
+        "</div>" +
+        '<label class="a-lbl mt-4">Notes for the client (optional)</label><textarea id="f-notes" rows="3" class="a-in" placeholder="e.g. Includes trial at our Jalandhar studio. Team arrives 4 am for the Anand Karaj.">' + esc(q.notes || "") + "</textarea>" +
+        '<button id="save" class="a-btn b-m mt-4 w-full !py-4 text-base">' + (isNew ? "Save quote" : "Save changes") + "</button>" +
+        (isNew ? "" : '<p class="mt-2 text-center text-xs text-mute">Changing anything saves a new version — the client’s link always shows the latest.</p>' +
+          '<h3 class="mt-6 font-display text-xl font-bold">History</h3><ul class="mt-2 space-y-1 text-sm text-mute">' + (q.history || []).slice().reverse().map(function (h) { return "<li>" + fmtDate(h.at) + " — v" + h.version + " · " + esc(h.note) + " · " + inr(h.total) + "</li>"; }).join("") + "</ul>" +
+          '<button id="delq" class="a-btn b-r mt-6 w-full">Delete quote</button>');
+
+      $("#items", v).innerHTML = itemsHtml(); bindItems(); drawTotals();
+      $$("[data-p]", v).forEach(function (b) { b.onclick = function () { var p = b.dataset.p === "custom" ? { label: "", price: 0 } : s0.prices[+b.dataset.p]; q.items.push({ label: p.label, qty: 1, price: p.price || 0, note: "" }); $("#items", v).innerHTML = itemsHtml(); bindItems(); drawTotals(); var last = $$("[data-i]", v).pop(); if (last) last.scrollIntoView({ behavior: "smooth", block: "center" }); }; });
+      $("#f-disc", v).oninput = function () { q.discount = Number(this.value) || 0; drawTotals(); };
+      $("#f-adv", v).oninput = function () { q.advance = Number(this.value) || 0; drawTotals(); };
+      $("#pct", v).onclick = function () { q.advance = Math.round(totals().tot * s0.advancePercent / 100 / 100) * 100; $("#f-adv", v).value = q.advance; drawTotals(); };
+      function collect() {
+        return { client: { name: $("#f-name", v).value.trim(), phone: $("#f-phone", v).value.trim() }, weddingDate: $("#f-date", v).value, city: $("#f-city", v).value, venue: $("#f-venue", v).value, events: $("#f-events", v).value, items: q.items, discount: q.discount, advance: q.advance, notes: $("#f-notes", v).value, status: q.status, leadId: q.leadId };
+      }
+      $("#save", v).onclick = async function () {
+        var body = collect();
+        if (!body.client.name) { toast("Please add the client name"); return; }
+        if (!body.items.length) { toast("Please add at least one item"); return; }
+        var r = isNew ? await api("quotes", { method: "POST", body: body }) : await api("quotes/" + id, { method: "PUT", body: body });
+        toast(isNew ? "Quote saved ✓ Now send it!" : "Saved ✓ (v" + r.quote.version + ")");
+        if (isNew) go("quote", r.quote.id); else render();
+      };
+      if (!isNew) {
+        var t = totals();
+        $("#send", v).href = q.client.phone ? waLink(q.client.phone, fill(quoteTpl, { name: q.client.name.split(" ")[0], link: shareUrl, total: inr(t.tot), advance: inr(q.advance), date: fmtDate(q.weddingDate) })) : "#";
+        $("#send", v).onclick = async function (e) { if (!q.client.phone) { e.preventDefault(); toast("Add the client’s WhatsApp number first"); return; } if (q.status === "draft") { await api("quotes/" + id, { method: "PUT", body: { status: "sent", statusOnly: true } }); } };
+        $("#copy", v).onclick = function () { (navigator.clipboard ? navigator.clipboard.writeText(shareUrl) : Promise.reject()).then(function () { toast("Link copied ✓"); }, function () { prompt("Copy this link:", shareUrl); }); };
+        $$("[data-st]", v).forEach(function (b) { b.onclick = async function () { await api("quotes/" + id, { method: "PUT", body: { status: b.dataset.st, statusOnly: true } }); toast("Marked " + b.dataset.st); render(); }; });
+        $("#delq", v).onclick = async function () { if (!confirm("Delete this quote? The client’s link will stop working.")) return; await api("quotes/" + id, { method: "DELETE" }); toast("Deleted"); go("quotes"); };
+      }
+    };
+
+    // ------------------------------------------------------------ MESSAGES
+    VIEWS.messages = async function (v) {
+      var s0 = await settings();
+      var people = [];
+      try {
+        var r = await Promise.all([api("leads"), api("quotes")]);
+        var seen = {};
+        r[0].leads.forEach(function (l) { if (l.phone && !seen[l.phone]) { seen[l.phone] = 1; people.push({ name: l.name, phone: l.phone, date: l.date }); } });
+        r[1].quotes.forEach(function (q) { if (q.phone && !seen[q.phone]) { seen[q.phone] = 1; people.push({ name: q.name, phone: q.phone, date: q.weddingDate, pub: q.pub, total: q.total }); } });
+      } catch (e) {}
+      var tpl = s0.templates[0];
+      v.innerHTML = '<p class="text-mute">Pick a message, pick a client, check the words, then tap send. WhatsApp opens with everything typed for you.</p>' +
+        '<p class="a-lbl mt-4">1 · Message</p><div class="flex flex-wrap gap-2">' + s0.templates.map(function (t, i) { return '<button class="a-btn !px-3.5 !py-2 text-sm ' + (i === 0 ? "b-m" : "b-o") + '" data-t="' + i + '">' + esc(t.title) + "</button>"; }).join("") + "</div>" +
+        '<p class="a-lbl mt-5">2 · Client</p><select id="who" class="a-in"><option value="">— type a new number below —</option>' + people.map(function (p, i) { return '<option value="' + i + '">' + esc(p.name) + " · " + esc(p.phone) + "</option>"; }).join("") + "</select>" +
+        '<div class="mt-2 grid grid-cols-2 gap-2"><input id="m-name" class="a-in" placeholder="Name"><input id="m-phone" class="a-in" inputmode="tel" placeholder="WhatsApp number"></div>' +
+        '<p class="a-lbl mt-5">3 · Check the message</p><textarea id="m-text" rows="7" class="a-in"></textarea>' +
+        '<a id="m-send" target="_blank" class="a-btn b-w mt-4 w-full !py-4 text-base">Send on WhatsApp</a>' +
+        '<p class="mt-3 text-center text-xs text-mute">Edit the ready-made messages in More → Settings.</p>';
+      var cur = null;
+      function update() {
+        var p = cur || {};
+        var name = $("#m-name", v).value || p.name || "";
+        $("#m-text", v).value = fill(tpl.text, { name: name.split(" ")[0], date: fmtDate(p.date), link: p.pub ? location.origin + "/q/" + p.pub + "/" : "", total: p.total ? inr(p.total) : "", advance: "" });
+        link();
+      }
+      function link() { var ph = $("#m-phone", v).value; $("#m-send", v).href = ph ? waLink(ph, $("#m-text", v).value) : "#"; }
+      $$("[data-t]", v).forEach(function (b) { b.onclick = function () { tpl = s0.templates[+b.dataset.t]; $$("[data-t]", v).forEach(function (x) { x.className = "a-btn !px-3.5 !py-2 text-sm " + (x === b ? "b-m" : "b-o"); }); update(); }; });
+      $("#who", v).onchange = function () { cur = this.value === "" ? null : people[+this.value]; $("#m-name", v).value = cur ? cur.name : ""; $("#m-phone", v).value = cur ? cur.phone : ""; update(); };
+      $("#m-name", v).oninput = update; $("#m-phone", v).oninput = link; $("#m-text", v).oninput = link;
+      $("#m-send", v).onclick = function (e) { if (!$("#m-phone", v).value) { e.preventDefault(); toast("Add a WhatsApp number"); } };
+      update();
+    };
+
+    // ------------------------------------------------------------ MORE
+    VIEWS.more = async function (v) {
+      v.innerHTML = '<div class="space-y-3">' +
+        [["reviews", "⭐", "Reviews", "Add client reviews and photos to the website"], ["prices", "₹", "Prices", "Your price list for quotes (and the website, if you want)"], ["settings", "⚙️", "Settings", "WhatsApp number, messages, quote terms, password"]].map(function (x) {
+          return '<button class="a-card flex w-full items-center gap-4 p-4 text-left" data-to="' + x[0] + '"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-blush text-2xl">' + x[1] + '</span><div><p class="text-lg font-bold">' + x[2] + '</p><p class="text-sm text-mute">' + x[3] + "</p></div></button>";
+        }).join("") + '<button id="lo" class="a-btn b-o mt-4 w-full">Log out</button></div>';
+      $$("[data-to]", v).forEach(function (b) { b.onclick = function () { go(b.dataset.to); }; });
+      $("#lo", v).onclick = async function () { await api("logout", { method: "POST", body: {} }); showLogin(); };
+    };
+
+    // ------------------------------------------------------------ REVIEWS
+    VIEWS.reviews = async function (v) {
+      var d = await api("reviews");
+      v.innerHTML = '<p class="text-mute">Only add reviews your clients really gave you, and only with their permission to show their name and photo.</p><button id="add" class="a-btn b-m mt-3 w-full">＋ Add a review</button><div class="mt-4 space-y-3">' +
+        (d.reviews.length ? d.reviews.map(function (r) {
+          return '<button class="a-card flex w-full items-center gap-3 p-4 text-left" data-id="' + r.id + '">' + (r.hasPhoto ? '<span class="h-12 w-12 shrink-0 rounded-full bg-blush"></span>' : '<span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-blush font-bold text-maroon">' + esc((r.name || "?")[0]) + "</span>") + '<div class="flex-1"><p class="font-bold">' + esc(r.name) + '</p><p class="text-sm text-mute">' + esc(r.event || "") + " · " + esc(r.city || "") + '</p></div><span class="chip ' + (r.published ? "st-booked" : "st-draft") + '">' + (r.published ? "on website" : "hidden") + "</span></button>";
+        }).join("") : '<p class="py-6 text-center text-mute">No reviews yet. After each wedding, send the “Ask for a review” message from Messages.</p>') + "</div>";
+      $("#add", v).onclick = function () { reviewForm(); };
+      $$("[data-id]", v).forEach(function (b) { b.onclick = async function () { reviewForm((await api("reviews/" + b.dataset.id)).review); }; });
+    };
+    function reviewForm(r) {
+      r = r || { rating: 5, event: "Wedding", published: true };
+      var photo;
+      sheet('<h2 class="font-display text-2xl font-bold">' + (r.id ? "Edit review" : "Add a review") + "</h2>" +
+        '<form id="rf" class="mt-4 space-y-3">' +
+        '<div><label class="a-lbl">Client name(s) *</label><input name="name" class="a-in" required value="' + esc(r.name || "") + '" placeholder="Harleen & Jaskaran"></div>' +
+        '<div class="grid grid-cols-2 gap-3"><div><label class="a-lbl">City</label><input name="city" class="a-in" value="' + esc(r.city || "") + '"></div><div><label class="a-lbl">Event</label><select name="event" class="a-in">' + ["Wedding", "Anand Karaj", "Pheras", "Engagement", "Roka", "Mehndi", "Jaggo", "Reception", "Groom", "Family", "Pre-wedding"].map(function (e) { return "<option" + (e === r.event ? " selected" : "") + ">" + e + "</option>"; }).join("") + "</select></div></div>" +
+        '<div class="grid grid-cols-2 gap-3"><div><label class="a-lbl">Month</label><input name="date" type="month" class="a-in" value="' + esc(r.date || "") + '"></div><div><label class="a-lbl">Stars</label><select name="rating" class="a-in">' + [5, 4, 3, 2, 1].map(function (n) { return "<option" + (n == r.rating ? " selected" : "") + ' value="' + n + '">' + "★".repeat(n) + "</option>"; }).join("") + "</select></div></div>" +
+        '<div><label class="a-lbl">What they said *</label><textarea name="quote" rows="4" class="a-in" required>' + esc(r.quote || "") + "</textarea></div>" +
+        '<div><label class="a-lbl">Photo (optional)</label><input id="ph" type="file" accept="image/*" class="a-in !py-2"><img id="prev" class="mt-2 hidden h-24 w-24 rounded-full object-cover"></div>' +
+        '<label class="flex items-start gap-3 rounded-xl bg-blush/60 p-3 text-sm"><input type="checkbox" name="consent" class="mt-1 h-5 w-5"' + (r.consent ? " checked" : "") + '> <span><b>The client said yes</b> to showing their name, words and photo on the website.</span></label>' +
+        '<label class="flex items-center gap-3 text-sm font-bold"><input type="checkbox" name="published" class="h-5 w-5"' + (r.published ? " checked" : "") + "> Show on website</label>" +
+        '<button class="a-btn b-m w-full">Save review</button>' + (r.id ? '<button type="button" id="rdel" class="a-btn b-r w-full">Delete review</button>' : "") + "</form>", function (s) {
+          $("#ph", s).onchange = function () {
+            var f = this.files[0]; if (!f) return;
+            var img = new Image(); img.onload = function () {
+              var size = 600, c = document.createElement("canvas"), m = Math.min(img.width, img.height);
+              c.width = c.height = size; c.getContext("2d").drawImage(img, (img.width - m) / 2, (img.height - m) / 3, m, m, 0, 0, size, size);
+              photo = c.toDataURL("image/jpeg", 0.82); $("#prev", s).src = photo; $("#prev", s).classList.remove("hidden");
+            }; img.src = URL.createObjectURL(f);
+          };
+          $("#rf", s).onsubmit = async function (e) {
+            e.preventDefault(); var f = Object.fromEntries(new FormData(e.target));
+            var body = { name: f.name, city: f.city, event: f.event, date: f.date, rating: +f.rating, quote: f.quote, consent: !!f.consent, published: !!f.published };
+            if (photo) body.photo = photo;
+            if (r.id) await api("reviews/" + r.id, { method: "PUT", body: body }); else await api("reviews", { method: "POST", body: body });
+            closeSheet(); toast("Review saved ✓"); render();
+          };
+          if (r.id) $("#rdel", s).onclick = async function () { if (!confirm("Delete this review?")) return; await api("reviews/" + r.id, { method: "DELETE" }); closeSheet(); render(); };
+        });
+    }
+
+    // ------------------------------------------------------------ PRICES
+    VIEWS.prices = async function (v) {
+      var s0 = JSON.parse(JSON.stringify(await settings(true)));
+      function draw() {
+        $("#plist", v).innerHTML = s0.prices.map(function (p, i) {
+          return '<div class="a-card p-3" data-i="' + i + '"><div class="flex gap-2"><input class="a-in flex-1 !py-2" data-k="label" value="' + esc(p.label) + '"><button class="a-btn b-r !px-3 !py-2" data-rm>✕</button></div><div class="mt-2 grid grid-cols-2 gap-2"><div><span class="a-lbl">Price ₹</span><input class="a-in !py-2" type="number" inputmode="numeric" data-k="price" value="' + (p.price || 0) + '"></div><div><span class="a-lbl">Per</span><input class="a-in !py-2" data-k="unit" value="' + esc(p.unit || "") + '"></div></div></div>';
+        }).join("");
+        $$("[data-i]", v).forEach(function (row) { var i = +row.dataset.i; $$("[data-k]", row).forEach(function (inp) { inp.oninput = function () { s0.prices[i][inp.dataset.k] = inp.dataset.k === "price" ? Number(inp.value) : inp.value; }; }); $("[data-rm]", row).onclick = function () { s0.prices.splice(i, 1); draw(); }; });
+      }
+      v.innerHTML = '<p class="text-mute">These prices fill in automatically when you make a quote. You can still change any price inside a quote.</p>' +
+        '<div id="plist" class="mt-4 space-y-2"></div><button id="padd" class="a-btn b-o mt-3 w-full">＋ Add a price</button>' +
+        '<div class="a-card mt-5 space-y-3 p-4"><label class="flex items-start gap-3"><input id="show" type="checkbox" class="mt-1 h-5 w-5"' + (s0.showPricesOnSite ? " checked" : "") + '><span><b>Show “from ₹…” prices on the website</b><br><span class="text-sm text-mute">Off = website says “Ask for a quote”.</span></span></label>' +
+        '<div class="flex items-center justify-between gap-3"><span>Usual advance</span><div class="flex items-center gap-2"><input id="pct" type="number" class="a-in !w-24 !py-2 text-right" value="' + s0.advancePercent + '"> %</div></div></div>' +
+        '<button id="psave" class="a-btn b-m mt-4 w-full !py-4 text-base">Save prices</button>';
+      draw();
+      $("#padd", v).onclick = function () { s0.prices.push({ key: "item" + Date.now(), label: "New item", price: 0, unit: "per person" }); draw(); };
+      $("#psave", v).onclick = async function () { s0.showPricesOnSite = $("#show", v).checked; s0.advancePercent = Number($("#pct", v).value) || 0; SETTINGS = (await api("settings", { method: "PUT", body: s0 })).settings; toast("Prices saved ✓"); };
+    };
+
+    // ------------------------------------------------------------ SETTINGS
+    VIEWS.settings = async function (v) {
+      var s0 = JSON.parse(JSON.stringify(await settings(true)));
+      function drawT() {
+        $("#tlist", v).innerHTML = s0.templates.map(function (t, i) {
+          return '<div class="a-card p-3" data-i="' + i + '"><div class="flex gap-2"><input class="a-in flex-1 !py-2 font-bold" data-k="title" value="' + esc(t.title) + '"><button class="a-btn b-r !px-3 !py-2" data-rm>✕</button></div><textarea class="a-in mt-2 text-sm" rows="4" data-k="text">' + esc(t.text) + "</textarea></div>";
+        }).join("");
+        $$("[data-i]", v).forEach(function (row) { var i = +row.dataset.i; $$("[data-k]", row).forEach(function (inp) { inp.oninput = function () { s0.templates[i][inp.dataset.k] = inp.value; }; }); $("[data-rm]", row).onclick = function () { s0.templates.splice(i, 1); drawT(); }; });
+      }
+      v.innerHTML =
+        '<label class="a-lbl">Your studio WhatsApp number</label><input id="wa" class="a-in" inputmode="tel" value="' + esc(s0.studioWhatsapp) + '"><p class="mt-1 text-xs text-mute">With country code, e.g. 919876543210. Clients tap “Accept” on a quote and it comes to this number.</p>' +
+        '<label class="a-lbl mt-5">Terms shown under every quote</label><textarea id="terms" rows="4" class="a-in">' + esc(s0.quoteTerms) + "</textarea>" +
+        '<h2 class="mt-6 font-display text-2xl font-bold">Ready-made messages</h2><p class="text-sm text-mute">These words fill in by themselves: {name} {date} {link} {total} {advance} {studio}</p>' +
+        '<div id="tlist" class="mt-3 space-y-2"></div><button id="tadd" class="a-btn b-o mt-3 w-full">＋ Add a message</button>' +
+        '<button id="ssave" class="a-btn b-m mt-4 w-full !py-4 text-base">Save settings</button>' +
+        '<h2 class="mt-8 font-display text-2xl font-bold">Change password</h2><div class="mt-3 space-y-2"><input id="cur" type="password" class="a-in" placeholder="Current password" autocomplete="current-password"><input id="nw" type="password" class="a-in" placeholder="New password (8+ characters)" autocomplete="new-password"><button id="cpw" class="a-btn b-o w-full">Change password</button></div>';
+      drawT();
+      $("#tadd", v).onclick = function () { s0.templates.push({ id: "t" + Date.now(), title: "New message", text: "Hi {name} ji, " }); drawT(); };
+      $("#ssave", v).onclick = async function () { s0.studioWhatsapp = $("#wa", v).value; s0.quoteTerms = $("#terms", v).value; SETTINGS = (await api("settings", { method: "PUT", body: s0 })).settings; toast("Settings saved ✓"); };
+      $("#cpw", v).onclick = async function () { await api("password", { method: "POST", body: { current: $("#cur", v).value, next: $("#nw", v).value } }); $("#cur", v).value = $("#nw", v).value = ""; toast("Password changed ✓"); };
+    };
+
+    // ------------------------------------------------------------ boot
+    async function start() {
+      try { await api("me"); } catch (e) { return; }
+      $("#login").classList.add("hide"); $("#app").classList.remove("hide");
+      render();
+    }
+    start();
+  })();
+  </script>
+</body>
+</html>

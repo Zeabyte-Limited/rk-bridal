@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VideoHero from "../components/VideoHero.astro";
+import SectionHead from "../components/SectionHead.astro";
+import Faq from "../components/Faq.astro";
+import Gallery from "../components/Gallery.astro";
+import BookingForm from "../components/BookingForm.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { SITE, WHATSAPP_URL } from "../config";
+import { gallery } from "../data/gallery";
+import { faqSchema, serviceSchema, breadcrumbSchema } from "../lib/schema";
+
+const title = `Sikh Wedding Makeup Artist in Jalandhar — Anand Karaj Bride & Sardar Groom | ${SITE.name}`;
+const description = "Makeup, hair and chunni setting for Sikh weddings in Punjab: roka, chunni chadana, mehndi, maiyan, jaggo, choora, Anand Karaj and reception. Sardar groom grooming that's dastaar-ready. Based in Jalandhar.";
+
+const day = [
+  { t: "Roka & chunni chadana", d: "Soft, fresh and traditional — the first time the families see you as the bride-to-be. We set the chunni so it frames your face in every photo." },
+  { t: "Mehndi & maiyan", d: "Dewy festive makeup for the mehndi, and barely-there skin for the maiyan, with prep so the vatna leaves you glowing, not stained." },
+  { t: "Jaggo night", d: "Long-wear glam and a secure paranda braid or jooda for a night of giddha, boliyan and carrying the jaggo through the gali." },
+  { t: "Choora & kaleere morning", d: "Base and eyes set before your mama ji's choora ceremony; kaleere pinned into the chunni and choora afterwards so they swing, not tangle." },
+  { t: "Anand Karaj", d: "Classic tones, glowing skin that's right for daylight gurdwara light, and a chunni pinned to stay modest through matha tek and all four laavan." },
+  { t: "Doli & reception", d: "A standby refresh for the doli, then a completely new evening look for the reception." },
+];
+const groom = [
+  { t: "Dastaar-ready", d: "We groom around the dastaar — hairline, brows, beard and skin — so the turban line is crisp and the face is camera-ready." },
+  { t: "Beard, set right", d: "Lined, conditioned and set, with a natural finish. No shine under the lights at the milni or the reception." },
+  { t: "Kalgi, sehra & kirpan check", d: "Before you leave for the gurdwara we check the kalgi, sehra, kirpan gatra and the back of the sherwani — the photographer will shoot it all." },
+];
+const faqs = [
+  { q: "What time do you start on an Anand Karaj morning?", a: "For an 8–9 am Anand Karaj the team is usually with you by 4–5 am. Hair, makeup and chunni setting take about three hours, and we plan around the choora ceremony and the milni timings." },
+  { q: "Is the makeup suitable for the gurdwara?", a: "Yes. We design a classic, respectful look — glowing skin, a timeless eye, a modest chunni — that is right for the darbar sahib and still beautiful from the laavan to the doli." },
+  { q: "Do you set the kaleere and choora?", a: "Yes. We pause for the choora ceremony after your base and eyes are set, then pin the kaleere into the chunni and choora so they hang right in photos and stay put while you walk and dance." },
+  { q: "Do you do grooming for Sardar grooms?", a: "Yes — dastaar-ready grooming: skin, under-eyes, beard line and brows, plus a final check of kalgi, sehra and sherwani before the baraat leaves." },
+  { q: "Can you do the jaggo and mehndi looks too?", a: "Yes. Most Sikh brides book us for roka, mehndi, jaggo, Anand Karaj and reception as one package — same team, matching looks, lower per-event price." },
+];
+const looks = gallery.filter((g) => /sikh|anand|kaleere|chooda|baraat|groomsmen/.test(g.image)).slice(0, 12);
+const schema = [
+  serviceSchema({ name: "Sikh Wedding Makeup (Anand Karaj)", description, path: "/sikh-wedding-makeup/" }),
+  faqSchema(faqs),
+  breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Sikh Wedding Makeup", path: "/sikh-wedding-makeup/" }]),
+];
+---
+
+<Layout title={title} description={description} path="/sikh-wedding-makeup/" transparentHeader schema={schema} image="/images/anand-karaj-laavan.webp">
+  <VideoHero video="hero-home" poster="v-hero-home" eyebrow="For Sikh families" min="min-h-[80svh]">
+    <h1 class="max-w-4xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">Sikh wedding makeup — from <span class="text-gold-300">chunni chadana</span> to the doli</h1>
+    <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">Bridal makeup, hair and chunni setting for the Anand Karaj, plus dastaar-ready grooming for the Sardar groom. Based in Jalandhar, with you anywhere in Punjab.</p>
+    <div slot="actions" class="mt-8 flex flex-wrap gap-3">
+      <a href={WHATSAPP_URL("Sat Sri Akal! I'd like to check your availability for our Anand Karaj.")} target="_blank" rel="noopener" class="btn btn-whatsapp !px-7 !py-3.5 !text-[15px]">Check your Anand Karaj date</a>
+      <a href="#looks" class="btn btn-ghost-light !px-7 !py-3.5 !text-[15px]">See Sikh bridal looks</a>
+    </div>
+  </VideoHero>
+
+  <section class="wash py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead eyebrow="Every ceremony" title="We know a Sikh wedding, ritual by ritual." sub="Each function has its own timing, light and outfit. We plan the looks together at your trial and keep the same team with you all week." />
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {day.map((d, i) => (
+          <div class="card card-hover fade-up p-7"><p class="font-display text-3xl font-bold text-gold">{String(i + 1).padStart(2, "0")}</p><h3 class="mt-1 text-2xl">{d.t}</h3><p class="mt-2 text-[15px] leading-7 text-ink-soft">{d.d}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="img-frame aspect-[3/4]"><img src="/images/groom-sikh-red-turban.webp" alt="Sardar groom in red dastaar with phulkari" loading="lazy" class="h-full w-full object-cover" /></div>
+        <div class="img-frame mt-10 aspect-[3/4]"><img src="/images/groom-sikh-ivory.webp" alt="Sikh groom in ivory sherwani" loading="lazy" class="h-full w-full object-cover" /></div>
+      </div>
+      <div>
+        <SectionHead eyebrow="For the Sardar groom" title="Sharp dastaar, sharp beard, invisible makeup." />
+        <div class="mt-8 space-y-5">
+          {groom.map((g) => (<div class="border-l-2 border-gold pl-5"><h3 class="text-2xl">{g.t}</h3><p class="mt-1 text-[15px] leading-7 text-ink-soft">{g.d}</p></div>))}
+        </div>
+        <a href="/groom-makeup/" class="btn btn-maroon mt-8">Groom grooming</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="looks" class="bg-blush/50 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead center eyebrow="Sikh brides & couples" title="Anand Karaj looks" />
+      <div class="mt-12"><Gallery items={looks} columns="columns-2 md:columns-3 lg:columns-4" /></div>
+      <div class="mt-8 text-center"><a href="/portfolio/" class="btn btn-ghost">Full portfolio</a></div>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-24">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12">
+      <div class="lg:col-span-4"><SectionHead eyebrow="Anand Karaj FAQ" title="Questions Sikh brides ask" /></div>
+      <div class="lg:col-span-8"><Faq items={faqs} /></div>
+    </div>
+  </section>
+
+  <section class="wash py-20 sm:py-24"><div class="mx-auto max-w-3xl px-4 sm:px-6"><BookingForm title="Check your Anand Karaj date" /></div></section>
+  <CtaBand image="anand-karaj-palki" title="Your Anand Karaj, our calendar — let’s lock it in." />
+</Layout>

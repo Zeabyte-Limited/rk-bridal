@@ -5,6 +5,7 @@ import CtaBand from "../components/CtaBand.astro";
 import { SITE, WHATSAPP_URL } from "../config";
 import { testimonials } from "../data/testimonials";
 import { breadcrumbSchema } from "../lib/schema";
+import LiveReviews from "../components/LiveReviews.astro";
 
 const title = `Reviews — What Brides & Grooms Say | ${SITE.name}`;
 const description = "Real reviews from brides, grooms and families about their wedding makeup, hair and draping with our Jalandhar team.";
@@ -59,6 +60,7 @@ if (testimonials.length >= 3) {
           </script>
         </>
       ) : (
+        <LiveReviews filters>
         <div class="mx-auto mt-12 max-w-3xl">
           <div class="card p-8 text-center sm:p-12">
             <p class="script text-4xl text-gold-600">Coming this season</p>
@@ -73,6 +75,7 @@ if (testimonials.length >= 3) {
             Were you one of our brides, grooms or families? <a href={WHATSAPP_URL("Hi! I'd love to leave a review for my wedding makeup.")} target="_blank" rel="noopener" class="font-semibold text-maroon underline underline-offset-4">Send us your review on WhatsApp</a> — a line or two and a photo you’re happy for us to share.
           </div>
         </div>
+        </LiveReviews>
       )}
     </div>
   </section>
