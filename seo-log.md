@@ -11,6 +11,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - sikh-bride-anand-karaj-makeup-guide (Bridal)
 - winter-wedding-makeup-punjab-skin-prep (Skin & Hair)
 - bridal-makeup-cost-punjab-2026 (Planning)
+- bridal-makeup-chandigarh-weddings-venues-timings (Local)
 
 ## Candidate queue (pick the best, mark done when published)
 - Summer wedding makeup in Punjab: sweat-proof looks for May–June (Skin & Hair)
@@ -27,7 +28,6 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - Dupatta draping styles for Punjabi brides (Bridal)
 - Groom's reception look: sharper, not shinier (Groom)
 - Sikh groom grooming with a dastaar (Groom)
-- Makeup for Chandigarh weddings: venues, light, timings (Local)
 - Makeup for Ludhiana weddings (Local) · Amritsar weddings (Local) · Phagwara NRI weddings (Local)
 - 2026–27 bridal makeup trends in Punjab (Trends)
 - Monsoon wedding makeup (Skin & Hair)
@@ -36,3 +36,4 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
+- 2026-10-02 — published "Bridal makeup for Chandigarh weddings: venues, light and timings that change your plan" (Local).
