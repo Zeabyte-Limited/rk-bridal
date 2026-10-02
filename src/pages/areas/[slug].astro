@@ -1,0 +1,92 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SectionHead from "../../components/SectionHead.astro";
+import Faq from "../../components/Faq.astro";
+import BookingForm from "../../components/BookingForm.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { SITE, WHATSAPP_URL } from "../../config";
+import { areas } from "../../data/areas";
+import { services } from "../../data/services";
+import { generalFaqs } from "../../data/faqs";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "../../lib/schema";
+
+export function getStaticPaths() {
+  return areas.map((a) => ({ params: { slug: a.slug }, props: { area: a } }));
+}
+const { area } = Astro.props;
+const city = area.name;
+const shortCity = city.split(" (")[0].split(" & ")[0];
+const title = `Bridal Makeup Artist in ${shortCity} — HD & Airbrush, Groom Makeup | ${SITE.name}`;
+const description = `Professional bridal and groom makeup artist for weddings in ${city}: HD and airbrush bridal makeup, hair styling and draping for Anand Karaj, pheras, engagement, sangeet and reception. ${area.distanceKm === 0 ? "Based in Jalandhar." : `Travelling from Jalandhar (${area.distanceKm} km).`}`;
+const faqs = [...area.faqs, ...generalFaqs.slice(0, 4)];
+const others = areas.filter((a) => a.slug !== area.slug).slice(0, 8);
+const heroImgs: Record<string, string> = { jalandhar: "bride-red-kaleere", amritsar: "couple-sikh-wide", chandigarh: "couple-reception", ludhiana: "bride-white-night", patiala: "bride-maroon-gold", mohali: "couple-sikh-pink", pathankot: "bride-orange", phagwara: "couple-punjabi-steps", kapurthala: "bride-red-seated", hoshiarpur: "couple-pink-turban", nawanshahr: "anand-karaj", moga: "bride-red-smile" };
+const hero = heroImgs[area.slug] || "hero-wide";
+const schema = [
+  breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Areas", path: "/areas/" }, { name: shortCity, path: `/areas/${area.slug}/` }]),
+  serviceSchema({ name: `Bridal Makeup in ${shortCity}`, description, path: `/areas/${area.slug}/`, areaServed: [city, "Punjab"] }),
+  faqSchema(faqs),
+];
+---
+
+<Layout title={title} description={description} path={`/areas/${area.slug}/`} schema={schema} image={`/images/${hero}.webp`}>
+  <section class="relative isolate overflow-hidden bg-ink text-ivory">
+    <img src={`/images/${hero}.webp`} alt="" class="absolute inset-0 -z-20 h-full w-full object-cover object-top" />
+    <div class="hero-overlay absolute inset-0 -z-10"></div>
+    <div class="mx-auto max-w-7xl px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32">
+      <nav class="text-[13px] text-ivory/70"><a href="/" class="hover:text-gold-300">Home</a> › <a href="/areas/" class="hover:text-gold-300">Areas</a> › <span class="text-ivory">{shortCity}</span></nav>
+      <p class="script mt-6 text-3xl text-gold-300 sm:text-4xl">Weddings in {shortCity}</p>
+      <h1 class="mt-1 max-w-4xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">Bridal Makeup Artist in <span class="text-gold-300">{shortCity}</span></h1>
+      <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">HD and airbrush bridal makeup, groom grooming, hair and draping — {area.distanceKm === 0 ? "right here at home in Jalandhar." : `${area.travel.charAt(0).toLowerCase()}${area.travel.slice(1)}, with the full team.`}</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={WHATSAPP_URL(`Hi! I'm getting married in ${shortCity} — are you available?`)} target="_blank" rel="noopener" class="btn btn-whatsapp !px-7 !py-3.5 !text-[15px]">Check your {shortCity} date</a>
+        <a href="/portfolio/" class="btn btn-ghost-light !px-7 !py-3.5 !text-[15px]">See the work</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12">
+      <div class="prose-site lg:col-span-7">
+        <p class="eyebrow">Makeup artist in {shortCity}</p>
+        <h2 class="gold-rule !mt-2 text-4xl sm:text-5xl">{area.distanceKm === 0 ? "Our home ground." : `From Jalandhar to ${shortCity}, with the full team.`}</h2>
+        {area.intro.map((p) => <p>{p}</p>)}
+        <h3>Weddings in {shortCity}</h3>
+        <p>{area.venues}</p>
+        <blockquote>{area.tip}</blockquote>
+        <h3>What we offer in {shortCity}</h3>
+        <ul>
+          {services.map((s) => <li><a href={s.href}>{s.title}</a> — {s.short}</li>)}
+        </ul>
+      </div>
+      <aside class="space-y-5 lg:col-span-5">
+        <div class="card p-6">
+          <p class="eyebrow">Travel</p>
+          <p class="mt-2 font-display text-3xl font-semibold text-maroon">{area.distanceKm === 0 ? "No travel charge" : `${area.distanceKm} km from Jalandhar`}</p>
+          <p class="mt-1 text-[15px] text-ink-soft">{area.travel}</p>
+          <p class="mt-4 text-[14px] text-mute">Travel is quoted as a clear line item. For early-morning ceremonies we can stay nearby the night before.</p>
+        </div>
+        <BookingForm compact title={`Check your ${shortCity} date`} />
+      </aside>
+    </div>
+  </section>
+
+  <section class="wash py-16 sm:py-24">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12">
+      <div class="lg:col-span-4"><SectionHead eyebrow="FAQ" title={`Getting married in ${shortCity}?`} /></div>
+      <div class="lg:col-span-8"><Faq items={faqs} /></div>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <p class="eyebrow">Also serving</p>
+      <div class="mt-4 flex flex-wrap gap-2.5">
+        {others.map((a) => <a href={`/areas/${a.slug}/`} class="rounded-full border border-ink/12 bg-white px-4 py-2 text-[14px] font-semibold transition hover:border-maroon hover:text-maroon">{a.name.split(" (")[0]}</a>)}
+        <a href="/areas/" class="rounded-full bg-maroon px-4 py-2 text-[14px] font-semibold text-ivory">All areas</a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand image={hero} title={`Your ${shortCity} wedding, our calendar — let’s lock it in.`} />
+</Layout>

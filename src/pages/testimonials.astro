@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHead from "../components/SectionHead.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { SITE, WHATSAPP_URL } from "../config";
+import { testimonials } from "../data/testimonials";
+import { breadcrumbSchema } from "../lib/schema";
+
+const title = `Reviews — What Brides & Grooms Say | ${SITE.name}`;
+const description = "Real reviews from brides, grooms and families about their wedding makeup, hair and draping with our Jalandhar team.";
+const events = Array.from(new Set(testimonials.map((t) => t.event)));
+const schema: object[] = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Reviews", path: "/testimonials/" }])];
+if (testimonials.length >= 3) {
+  const rated = testimonials.filter((t) => t.rating);
+  schema.push({
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "@id": `${SITE.url}/#business`,
+    name: SITE.name,
+    ...(rated.length >= 3 && { aggregateRating: { "@type": "AggregateRating", ratingValue: (rated.reduce((a, t) => a + (t.rating || 0), 0) / rated.length).toFixed(1), reviewCount: rated.length } }),
+    review: testimonials.slice(0, 50).map((t) => ({ "@type": "Review", author: { "@type": "Person", name: t.name }, reviewBody: t.quote, ...(t.rating && { reviewRating: { "@type": "Rating", ratingValue: t.rating } }), datePublished: t.date })),
+  });
+}
+---
+
+<Layout title={title} description={description} path="/testimonials/" schema={schema}>
+  <section class="wash py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead center eyebrow="Reviews" title="In our brides’ own words" sub="Every review here is real, from a real wedding, published with the couple’s permission — names, photos and all." />
+
+      {testimonials.length > 0 ? (
+        <>
+          {events.length > 1 && (
+            <div class="mt-10 flex flex-wrap justify-center gap-2">
+              <button data-rf="all" class="rf is-active rounded-full border border-maroon bg-maroon px-4 py-2 text-sm font-semibold text-ivory">All</button>
+              {events.map((e) => <button data-rf={e} class="rf rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold">{e}</button>)}
+            </div>
+          )}
+          <div class="mt-12 columns-1 gap-5 md:columns-2 lg:columns-3">
+            {testimonials.map((t) => (
+              <figure class="card mb-5 break-inside-avoid p-7" data-ev={t.event}>
+                {t.rating && <p class="text-gold" aria-label={`${t.rating} out of 5`}>{"★".repeat(t.rating)}<span class="text-ink/15">{"★".repeat(5 - t.rating)}</span></p>}
+                <blockquote class="mt-2 font-display text-xl leading-relaxed text-ink-soft">“{t.quote}”</blockquote>
+                <figcaption class="mt-5 flex items-center gap-3">
+                  {t.photo ? <img src={`/images/clients/${t.photo}`} alt={t.name} class="h-14 w-14 rounded-full object-cover" loading="lazy" /> : <span class="grid h-14 w-14 place-items-center rounded-full bg-blush font-display text-xl font-bold text-maroon">{t.name.charAt(0)}</span>}
+                  <div><p class="font-semibold">{t.name}</p><p class="text-sm text-mute">{t.event} · {t.city} · {t.date}{t.source ? ` · via ${t.source}` : ""}</p></div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <script is:inline>
+            document.querySelectorAll(".rf").forEach(function (b) {
+              b.addEventListener("click", function () {
+                document.querySelectorAll(".rf").forEach(function (x) { x.classList.remove("is-active", "border-maroon", "bg-maroon", "text-ivory"); x.classList.add("border-ink/15", "bg-white"); });
+                b.classList.add("is-active", "border-maroon", "bg-maroon", "text-ivory");
+                document.querySelectorAll("[data-ev]").forEach(function (f) { f.style.display = b.dataset.rf === "all" || f.dataset.ev === b.dataset.rf ? "" : "none"; });
+              });
+            });
+          </script>
+        </>
+      ) : (
+        <div class="mx-auto mt-12 max-w-3xl">
+          <div class="card p-8 text-center sm:p-12">
+            <p class="script text-4xl text-gold-600">Coming this season</p>
+            <h2 class="mt-2 text-3xl sm:text-4xl">Our first featured brides are getting married right now.</h2>
+            <p class="mt-5 text-[17px] leading-8 text-ink-soft">We only publish genuine reviews — never bought, never written for us — and always with the couple’s permission to use their words and photos. Until the first ones are up, we’re happy to share recent work and put you in touch with brides we’ve worked with.</p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+              <a href={WHATSAPP_URL("Hi! Could you share recent work and a reference or two?")} target="_blank" rel="noopener" class="btn btn-whatsapp">Ask for references</a>
+              <a href="/portfolio/" class="btn btn-ghost">See the portfolio</a>
+            </div>
+          </div>
+          <div class="mt-8 rounded-3xl border border-dashed border-gold/60 bg-ivory p-6 text-center text-[15px] text-ink-soft">
+            Were you one of our brides, grooms or families? <a href={WHATSAPP_URL("Hi! I'd love to leave a review for my wedding makeup.")} target="_blank" rel="noopener" class="font-semibold text-maroon underline underline-offset-4">Send us your review on WhatsApp</a> — a line or two and a photo you’re happy for us to share.
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <CtaBand image="couple-reception" />
+</Layout>

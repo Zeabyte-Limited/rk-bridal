@@ -1,0 +1,38 @@
+---
+// DESIGN PREVIEW ONLY — noindex, not linked anywhere, excluded from the sitemap.
+// Shows how the reviews grid looks once real reviews exist. Every card is
+// labelled SAMPLE; none of these are real clients. Delete this page once the
+// first real reviews are live.
+import Layout from "../../layouts/Layout.astro";
+import SectionHead from "../../components/SectionHead.astro";
+const samples = [
+  { name: "Sample bride", city: "Jalandhar", event: "Wedding", quote: "Sample review text — a real bride's words will go here, with her permission.", photo: "bride-red-kaleere" },
+  { name: "Sample groom", city: "Phagwara", event: "Groom", quote: "Sample review text — a real groom's words will go here.", photo: "groom-sherwani-dark" },
+  { name: "Sample couple", city: "Ludhiana", event: "Reception", quote: "Sample review text — a real couple's words will go here.", photo: "couple-sikh-portrait" },
+  { name: "Sample family", city: "Amritsar", event: "Family", quote: "Sample review text — a real family's words will go here.", photo: "bride-with-bridesmaids" },
+  { name: "Sample bride", city: "Chandigarh", event: "Sangeet", quote: "Sample review text.", photo: "giddha-sangeet" },
+  { name: "Sample bride", city: "Kapurthala", event: "Engagement", quote: "Sample review text.", photo: "couple-engagement" },
+];
+const cards = Array.from({ length: 12 }, (_, i) => samples[i % samples.length]);
+---
+<Layout title="PREVIEW — reviews layout" path="/preview/testimonials/" noindex>
+  <section class="wash py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="mb-8 rounded-2xl border-2 border-dashed border-maroon bg-blush p-4 text-center text-sm font-bold text-maroon">DESIGN PREVIEW — every card below is a labelled SAMPLE, not a real client. This page is noindex and unlinked.</div>
+      <SectionHead center eyebrow="Reviews (preview)" title="In our brides’ own words" />
+      <div class="mt-12 columns-1 gap-5 md:columns-2 lg:columns-3">
+        {cards.map((t) => (
+          <figure class="card relative mb-5 break-inside-avoid overflow-hidden p-7">
+            <span class="absolute right-4 top-4 rounded-full bg-maroon px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-ivory">Sample</span>
+            <p class="text-gold">★★★★★</p>
+            <blockquote class="mt-2 font-display text-xl leading-relaxed text-ink-soft">“{t.quote}”</blockquote>
+            <figcaption class="mt-5 flex items-center gap-3">
+              <img src={`/images/${t.photo}-sm.webp`} alt="" class="h-14 w-14 rounded-full object-cover object-top" loading="lazy" />
+              <div><p class="font-semibold">{t.name}</p><p class="text-sm text-mute">{t.event} · {t.city}</p></div>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

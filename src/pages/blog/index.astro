@@ -1,0 +1,49 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SectionHead from "../../components/SectionHead.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { SITE } from "../../config";
+import { getCollection } from "astro:content";
+import { breadcrumbSchema } from "../../lib/schema";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const cats = Array.from(new Set(posts.map((p) => p.data.category)));
+const fmt = (d: Date) => d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+const title = `Bridal Makeup Blog — Tips for Punjabi Brides & Grooms | ${SITE.name}`;
+const description = "Honest, practical advice from a Jalandhar bridal makeup artist: HD vs airbrush, trials, timelines, groom grooming, skin prep for Punjab weather and what bridal makeup really costs.";
+---
+
+<Layout title={title} description={description} path="/blog/" schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Blog", path: "/blog/" }])}>
+  <section class="wash py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead eyebrow="The bridal blog" title="Everything we tell our brides, written down." sub="Practical, honest and specific to Punjab weddings. New posts every week." />
+      <div class="mt-8 flex flex-wrap gap-2">
+        <button data-cf="all" class="cf rounded-full border border-maroon bg-maroon px-4 py-2 text-sm font-semibold text-ivory">All</button>
+        {cats.map((c) => <button data-cf={c} class="cf rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold">{c}</button>)}
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((p, i) => (
+          <a href={`/blog/${p.id}/`} data-cat={p.data.category} class:list={["card card-hover fade-up group overflow-hidden", i === 0 && "md:col-span-2 lg:col-span-2"]}>
+            <div class:list={["img-frame !rounded-none", i === 0 ? "aspect-[2/1]" : "aspect-[16/10]"]}><img src={`/images/${p.data.image}${i === 0 ? "" : "-sm"}.webp`} alt={p.data.imageAlt || p.data.title} loading={i < 3 ? "eager" : "lazy"} class="h-full w-full object-cover object-top" /></div>
+            <div class="p-6">
+              <p class="text-[12px] font-bold uppercase tracking-wider text-gold-600">{p.data.category} · {fmt(p.data.date)}</p>
+              <h2 class:list={["mt-2 leading-tight", i === 0 ? "text-3xl sm:text-4xl" : "text-2xl"]}>{p.data.title}</h2>
+              <p class="mt-2 text-[15px] leading-7 text-ink-soft">{p.data.description}</p>
+              <p class="mt-4 text-sm font-bold text-maroon">Read <span aria-hidden="true">→</span></p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <script is:inline>
+    document.querySelectorAll(".cf").forEach(function (b) {
+      b.addEventListener("click", function () {
+        document.querySelectorAll(".cf").forEach(function (x) { x.classList.remove("border-maroon", "bg-maroon", "text-ivory"); x.classList.add("border-ink/15", "bg-white"); });
+        b.classList.add("border-maroon", "bg-maroon", "text-ivory");
+        document.querySelectorAll("[data-cat]").forEach(function (f) { f.style.display = b.dataset.cf === "all" || f.dataset.cat === b.dataset.cf ? "" : "none"; });
+      });
+    });
+  </script>
+  <CtaBand />
+</Layout>

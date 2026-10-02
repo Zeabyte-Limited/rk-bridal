@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   RK BRIDAL STUDIO — design system
+   Maroon (Punjabi wedding red) · antique gold · ivory canvas · blush accents.
+   Display serif (Cormorant Garamond) + clean sans (Manrope) + script accent.
+   ========================================================================== */
+@theme {
+  --color-maroon: #6b0f1a;
+  --color-maroon-700: #560c15;
+  --color-maroon-900: #3a070e;
+  --color-gold: #c9a24a;
+  --color-gold-300: #e6cf8f;
+  --color-gold-600: #a8843a;
+  --color-blush: #f6e7e4;
+  --color-blush-200: #efd6d1;
+  --color-ivory: #fbf7f2;
+  --color-ivory-200: #f3ebe1;
+  --color-ink: #1e1419;
+  --color-ink-soft: #3b2c33;
+  --color-mute: #6f5f66;
+  --color-wa: #25d366;
+
+  --font-display: "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-script: "Pinyon Script", cursive;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, .font-display { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.01em; }
+.script { font-family: var(--font-script); font-weight: 400; }
+
+/* --- Buttons ------------------------------------------------------------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border-radius: 9999px; padding: .8rem 1.5rem; font-size: .875rem; font-weight: 600; letter-spacing: .02em; transition: all .25s ease; white-space: nowrap; }
+.btn-maroon { background: var(--color-maroon); color: var(--color-ivory); box-shadow: 0 12px 24px -12px rgba(107,15,26,.6); }
+.btn-maroon:hover { background: var(--color-maroon-700); transform: translateY(-2px); }
+.btn-gold { background: var(--color-gold); color: var(--color-ink); }
+.btn-gold:hover { background: var(--color-gold-300); transform: translateY(-2px); }
+.btn-ghost { border: 1px solid rgba(30,20,25,.18); background: rgba(255,255,255,.6); color: var(--color-ink); backdrop-filter: blur(6px); }
+.btn-ghost:hover { border-color: var(--color-maroon); color: var(--color-maroon); }
+.btn-ghost-light { border: 1px solid rgba(255,255,255,.45); color: #fff; }
+.btn-ghost-light:hover { background: rgba(255,255,255,.12); }
+.btn-whatsapp { background: var(--color-wa); color: #fff; box-shadow: 0 12px 24px -12px rgba(37,211,102,.7); }
+.btn-whatsapp:hover { background: #1ebe5b; transform: translateY(-2px); }
+
+/* --- Decorative ---------------------------------------------------------- */
+.eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .22em; color: var(--color-gold-600); }
+.gold-rule::after {
+  content: ""; display: block; width: 56px; height: 2px; margin-top: 14px;
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+.gold-rule.center::after { margin-left: auto; margin-right: auto; width: 96px; background: linear-gradient(90deg, transparent, var(--color-gold), transparent); }
+.card { border-radius: 1.5rem; border: 1px solid rgba(30,20,25,.08); background: #fff; box-shadow: 0 10px 30px -18px rgba(107,15,26,.25); }
+.card-hover { transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease; }
+.card-hover:hover { transform: translateY(-5px); box-shadow: 0 28px 48px -24px rgba(107,15,26,.35); }
+.glass { background: rgba(251,247,242,.86); backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); border-bottom: 1px solid rgba(30,20,25,.08); }
+.wash { background: radial-gradient(60rem 30rem at 90% -10%, rgba(201,162,74,.14), transparent 60%), radial-gradient(40rem 26rem at 0% 110%, rgba(107,15,26,.10), transparent 60%); }
+.maroon-slab { background: radial-gradient(60rem 30rem at 100% 0%, rgba(201,162,74,.22), transparent 55%), linear-gradient(160deg, #560c15, #3a070e); }
+.img-frame { overflow: hidden; border-radius: 1.5rem; background: var(--color-blush); }
+.img-frame img { transition: transform .8s cubic-bezier(.22,1,.36,1); }
+.img-frame:hover img { transform: scale(1.04); }
+.hero-overlay { background: linear-gradient(180deg, rgba(30,20,25,.42) 0%, rgba(30,20,25,.18) 45%, rgba(58,7,14,.88) 100%); }
+.dotgrid { background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size: 22px 22px; }
+
+/* --- Long-form text (blog, service pages) -------------------------------- */
+.prose-site h2 { margin: 2.5rem 0 .75rem; font-size: 1.9rem; line-height: 1.2; }
+.prose-site h3 { margin: 2rem 0 .5rem; font-size: 1.45rem; line-height: 1.25; }
+.prose-site p, .prose-site li { font-size: 17px; line-height: 1.85; color: var(--color-ink-soft); }
+.prose-site p { margin: 0 0 1.1rem; }
+.prose-site ul { margin: 1rem 0; padding-left: 1.5rem; list-style: disc; }
+.prose-site ol { margin: 1rem 0; padding-left: 1.5rem; list-style: decimal; }
+.prose-site li { margin: .35rem 0; }
+.prose-site a { color: var(--color-maroon); text-decoration: underline; text-decoration-color: rgba(201,162,74,.6); text-underline-offset: 4px; }
+.prose-site a:hover { text-decoration-color: var(--color-maroon); }
+.prose-site strong { color: var(--color-ink); }
+.prose-site blockquote { margin: 1.5rem 0; border-left: 2px solid var(--color-gold); padding-left: 1.25rem; font-style: italic; }
+.prose-site table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; font-size: 15px; text-align: left; }
+.prose-site th { border-bottom: 1px solid rgba(30,20,25,.15); padding: .5rem 1rem .5rem 0; font-weight: 600; }
+.prose-site td { border-bottom: 1px solid rgba(30,20,25,.08); padding: .5rem 1rem .5rem 0; vertical-align: top; }
+.prose-site img { border-radius: 1.25rem; margin: 1.5rem 0; }
+.prose-site hr { border: 0; border-top: 1px solid rgba(30,20,25,.1); margin: 2rem 0; }
+
+/* --- Accordion / motion --------------------------------------------------- */
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .chev { transform: rotate(180deg); }
+.marquee { animation: marquee 45s linear infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.fade-up { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+.fade-up.in { opacity: 1; transform: none; }
+.pulse-ring::before { content: ""; position: absolute; inset: -6px; border-radius: 9999px; border: 2px solid rgba(37,211,102,.6); animation: ring 2s ease-out infinite; }
+@keyframes ring { 0% { transform: scale(.85); opacity: .9; } 100% { transform: scale(1.35); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .fade-up { opacity: 1; transform: none; transition: none; } .marquee { animation: none; } .pulse-ring::before { animation: none; } }

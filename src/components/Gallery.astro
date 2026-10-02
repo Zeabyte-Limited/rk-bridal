@@ -1,0 +1,66 @@
+---
+import type { GalleryItem } from "../data/gallery";
+interface Props { items: GalleryItem[]; filters?: boolean; limit?: number; columns?: string }
+const { items, filters = false, limit, columns = "columns-2 md:columns-3 lg:columns-4" } = Astro.props;
+const list = limit ? items.slice(0, limit) : items;
+const cats: { key: string; label: string }[] = [
+  { key: "all", label: "All" }, { key: "bride", label: "Brides" }, { key: "groom", label: "Grooms" }, { key: "couples", label: "Couples" },
+  { key: "hair", label: "Hair" }, { key: "mehndi", label: "Mehndi & Haldi" }, { key: "sangeet", label: "Sangeet" },
+];
+---
+<div class="gallery">
+  {filters && (
+    <div class="mb-8 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Filter portfolio">
+      {cats.map((c, i) => (
+        <button type="button" data-filter={c.key} class:list={["rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold transition hover:border-maroon hover:text-maroon", i === 0 && "is-active !border-maroon !bg-maroon !text-ivory"]}>{c.label}</button>
+      ))}
+    </div>
+  )}
+  <div class:list={["gap-4 [column-fill:_balance]", columns]}>
+    {list.map((g, i) => (
+      <figure class="img-frame mb-4 break-inside-avoid" data-cat={g.cat}>
+        <a href={`/images/${g.image}.webp`} class="lightbox block" data-alt={g.alt}>
+          <img src={`/images/${g.image}-sm.webp`} alt={g.alt} loading={i < 4 ? "eager" : "lazy"} decoding="async" class="h-auto w-full" />
+        </a>
+      </figure>
+    ))}
+  </div>
+</div>
+
+<dialog id="lightbox" class="m-auto w-[min(96vw,1100px)] rounded-3xl bg-ink p-0 text-ivory backdrop:bg-ink/85 backdrop:backdrop-blur-sm">
+  <div class="relative">
+    <img id="lightbox-img" src="" alt="" class="max-h-[88vh] w-full rounded-3xl object-contain" />
+    <button id="lb-close" class="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full bg-ink/70 text-ivory" aria-label="Close">✕</button>
+    <button id="lb-prev" class="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-ink/70 text-xl text-ivory" aria-label="Previous">‹</button>
+    <button id="lb-next" class="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-ink/70 text-xl text-ivory" aria-label="Next">›</button>
+    <p id="lb-cap" class="px-5 py-3 text-center text-sm text-ivory/80"></p>
+  </div>
+</dialog>
+
+<script is:inline>
+  (function () {
+    var dlg = document.getElementById("lightbox");
+    if (!dlg || !dlg.showModal) return;
+    var img = document.getElementById("lightbox-img"), cap = document.getElementById("lb-cap");
+    var links = [], idx = 0;
+    function visibleLinks() { return Array.prototype.filter.call(document.querySelectorAll(".gallery a.lightbox"), function (a) { return a.closest("figure").style.display !== "none"; }); }
+    function show(i) { links = visibleLinks(); if (!links.length) return; idx = (i + links.length) % links.length; img.src = links[idx].getAttribute("href"); img.alt = links[idx].dataset.alt || ""; cap.textContent = img.alt; }
+    document.querySelectorAll(".gallery a.lightbox").forEach(function (a) {
+      a.addEventListener("click", function (e) { e.preventDefault(); links = visibleLinks(); show(links.indexOf(a)); dlg.showModal(); });
+    });
+    document.getElementById("lb-close").onclick = function () { dlg.close(); };
+    document.getElementById("lb-prev").onclick = function () { show(idx - 1); };
+    document.getElementById("lb-next").onclick = function () { show(idx + 1); };
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+    document.addEventListener("keydown", function (e) { if (!dlg.open) return; if (e.key === "ArrowLeft") show(idx - 1); if (e.key === "ArrowRight") show(idx + 1); });
+    // filters
+    document.querySelectorAll(".gallery [data-filter]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var key = b.dataset.filter;
+        document.querySelectorAll(".gallery [data-filter]").forEach(function (x) { x.classList.remove("is-active", "!border-maroon", "!bg-maroon", "!text-ivory"); });
+        b.classList.add("is-active", "!border-maroon", "!bg-maroon", "!text-ivory");
+        document.querySelectorAll(".gallery figure").forEach(function (f) { f.style.display = key === "all" || f.dataset.cat === key ? "" : "none"; });
+      });
+    });
+  })();
+</script>

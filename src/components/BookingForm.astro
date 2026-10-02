@@ -1,0 +1,100 @@
+---
+import { SITE } from "../config";
+interface Props { compact?: boolean; title?: string }
+const { compact = false, title = "Check your date" } = Astro.props;
+const events = ["Roka / Sagan", "Engagement", "Mehndi", "Haldi", "Sangeet", "Wedding (Anand Karaj / Pheras)", "Reception", "Pre-wedding shoot"];
+---
+
+<form id="booking-form" class:list={["card p-6 sm:p-8", compact && "!p-5"]} data-wa={SITE.whatsappNumber} novalidate>
+  <div class="mb-5">
+    <p class="eyebrow">Booking enquiry</p>
+    <h3 class="mt-1 text-3xl">{title}</h3>
+    <p class="mt-1 text-sm text-mute">Fill this in and it opens as a WhatsApp message to us — we reply within a few hours.</p>
+  </div>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <label class="block">
+      <span class="text-xs font-bold uppercase tracking-wider text-mute">Your name *</span>
+      <input name="name" required autocomplete="name" class="mt-1 w-full rounded-xl border border-ink/15 bg-ivory px-4 py-3 text-[15px] outline-none focus:border-maroon focus:ring-2 focus:ring-maroon/15" placeholder="Bride / groom / family name" />
+    </label>
+    <label class="block">
+      <span class="text-xs font-bold uppercase tracking-wider text-mute">Phone / WhatsApp *</span>
+      <input name="phone" required inputmode="tel" autocomplete="tel" class="mt-1 w-full rounded-xl border border-ink/15 bg-ivory px-4 py-3 text-[15px] outline-none focus:border-maroon focus:ring-2 focus:ring-maroon/15" placeholder="+91 …" />
+    </label>
+    <label class="block">
+      <span class="text-xs font-bold uppercase tracking-wider text-mute">Wedding date</span>
+      <input name="date" type="date" class="mt-1 w-full rounded-xl border border-ink/15 bg-ivory px-4 py-3 text-[15px] outline-none focus:border-maroon focus:ring-2 focus:ring-maroon/15" />
+    </label>
+    <label class="block">
+      <span class="text-xs font-bold uppercase tracking-wider text-mute">City / venue</span>
+      <input name="city" class="mt-1 w-full rounded-xl border border-ink/15 bg-ivory px-4 py-3 text-[15px] outline-none focus:border-maroon focus:ring-2 focus:ring-maroon/15" placeholder="Jalandhar, Chandigarh, Ludhiana…" />
+    </label>
+    <label class="block sm:col-span-2">
+      <span class="text-xs font-bold uppercase tracking-wider text-mute">Makeup for</span>
+      <div class="mt-2 flex flex-wrap gap-2">
+        {["Bride", "Groom", "Bride + Groom", "Family / party"].map((w, i) => (
+          <label class="cursor-pointer">
+            <input type="radio" name="who" value={w} checked={i === 0} class="peer sr-only" />
+            <span class="inline-block rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold transition peer-checked:border-maroon peer-checked:bg-maroon peer-checked:text-ivory">{w}</span>
+          </label>
+        ))}
+      </div>
+    </label>
+    <div class="sm:col-span-2">
+      <span class="text-xs font-bold uppercase tracking-wider text-mute">Events</span>
+      <div class="mt-2 flex flex-wrap gap-2">
+        {events.map((e) => (
+          <label class="cursor-pointer">
+            <input type="checkbox" name="events" value={e} class="peer sr-only" />
+            <span class="inline-block rounded-full border border-ink/15 bg-white px-3.5 py-2 text-[13px] font-semibold transition peer-checked:border-gold-600 peer-checked:bg-gold-300/60">{e}</span>
+          </label>
+        ))}
+      </div>
+    </div>
+    <label class="block sm:col-span-2">
+      <span class="text-xs font-bold uppercase tracking-wider text-mute">Anything else</span>
+      <textarea name="message" rows="3" class="mt-1 w-full rounded-xl border border-ink/15 bg-ivory px-4 py-3 text-[15px] outline-none focus:border-maroon focus:ring-2 focus:ring-maroon/15" placeholder="Outfit colours, number of family members, timings…"></textarea>
+    </label>
+    <input type="text" name="botcheck" tabindex="-1" autocomplete="off" class="hidden" />
+  </div>
+
+  <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+    <button type="submit" class="btn btn-whatsapp !py-3.5 !text-[15px]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7a11.9 11.9 0 0 0 5.7 1.5c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.4ZM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 0 1 2.1 12C2.1 6.5 6.5 2.1 12 2.1c2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1 2.9 7c0 5.4-4.4 9.8-9.9 9.8Z"/></svg>
+      Send on WhatsApp
+    </button>
+    <p class="text-xs text-mute">Or call <a href={`tel:${SITE.phoneE164}`} class="font-semibold text-maroon">{SITE.phoneDisplay}</a>. No spam, ever.</p>
+  </div>
+  <p id="booking-note" class="mt-3 hidden text-sm font-semibold text-maroon"></p>
+</form>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById("booking-form");
+    if (!form) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var fd = new FormData(form);
+      var name = (fd.get("name") || "").toString().trim();
+      var phone = (fd.get("phone") || "").toString().trim();
+      var note = document.getElementById("booking-note");
+      if (!name || !phone) { note.textContent = "Please add your name and phone number."; note.classList.remove("hidden"); return; }
+      var events = fd.getAll("events").join(", ");
+      var payload = { name: name, phone: phone, date: fd.get("date") || "", city: fd.get("city") || "", who: fd.get("who") || "", events: events, message: fd.get("message") || "", botcheck: fd.get("botcheck") || "" };
+      var text = "Hi RK Bridal Studio! I'd like to check a date.\n" +
+        "Name: " + name + "\nPhone: " + phone +
+        (payload.date ? "\nWedding date: " + payload.date : "") +
+        (payload.city ? "\nCity/venue: " + payload.city : "") +
+        "\nMakeup for: " + payload.who +
+        (events ? "\nEvents: " + events : "") +
+        (payload.message ? "\nNotes: " + payload.message : "");
+      // Backup copy by email (works once the Worker has SES secrets; otherwise ignored).
+      try { fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload), keepalive: true }).catch(function () {}); } catch (_) {}
+      var url = "https://wa.me/" + form.dataset.wa + "?text=" + encodeURIComponent(text);
+      note.textContent = "Opening WhatsApp… if nothing happens, tap the green WhatsApp button at the bottom right.";
+      note.classList.remove("hidden");
+      var w = window.open(url, "_blank");
+      if (!w) window.location.href = url;
+    });
+  })();
+</script>

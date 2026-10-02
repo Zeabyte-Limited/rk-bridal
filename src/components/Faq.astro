@@ -1,0 +1,17 @@
+---
+interface Props { items: { q: string; a: string }[]; class?: string }
+const { items, class: cls = "" } = Astro.props;
+---
+<div class:list={["divide-y divide-ink/10 rounded-3xl border border-ink/10 bg-white", cls]}>
+  {items.map((f) => (
+    <details class="group px-5 sm:px-7">
+      <summary class="flex items-center justify-between gap-4 py-5 text-left">
+        <span class="font-display text-xl font-semibold leading-snug sm:text-[1.35rem]">{f.q}</span>
+        <span class="chev grid h-8 w-8 shrink-0 place-items-center rounded-full bg-blush text-maroon transition-transform">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+        </span>
+      </summary>
+      <p class="pb-6 text-[15.5px] leading-7 text-ink-soft">{f.a}</p>
+    </details>
+  ))}
+</div>

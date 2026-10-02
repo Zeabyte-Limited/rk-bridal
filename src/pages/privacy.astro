@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SITE } from "../config";
+---
+<Layout title={`Privacy Policy | ${SITE.name}`} description="How RK Bridal Studio handles the details you share with us." path="/privacy/">
+  <section class="py-16 sm:py-24">
+    <div class="prose-site mx-auto max-w-3xl px-4 sm:px-6">
+      <p class="eyebrow">Privacy</p>
+      <h1 class="!mt-2 text-4xl sm:text-5xl">Privacy policy</h1>
+      <p>When you contact {SITE.name} — on WhatsApp, by phone, by email or through the booking form — we keep the details you share (name, phone number, wedding date, city, events) only to reply to you and to plan your booking. We do not sell or share them with anyone else.</p>
+      <p>The booking form opens a WhatsApp message on your own phone; a copy of the enquiry may also be emailed to us so nothing is missed. If you book, we keep your trial notes and booking details for the wedding and for our records.</p>
+      <p>Photos of brides, grooms and families are published on this website or on social media only with the client’s permission.</p>
+      <p>This website is hosted on Cloudflare and may use basic, anonymous analytics to understand which pages are useful. It does not use advertising cookies.</p>
+      <p>To have your details removed, message us on WhatsApp or email {SITE.email}.</p>
+    </div>
+  </section>
+</Layout>

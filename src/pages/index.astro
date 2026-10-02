@@ -1,0 +1,202 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VideoHero from "../components/VideoHero.astro";
+import SectionHead from "../components/SectionHead.astro";
+import Gallery from "../components/Gallery.astro";
+import Faq from "../components/Faq.astro";
+import BookingForm from "../components/BookingForm.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { SITE, WHATSAPP_URL } from "../config";
+import { services } from "../data/services";
+import { areas } from "../data/areas";
+import { gallery } from "../data/gallery";
+import { generalFaqs } from "../data/faqs";
+import { testimonials } from "../data/testimonials";
+import { faqSchema } from "../lib/schema";
+
+const homeFaqs = generalFaqs.slice(0, 6);
+const looks = gallery.filter((g) => ["bride", "groom", "couples"].includes(g.cat)).slice(0, 8);
+
+const steps = [
+  { n: "01", t: "Say hello on WhatsApp", d: "Send your date, city and the events. We confirm availability the same day." },
+  { n: "02", t: "Trial & look design", d: "At our Jalandhar studio we design your look around your outfit, jewellery and venue lighting — and write it all down." },
+  { n: "03", t: "Lock your date", d: "A small advance reserves the date. From here your artists are yours for the day." },
+  { n: "04", t: "The wedding morning", d: "The team arrives early with lights and a full kit. Hair, makeup and draping — calm, on time, no rush." },
+  { n: "05", t: "Till the doli", d: "Touch-ups through the day and a kit left with you, so the last photo looks like the first." },
+];
+
+const why = [
+  { t: "Hair is where bridal looks fail. Ours don't.", d: "Our founder is a hair artist first — the bun that holds a 2-kg dupatta, the braid that survives giddha, the setting that keeps a maang tikka straight." },
+  { t: "HD and airbrush, chosen for your skin", d: "Not one base for everyone. At the trial we test what your skin loves and what the venue lighting needs." },
+  { t: "A full team, not a solo artist", d: "Makeup, hair, draping and mehndi travel together, so the bride, the groom and the family are ready at the same time." },
+  { t: "Built for Punjabi weddings", d: "Early Anand Karaj mornings, December fog, May heat, three events in two days — we plan the timeline around all of it." },
+  { t: "Travel anywhere in Punjab", d: "Jalandhar is home; Chandigarh, Ludhiana, Amritsar and every town between is a short drive. Destination weddings welcome." },
+  { t: "Honest quotes on WhatsApp", d: "Clear line items — events, family, travel. No surprises on the day." },
+];
+---
+
+<Layout path="/" transparentHeader schema={faqSchema(homeFaqs)}>
+  <VideoHero video="hero-home" poster="v-hero-home" eyebrow="Bridal & groom makeup artistry">
+    <h1 class="max-w-4xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">
+      Bridal &amp; Groom Makeup Artist in <span class="text-gold-300">Jalandhar</span>, Punjab
+    </h1>
+    <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">
+      HD and airbrush bridal makeup, hair styling and draping for every ceremony — roka to reception. {SITE.baseLine}.
+    </p>
+    <div slot="actions" class="mt-8 flex flex-wrap gap-3">
+      <a href={WHATSAPP_URL("Hi! I'd like to check your availability for my wedding date.")} target="_blank" rel="noopener" class="btn btn-whatsapp !px-7 !py-3.5 !text-[15px]">Check your date on WhatsApp</a>
+      <a href="/portfolio/" class="btn btn-ghost-light !px-7 !py-3.5 !text-[15px]">See the work</a>
+    </div>
+  </VideoHero>
+
+  <!-- Trust strip -->
+  <section class="border-b border-ink/8 bg-white">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 divide-ink/8 px-4 sm:px-6 md:grid-cols-4 md:divide-x">
+      {[
+        ["HD & airbrush", "Chosen for your skin at the trial"],
+        ["Hair + draping included", "One team, one timeline"],
+        ["Trial before the wedding", "Your look, written down"],
+        ["All of Punjab", "Chandigarh · Ludhiana · Amritsar + more"],
+      ].map(([t, d]) => (
+        <div class="px-4 py-6 text-center md:px-6">
+          <p class="font-display text-xl font-semibold text-maroon">{t}</p>
+          <p class="mt-1 text-[13px] text-mute">{d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="wash py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead eyebrow="What we do" title="Every ceremony. Every face in the family." sub="Bride, groom, mothers, sisters, bhabhis and the bridesmaids — at home or at the venue, with the same team from the first event to the last." />
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((s, i) => (
+          <a href={s.href} class:list={["card card-hover fade-up group overflow-hidden", i === 0 && "sm:col-span-2 lg:col-span-1"]}>
+            <div class="img-frame !rounded-none aspect-[4/3]">
+              <img src={`/images/${s.image}-sm.webp`} alt={s.title} loading="lazy" decoding="async" class="h-full w-full object-cover object-top" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl">{s.title}</h3>
+              <p class="mt-2 text-[15px] leading-7 text-ink-soft">{s.short}</p>
+              <p class="mt-4 text-sm font-bold text-maroon">Explore <span aria-hidden="true">→</span></p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature looks -->
+  <section class="py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <SectionHead eyebrow="Portfolio" title="Looks that last from the first photo to the last." sub="Skin that looks like skin. Eyes built for the camera. A dupatta that stays where we put it." />
+        <a href="/portfolio/" class="btn btn-ghost shrink-0">Full portfolio</a>
+      </div>
+      <div class="mt-12">
+        <Gallery items={looks} columns="columns-2 md:columns-4" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Why us -->
+  <section class="maroon-slab relative overflow-hidden py-20 text-ivory sm:py-28">
+    <div class="dotgrid absolute inset-0 opacity-40"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead light eyebrow="Why brides choose us" title="Beautiful at 6 am. Still beautiful at the doli." />
+      <div class="mt-12 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+        {why.map((w) => (
+          <div class="fade-up border-t border-gold/40 pt-5">
+            <h3 class="text-2xl text-gold-300">{w.t}</h3>
+            <p class="mt-2 text-[15.5px] leading-7 text-ivory/80">{w.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead center eyebrow="How it works" title="From first message to wedding morning" />
+      <ol class="mt-14 grid gap-6 md:grid-cols-5">
+        {steps.map((s) => (
+          <li class="fade-up card p-6">
+            <p class="font-display text-4xl font-bold text-gold">{s.n}</p>
+            <h3 class="mt-2 text-xl">{s.t}</h3>
+            <p class="mt-2 text-[14.5px] leading-6 text-ink-soft">{s.d}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="bg-blush/60 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead center eyebrow="Reviews" title="In our brides' own words" />
+      {testimonials.length > 0 ? (
+        <div class="mt-12 grid gap-5 md:grid-cols-3">
+          {testimonials.slice(0, 3).map((t) => (
+            <figure class="card p-7">
+              <blockquote class="font-display text-xl leading-relaxed text-ink-soft">“{t.quote}”</blockquote>
+              <figcaption class="mt-5 flex items-center gap-3">
+                {t.photo && <img src={`/images/clients/${t.photo}`} alt="" class="h-12 w-12 rounded-full object-cover" loading="lazy" />}
+                <div><p class="font-semibold">{t.name}</p><p class="text-sm text-mute">{t.event} · {t.city}</p></div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      ) : (
+        <div class="mx-auto mt-10 max-w-2xl text-center">
+          <p class="text-[17px] leading-8 text-ink-soft">We publish only real reviews from real brides and grooms, with their permission and their photos. Our first featured brides of the season are on their way — ask us on WhatsApp and we’ll happily share recent work and references.</p>
+          <a href="/testimonials/" class="btn btn-ghost mt-6">Read reviews</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Areas -->
+  <section class="py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead eyebrow="Where we work" title="Jalandhar is home. All of Punjab is our calendar." sub="No travel charge inside Jalandhar. Clear, upfront travel for everywhere else — and the full team comes along." />
+      <div class="mt-10 flex flex-wrap gap-2.5">
+        {areas.map((a) => (
+          <a href={`/areas/${a.slug}/`} class="rounded-full border border-ink/12 bg-white px-4 py-2 text-[14px] font-semibold transition hover:border-maroon hover:text-maroon">Makeup artist in {a.name.split(" (")[0]}</a>
+        ))}
+        <a href="/areas/" class="rounded-full bg-maroon px-4 py-2 text-[14px] font-semibold text-ivory">All areas →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="wash py-20 sm:py-24">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <SectionHead eyebrow="Questions" title="Brides ask us these every week" />
+        <a href="/faq/" class="btn btn-ghost mt-6">All questions</a>
+      </div>
+      <div class="lg:col-span-8"><Faq items={homeFaqs} /></div>
+    </div>
+  </section>
+
+  <!-- Booking -->
+  <section id="book" class="py-20 sm:py-28">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:items-center">
+      <div class="lg:col-span-5">
+        <p class="script text-4xl text-gold-600">Shaadi season fills fast</p>
+        <h2 class="mt-2 text-4xl sm:text-5xl">Check your date</h2>
+        <p class="mt-5 text-[17px] leading-8 text-ink-soft">November–February and April–May dates go 4–8 months ahead. Send the details and we’ll come back on WhatsApp with availability and a clear quote.</p>
+        <ul class="mt-6 space-y-2 text-[15px] text-ink-soft">
+          <li>✓ Reply within a few hours, every day</li>
+          <li>✓ Trial included with every bridal booking</li>
+          <li>✓ Family and groom add-ons in one quote</li>
+        </ul>
+      </div>
+      <div class="lg:col-span-7"><BookingForm /></div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Layout>

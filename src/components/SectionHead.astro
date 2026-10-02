@@ -1,0 +1,9 @@
+---
+interface Props { eyebrow?: string; title: string; sub?: string; center?: boolean; light?: boolean; class?: string }
+const { eyebrow, title, sub, center = false, light = false, class: cls = "" } = Astro.props;
+---
+<div class:list={["fade-up max-w-3xl", center && "mx-auto text-center", cls]}>
+  {eyebrow && <p class:list={["eyebrow", light && "!text-gold-300"]}>{eyebrow}</p>}
+  <h2 class:list={["gold-rule mt-3 text-4xl leading-[1.05] sm:text-5xl", center && "center", light && "text-ivory"]}>{title}</h2>
+  {sub && <p class:list={["mt-6 text-[17px] leading-8", light ? "text-ivory/80" : "text-ink-soft"]}>{sub}</p>}
+</div>

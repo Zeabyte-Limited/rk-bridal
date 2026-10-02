@@ -1,0 +1,70 @@
+---
+import { SITE, WHATSAPP_URL } from "../config";
+import { areas } from "../data/areas";
+import { services } from "../data/services";
+const year = new Date().getFullYear();
+---
+
+<footer class="maroon-slab relative mt-24 overflow-hidden text-ivory">
+  <div class="dotgrid absolute inset-0 opacity-40"></div>
+  <div class="relative mx-auto max-w-7xl px-4 pb-10 pt-16 sm:px-6">
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <a href="/" class="flex items-center gap-3">
+          <span class="grid h-11 w-11 place-items-center rounded-xl bg-ivory font-display text-lg font-bold text-maroon">RK</span>
+          <span class="flex flex-col leading-none">
+            <span class="font-display text-2xl font-semibold">{SITE.name}</span>
+            <span class="mt-1 text-[10px] font-bold uppercase tracking-[0.22em] text-gold-300">{SITE.tagline}</span>
+          </span>
+        </a>
+        <p class="mt-5 max-w-sm text-[15px] leading-7 text-ivory/80">
+          Bridal and groom makeup, hair and draping for every ceremony — from roka to reception. {SITE.baseLine}.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <a href={WHATSAPP_URL()} target="_blank" rel="noopener" class="btn btn-whatsapp !py-2.5">WhatsApp us</a>
+          <a href="/contact/" class="btn btn-gold !py-2.5">Book your date</a>
+        </div>
+        <div class="mt-6 space-y-1.5 text-[15px] text-ivory/85">
+          <p><a href={`tel:${SITE.phoneE164}`} class="hover:text-gold-300">{SITE.phoneDisplay}</a></p>
+          <p><a href={`mailto:${SITE.email}`} class="hover:text-gold-300">{SITE.email}</a></p>
+          <p><a href={SITE.instagram} target="_blank" rel="noopener" class="hover:text-gold-300">Instagram {SITE.instagramHandle}</a></p>
+          <p class="text-ivory/60">{SITE.hours}</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-gold-300">Services</h3>
+        <ul class="mt-4 space-y-2.5 text-[15px] text-ivory/85">
+          {services.map((s) => <li><a href={s.href} class="hover:text-gold-300">{s.title}</a></li>)}
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-gold-300">Makeup artist in</h3>
+        <ul class="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[15px] text-ivory/85">
+          {areas.map((a) => <li><a href={`/areas/${a.slug}/`} class="hover:text-gold-300">{a.name.split(" (")[0]}</a></li>)}
+        </ul>
+        <p class="mt-4 text-sm text-ivory/60">…and destination weddings across India and abroad.</p>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-gold-300">Studio</h3>
+        <ul class="mt-4 space-y-2.5 text-[15px] text-ivory/85">
+          <li><a href="/about/" class="hover:text-gold-300">About the artist</a></li>
+          <li><a href="/portfolio/" class="hover:text-gold-300">Portfolio</a></li>
+          <li><a href="/testimonials/" class="hover:text-gold-300">Reviews</a></li>
+          <li><a href="/packages/" class="hover:text-gold-300">Packages</a></li>
+          <li><a href="/faq/" class="hover:text-gold-300">FAQ</a></li>
+          <li><a href="/blog/" class="hover:text-gold-300">Bridal blog</a></li>
+          <li><a href="/contact/" class="hover:text-gold-300">Contact & booking</a></li>
+          <li><a href="/privacy/" class="hover:text-gold-300">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 flex flex-col gap-3 border-t border-ivory/15 pt-6 text-[13px] text-ivory/60 sm:flex-row sm:items-center sm:justify-between">
+      <p>© {year} {SITE.name} · {SITE.city}, {SITE.state}, {SITE.country}</p>
+      <p>Website by <a href="https://www.zeabyte.co.nz" target="_blank" rel="noopener" class="hover:text-gold-300">Zeabyte</a></p>
+    </div>
+  </div>
+</footer>

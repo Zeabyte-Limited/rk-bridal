@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VideoHero from "../components/VideoHero.astro";
+import SectionHead from "../components/SectionHead.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { SITE, WHATSAPP_URL } from "../config";
+import { services } from "../data/services";
+import { breadcrumbSchema, serviceSchema } from "../lib/schema";
+
+const title = `Bridal & Wedding Makeup Services in Jalandhar, Punjab | ${SITE.name}`;
+const description = "All our wedding beauty services in one place: bridal and groom makeup, engagement and reception looks, mehndi, sangeet and haldi, bridal hair styling, saree and lehenga draping, party and family makeup, destination weddings.";
+const anchors: Record<string, string> = { "engagement-reception": "engagement", "pre-wedding": "pre-wedding", "mehndi-sangeet": "mehndi-sangeet", "hair-styling": "hair", "draping": "draping", "party-family": "family", "destination": "destination", "bridal-makeup": "bridal", "groom-makeup": "groom" };
+const schema = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Services", path: "/services/" }]), ...services.map((s) => serviceSchema({ name: s.title, description: s.short, path: `/services/#${anchors[s.slug]}` }))];
+---
+
+<Layout title={title} description={description} path="/services/" transparentHeader schema={schema} image="/images/v-hero-services.webp">
+  <VideoHero video="hero-services" poster="v-hero-services" eyebrow="Services" min="min-h-[70svh]">
+    <h1 class="max-w-4xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">Every event, every face — <span class="text-gold-300">one team</span></h1>
+    <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">From the roka to the reception, for the bride, the groom and the whole family. At home, at the venue, anywhere in Punjab.</p>
+    <div slot="actions" class="mt-8 flex flex-wrap gap-3">
+      <a href={WHATSAPP_URL()} target="_blank" rel="noopener" class="btn btn-whatsapp !px-7 !py-3.5 !text-[15px]">Ask on WhatsApp</a>
+      <a href="/packages/" class="btn btn-ghost-light !px-7 !py-3.5 !text-[15px]">See packages</a>
+    </div>
+  </VideoHero>
+
+  <section class="wash py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl space-y-20 px-4 sm:px-6">
+      {services.map((s, i) => (
+        <article id={anchors[s.slug]} class:list={["fade-up grid scroll-mt-28 items-center gap-10 lg:grid-cols-2", i % 2 === 1 && "lg:[&>*:first-child]:order-2"]}>
+          <div class="img-frame aspect-[4/3] lg:aspect-[5/4]"><img src={`/images/${s.image}.webp`} alt={s.title} loading="lazy" decoding="async" class="h-full w-full object-cover object-top" /></div>
+          <div>
+            <p class="eyebrow">{String(i + 1).padStart(2, "0")}</p>
+            <h2 class="gold-rule mt-2 text-4xl sm:text-5xl">{s.title}</h2>
+            <p class="mt-6 text-[17px] leading-8 text-ink-soft">{s.short}</p>
+            <ul class="mt-6 grid gap-2 sm:grid-cols-2">
+              {s.includes.map((x) => (<li class="flex items-start gap-2.5 text-[15px] text-ink-soft"><span class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-gold-300 text-[11px] font-bold text-ink">✓</span>{x}</li>))}
+            </ul>
+            <div class="mt-7 flex flex-wrap gap-3">
+              {s.href.startsWith("/services") ? (<a href="/contact/" class="btn btn-maroon">Enquire</a>) : (<a href={s.href} class="btn btn-maroon">Learn more</a>)}
+              <a href={WHATSAPP_URL(`Hi! I'd like to ask about ${s.title}.`)} target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand image="giddha-sangeet" title="Tell us the events. We’ll build the team around them." />
+</Layout>

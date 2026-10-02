@@ -1,0 +1,129 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VideoHero from "../components/VideoHero.astro";
+import SectionHead from "../components/SectionHead.astro";
+import Faq from "../components/Faq.astro";
+import CtaBand from "../components/CtaBand.astro";
+import BookingForm from "../components/BookingForm.astro";
+import { SITE, WHATSAPP_URL } from "../config";
+import { faqSchema, serviceSchema, breadcrumbSchema } from "../lib/schema";
+
+const title = `Bridal Makeup Artist in Jalandhar — HD & Airbrush Bridal Makeup | ${SITE.name}`;
+const description = "Bridal makeup in Jalandhar, Punjab: HD and airbrush looks for Anand Karaj, pheras, engagement, sangeet and reception, with hair styling and dupatta draping. Trial included. Travelling across Punjab.";
+
+const ceremonies = [
+  { t: "Roka & Sagan", img: "couple-engagement", d: "Fresh, natural and photo-ready — soft skin, defined eyes, a lip that matches the suit. You should look like yourself at your first family function." },
+  { t: "Engagement", img: "couple-reception", d: "Soft-glam: dewy skin, shimmer on the lid, a sleek bun or soft waves. Designed around the ring-ceremony outfit and the hall lighting." },
+  { t: "Mehndi & Haldi", img: "mehndi-hands", d: "Dewy, festive and sweat-proof. Open hair with florals, light base that survives haldi, colour that pops against yellow and green." },
+  { t: "Sangeet", img: "giddha-sangeet", d: "Glam that dances. Long-wear base, strong lashes, a hairstyle that holds through giddha and bhangra until the last song." },
+  { t: "Anand Karaj / Pheras", img: "bride-red-kaleere", d: "The big one. Classic red or maroon tones, a timeless eye, modest-yet-glowing skin, chooda and kaleere ready, dupatta set to stay through matha tek and laavan." },
+  { t: "Reception", img: "bride-white-night", d: "A completely new look, not a touch-up — bolder eyes, sculpted skin, flash-tested for the evening photographer." },
+];
+
+const hdVsAir = [
+  ["Application", "By hand, with HD-grade cream/liquid foundation", "Fine mist of foundation sprayed on with an airbrush gun"],
+  ["Finish", "Natural, buildable; great for dry or mature skin", "Ultra-light, even, flawless on camera"],
+  ["Wear", "10–14 hours with proper prep + setting", "12–16 hours; loves heat and humidity"],
+  ["Best for", "Most brides; winter weddings; textured skin", "Long summer days; oily skin; destination weddings"],
+  ["Touch-ups", "Easy, with a powder", "Minimal needed; powder works"],
+];
+
+const punjabi = [
+  { t: "Chooda & kaleere", d: "We time the chooda ceremony into the morning so the base is set before the bangles go on, and we set the kaleere into the dupatta so they fall right in photos." },
+  { t: "Dupatta that stays", d: "Double-dupatta setting, pinned for matha tek and a full morning of bowing and sitting — without pulling your hair." },
+  { t: "The 5 am start", d: "Early Anand Karaj? We arrive before dawn with lights, so the look is finished calmly, not rushed in a dark room." },
+  { t: "Fog, heat and tents", d: "December fog and May heat behave differently on skin. We prep and set for the actual weather, not a studio." },
+  { t: "Family in sync", d: "Mum, sisters and bhabhis are done by a second artist alongside you, so the whole family is ready together." },
+  { t: "Groom in the same tone", d: "Groom grooming that matches the bride’s finish, so the couple’s photos look like one picture, not two." },
+];
+
+const included = ["Skin prep + primer for your skin type", "HD or airbrush base (decided at the trial)", "Eyes, lashes, brows, contour, lips", "Bridal hairstyle of your choice", "Dupatta / saree draping", "Jewellery and maang tikka setting", "Touch-up kit for the day", "Artist on standby for full-day bookings"];
+
+const faqs = [
+  { q: "How long does the bridal trial take and what should I bring?", a: "About 90 minutes. Bring a photo of the outfit, the jewellery (or photos), and any looks you love or hate. Come with a clean face. We write everything down — products, shades, hairstyle — so the wedding morning is a repeat, not an experiment." },
+  { q: "What time do you arrive for a morning Anand Karaj?", a: "We plan backwards from the time the photographer wants you ready. Hair, makeup and draping take about three hours, so for an 8 am ceremony we are usually with you by 4 am." },
+  { q: "Can you match my family’s makeup to mine?", a: "Yes — a second artist does the family alongside you, using the same colour story so the group photos look cohesive." },
+  { q: "Will my skin look cakey or grey in photos?", a: "No. We colour-match the base to your neck, use HD products that do not flash back, and test with a camera flash at the trial." },
+  { q: "Do you do the reception as a different look?", a: "Yes. The reception is a fresh application — different eye, different lip, a new hairstyle — not a touch-up of the morning look." },
+  { q: "Do you travel outside Jalandhar for bridal makeup?", a: "Yes: Chandigarh, Ludhiana, Amritsar, Phagwara, Kapurthala, Hoshiarpur, Patiala, Pathankot and everywhere in Punjab, plus destination weddings. Travel is quoted upfront." },
+];
+
+const schema = [
+  serviceSchema({ name: "Bridal Makeup", description, path: "/bridal-makeup/" }),
+  faqSchema(faqs),
+  breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Bridal Makeup", path: "/bridal-makeup/" }]),
+];
+---
+
+<Layout title={title} description={description} path="/bridal-makeup/" transparentHeader schema={schema} image="/images/v-hero-bridal.webp">
+  <VideoHero video="hero-bridal" poster="v-hero-bridal" eyebrow="For the bride" min="min-h-[80svh]">
+    <h1 class="max-w-4xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">Bridal Makeup in Jalandhar that lasts till the <span class="text-gold-300">doli</span></h1>
+    <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">HD and airbrush bridal makeup with hair and draping — designed at a trial, repeated perfectly on the morning, and built for Punjabi weddings.</p>
+    <div slot="actions" class="mt-8 flex flex-wrap gap-3">
+      <a href={WHATSAPP_URL("Hi! I'd like to enquire about bridal makeup for my wedding.")} target="_blank" rel="noopener" class="btn btn-whatsapp !px-7 !py-3.5 !text-[15px]">Enquire on WhatsApp</a>
+      <a href="#ceremonies" class="btn btn-ghost-light !px-7 !py-3.5 !text-[15px]">Looks by ceremony</a>
+    </div>
+  </VideoHero>
+
+  <section id="ceremonies" class="wash py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead eyebrow="Looks by ceremony" title="One bride, six looks, one team." sub="Every function has its own light, outfit and energy. We design each look separately and keep the thread between them so your album feels like one story." />
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {ceremonies.map((c) => (
+          <article class="card card-hover fade-up overflow-hidden">
+            <div class="img-frame !rounded-none aspect-[4/3]"><img src={`/images/${c.img}-sm.webp`} alt={`${c.t} makeup look`} loading="lazy" decoding="async" class="h-full w-full object-cover object-top" /></div>
+            <div class="p-6"><h3 class="text-2xl">{c.t}</h3><p class="mt-2 text-[15px] leading-7 text-ink-soft">{c.d}</p></div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead eyebrow="HD vs airbrush" title="Which base is right for you?" sub="Both are flawless on camera. The right one depends on your skin, the season and how long the day is. We decide together at the trial — never by default." />
+      <div class="mt-10 overflow-x-auto rounded-3xl border border-ink/10 bg-white">
+        <table class="w-full min-w-[640px] text-left text-[15px]">
+          <thead class="bg-blush/60"><tr><th class="px-5 py-4 font-semibold"></th><th class="px-5 py-4 font-display text-xl text-maroon">HD makeup</th><th class="px-5 py-4 font-display text-xl text-maroon">Airbrush makeup</th></tr></thead>
+          <tbody>{hdVsAir.map(([k, a, b]) => (<tr class="border-t border-ink/8"><td class="px-5 py-4 font-semibold">{k}</td><td class="px-5 py-4 text-ink-soft">{a}</td><td class="px-5 py-4 text-ink-soft">{b}</td></tr>))}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="maroon-slab relative overflow-hidden py-20 text-ivory sm:py-28">
+    <div class="dotgrid absolute inset-0 opacity-40"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead light eyebrow="For the Punjabi bride" title="We know what a Punjabi wedding morning actually looks like." />
+      <div class="mt-12 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+        {punjabi.map((p) => (<div class="fade-up border-t border-gold/40 pt-5"><h3 class="text-2xl text-gold-300">{p.t}</h3><p class="mt-2 text-[15.5px] leading-7 text-ivory/80">{p.d}</p></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-28">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
+      <div class="img-frame aspect-[4/5]"><img src="/images/bride-maroon-gold.webp" alt="Bride in maroon lehenga with HD bridal makeup" loading="lazy" class="h-full w-full object-cover" /></div>
+      <div>
+        <SectionHead eyebrow="What’s included" title="Everything the morning needs, in one booking." />
+        <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+          {included.map((i) => (<li class="flex items-start gap-3 text-[15.5px] text-ink-soft"><span class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-gold-300 text-[11px] font-bold text-ink">✓</span>{i}</li>))}
+        </ul>
+        <div class="mt-8 flex flex-wrap gap-3"><a href="/packages/" class="btn btn-maroon">See packages</a><a href="/portfolio/" class="btn btn-ghost">Bridal portfolio</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wash py-20 sm:py-24">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12">
+      <div class="lg:col-span-4"><SectionHead eyebrow="Bridal FAQ" title="Before you book" /></div>
+      <div class="lg:col-span-8"><Faq items={faqs} /></div>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-24">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6"><BookingForm title="Check your wedding date" /></div>
+  </section>
+
+  <CtaBand image="bride-red-dark" />
+</Layout>

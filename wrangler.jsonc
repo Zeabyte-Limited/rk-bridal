@@ -1,0 +1,12 @@
+{
+  // Cloudflare Worker: serves the built Astro site as static assets + POST /api/lead.
+  // Worker name = rk-bridal → https://rk-bridal.zeabyte.workers.dev (free plan).
+  "name": "rk-bridal",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-06-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
+  }
+}

@@ -1,0 +1,42 @@
+name: Deploy to Cloudflare Workers
+
+# Every push to main = live site (~90 seconds). Also runnable by hand from the Actions tab.
+# Secrets needed on the repo: CLOUDFLARE_API_TOKEN (Edit Workers), CLOUDFLARE_ACCOUNT_ID.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      # The two steps below are skipped until the repo secrets exist (then every push deploys).
+      # Alternative with NO secrets: connect this repo to the Worker in the Cloudflare dashboard
+      # (Workers & Pages → rk-bridal → Settings → Build) exactly like cognit-site / zeabyte-website.
+      - name: Deploy Worker + static assets
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+      - name: Smoke test
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+        run: |
+          sleep 10
+          for p in / /bridal-makeup/ /groom-makeup/ /areas/chandigarh/ /blog/ /sitemap-index.xml; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "https://rk-bridal.zeabyte.workers.dev$p")
+            echo "$code $p"; [ "$code" = "200" ] || exit 1
+          done

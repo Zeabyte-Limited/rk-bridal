@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VideoHero from "../components/VideoHero.astro";
+import Gallery from "../components/Gallery.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { SITE, WHATSAPP_URL } from "../config";
+import { gallery } from "../data/gallery";
+import { breadcrumbSchema } from "../lib/schema";
+
+const title = `Bridal Makeup Portfolio — Brides, Grooms, Hair & Mehndi | ${SITE.name}`;
+const description = "Bridal and groom makeup looks from a Jalandhar makeup artist: Punjabi and Sikh brides, HD and airbrush finishes, bridal hairstyles, mehndi, sangeet and reception glamour.";
+---
+
+<Layout title={title} description={description} path="/portfolio/" transparentHeader schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Portfolio", path: "/portfolio/" }])} image="/images/v-hero-portfolio.webp">
+  <VideoHero video="hero-portfolio" poster="v-hero-portfolio" eyebrow="Portfolio" min="min-h-[70svh]">
+    <h1 class="max-w-4xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">Looks that last from the <span class="text-gold-300">first photo</span> to the last</h1>
+    <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">Brides, grooms, couples, hair and mehndi. Real client photos are added with each couple’s permission — follow us on Instagram for the newest work.</p>
+    <div slot="actions" class="mt-8 flex flex-wrap gap-3">
+      <a href={SITE.instagram} target="_blank" rel="noopener" class="btn btn-gold !px-7 !py-3.5 !text-[15px]">Instagram {SITE.instagramHandle}</a>
+      <a href={WHATSAPP_URL("Hi! Could you share some recent bridal work?")} target="_blank" rel="noopener" class="btn btn-ghost-light !px-7 !py-3.5 !text-[15px]">Ask for recent work</a>
+    </div>
+  </VideoHero>
+
+  <section class="py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <Gallery items={gallery} filters />
+    </div>
+  </section>
+
+  <CtaBand image="couple-punjabi-steps" title="Like what you see? Your date might still be free." />
+</Layout>

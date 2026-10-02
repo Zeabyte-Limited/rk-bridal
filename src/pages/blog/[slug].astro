@@ -1,0 +1,74 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Faq from "../../components/Faq.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { SITE, WHATSAPP_URL } from "../../config";
+import { getCollection, render } from "astro:content";
+import { articleSchema, breadcrumbSchema, faqSchema } from "../../lib/schema";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const all = (await getCollection("blog", ({ data }) => !data.draft)).filter((p) => p.id !== post.id).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const related = [...all.filter((p) => p.data.category === post.data.category), ...all.filter((p) => p.data.category !== post.data.category)].slice(0, 3);
+const path = `/blog/${post.id}/`;
+const fmt = (d: Date) => d.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
+const schema = [
+  articleSchema({ title: post.data.title, description: post.data.description, path, date: post.data.date, updated: post.data.updated, image: `/images/${post.data.image}.webp` }),
+  breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Blog", path: "/blog/" }, { name: post.data.title, path }]),
+  ...(post.data.faqs.length ? [faqSchema(post.data.faqs)] : []),
+];
+---
+
+<Layout title={`${post.data.title} | ${SITE.name}`} description={post.data.description} path={path} schema={schema} image={`/images/${post.data.image}.webp`} ogType="article">
+  <article>
+    <header class="wash">
+      <div class="mx-auto max-w-4xl px-4 pb-10 pt-12 sm:px-6 sm:pt-16">
+        <nav class="text-[13px] text-mute"><a href="/" class="hover:text-maroon">Home</a> › <a href="/blog/" class="hover:text-maroon">Blog</a> › <span>{post.data.category}</span></nav>
+        <p class="eyebrow mt-6">{post.data.category} · {fmt(post.data.date)}</p>
+        <h1 class="mt-3 text-4xl leading-[1.05] sm:text-5xl md:text-6xl">{post.data.title}</h1>
+        <p class="mt-5 text-[18px] leading-8 text-ink-soft">{post.data.description}</p>
+      </div>
+      <div class="mx-auto max-w-5xl px-4 sm:px-6"><div class="img-frame aspect-[2/1]"><img src={`/images/${post.data.image}.webp`} alt={post.data.imageAlt || post.data.title} class="h-full w-full object-cover object-top" /></div></div>
+    </header>
+
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 py-12 sm:px-6 lg:grid-cols-12">
+      <div class="prose-site lg:col-span-8"><Content /></div>
+      <aside class="space-y-5 lg:col-span-4">
+        <div class="card sticky top-24 p-6">
+          <p class="script text-3xl text-gold-600">Planning your wedding?</p>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">Ask us anything about your date, your look or your city. Honest answers on WhatsApp, no pressure.</p>
+          <a href={WHATSAPP_URL("Hi! I read your blog and have a question about my wedding makeup.")} target="_blank" rel="noopener" class="btn btn-whatsapp mt-4 w-full">Ask on WhatsApp</a>
+          <a href="/packages/" class="btn btn-ghost mt-2 w-full">See packages</a>
+        </div>
+      </aside>
+    </div>
+
+    {post.data.faqs.length > 0 && (
+      <section class="mx-auto max-w-4xl px-4 pb-12 sm:px-6">
+        <h2 class="gold-rule text-3xl sm:text-4xl">Questions brides ask about this</h2>
+        <Faq items={post.data.faqs} class="mt-6" />
+      </section>
+    )}
+
+    {related.length > 0 && (
+      <section class="wash py-14">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+          <p class="eyebrow">Keep reading</p>
+          <div class="mt-5 grid gap-5 md:grid-cols-3">
+            {related.map((r) => (
+              <a href={`/blog/${r.id}/`} class="card card-hover overflow-hidden">
+                <div class="img-frame !rounded-none aspect-[16/10]"><img src={`/images/${r.data.image}-sm.webp`} alt="" loading="lazy" class="h-full w-full object-cover object-top" /></div>
+                <div class="p-5"><p class="text-[12px] font-bold uppercase tracking-wider text-gold-600">{r.data.category}</p><h3 class="mt-1 text-xl leading-tight">{r.data.title}</h3></div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+  </article>
+  <CtaBand />
+</Layout>

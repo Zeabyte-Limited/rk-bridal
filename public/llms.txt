@@ -1,0 +1,23 @@
+# RK Bridal Studio
+
+> Bridal and groom makeup artist based in Jalandhar, Punjab, India. HD and airbrush bridal makeup, hair styling, saree/lehenga draping, groom grooming, engagement/sangeet/mehndi/reception looks, family makeup and destination weddings. Travels across Punjab (Chandigarh, Ludhiana, Amritsar, Phagwara, Kapurthala, Hoshiarpur, Patiala, Pathankot, Mohali, Moga, Nawanshahr).
+
+## Pages
+- Home: /
+- Bridal makeup: /bridal-makeup/
+- Groom makeup & grooming: /groom-makeup/
+- All services: /services/
+- Packages & booking terms: /packages/
+- Portfolio: /portfolio/
+- Reviews: /testimonials/
+- About the team: /about/
+- Service areas: /areas/
+- Blog: /blog/
+- FAQ: /faq/
+- Contact & booking: /contact/
+
+## Facts
+- Trial included with every bridal booking (at the Jalandhar studio).
+- Hair styling and draping included in bridal looks.
+- Bookings confirmed with an advance; written itemised quotes sent on WhatsApp.
+- No travel charge inside Jalandhar; transparent travel zones for the rest of Punjab.

@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHead from "../components/SectionHead.astro";
+import Faq from "../components/Faq.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { SITE } from "../config";
+import { generalFaqs } from "../data/faqs";
+import { breadcrumbSchema, faqSchema } from "../lib/schema";
+const title = `Bridal Makeup FAQ — Booking, Trials, HD vs Airbrush, Travel | ${SITE.name}`;
+const description = "Answers to the questions brides and grooms ask us most: how early to book, trials, HD vs airbrush, what's included, travel across Punjab, timings, products and cancellation.";
+---
+<Layout title={title} description={description} path="/faq/" schema={[breadcrumbSchema([{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq/" }]), faqSchema(generalFaqs)]}>
+  <section class="wash py-16 sm:py-24">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12">
+      <div class="lg:col-span-4"><SectionHead eyebrow="FAQ" title="Everything brides ask before booking" sub="Not here? Ask on WhatsApp — we answer every question, even the awkward ones." /></div>
+      <div class="lg:col-span-8"><Faq items={generalFaqs} /></div>
+    </div>
+  </section>
+  <CtaBand />
+</Layout>

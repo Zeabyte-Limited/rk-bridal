@@ -1,0 +1,47 @@
+---
+/**
+ * Full-bleed hero with a muted, looping background video (poster fallback).
+ * - `video`: basename in public/videos (we ship <name>.mp4 + <name>-mobile.mp4)
+ * - `poster`: key in public/images
+ * Respects prefers-reduced-motion and Data Saver: shows the poster instead.
+ */
+interface Props { video?: string; poster: string; eyebrow?: string; sub?: string; min?: string; align?: "left" | "center"; class?: string }
+const { video, poster, eyebrow, sub, min = "min-h-[92svh]", align = "left", class: cls = "" } = Astro.props;
+---
+<section class:list={["relative isolate flex items-end overflow-hidden bg-ink text-ivory", min, cls]}>
+  <picture class="absolute inset-0 -z-20">
+    <img src={`/images/${poster}.webp`} alt="" class="h-full w-full object-cover object-[50%_25%]" fetchpriority="high" />
+  </picture>
+  {video && (
+    <video class="hero-video absolute inset-0 -z-10 h-full w-full object-cover object-[50%_30%] opacity-0 transition-opacity duration-1000" autoplay muted loop playsinline preload="auto" poster={`/images/${poster}.webp`} aria-hidden="true">
+      <source src={`/videos/${video}-mobile.mp4`} type="video/mp4" media="(max-width: 640px)" />
+      <source src={`/videos/${video}.mp4`} type="video/mp4" />
+    </video>
+  )}
+  <div class="hero-overlay absolute inset-0 -z-10"></div>
+
+  <div class:list={["relative mx-auto w-full max-w-7xl px-4 pb-16 pt-40 sm:px-6 sm:pb-20", align === "center" && "text-center"]}>
+    {eyebrow && <p class="script text-3xl text-gold-300 sm:text-4xl">{eyebrow}</p>}
+    <slot />
+    {sub && <p class:list={["mt-5 max-w-2xl text-[17px] leading-8 text-ivory/85 sm:text-lg", align === "center" && "mx-auto"]}>{sub}</p>}
+    <slot name="actions" />
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    var v = document.querySelector("video.hero-video");
+    if (!v) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var save = navigator.connection && navigator.connection.saveData;
+    if (reduce || save) { v.remove(); return; }
+    // The <source media> attribute is ignored by some browsers for video; pick manually.
+    var mobile = window.matchMedia("(max-width: 640px)").matches;
+    var srcs = v.querySelectorAll("source");
+    var pick = mobile ? srcs[0] : srcs[1];
+    while (v.firstChild) v.removeChild(v.firstChild);
+    v.src = pick.getAttribute("src");
+    v.addEventListener("playing", function () { v.classList.remove("opacity-0"); });
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+  })();
+</script>

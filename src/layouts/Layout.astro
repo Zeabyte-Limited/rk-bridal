@@ -1,0 +1,139 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+import { SITE } from "../config";
+import { areas } from "../data/areas";
+import { services } from "../data/services";
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** path-only canonical, e.g. "/bridal-makeup" */
+  path?: string;
+  /** extra JSON-LD for this page */
+  schema?: object | object[];
+  image?: string;
+  noindex?: boolean;
+  /** hero pages: header starts transparent over the video */
+  transparentHeader?: boolean;
+  ogType?: "website" | "article";
+}
+
+const {
+  title = `Bridal & Groom Makeup Artist in Jalandhar, Punjab | ${SITE.name}`,
+  description = `${SITE.name} — professional bridal and groom makeup artist in Jalandhar. HD and airbrush bridal makeup, hair styling and draping for Anand Karaj, pheras, engagement, sangeet and reception. Travelling across Punjab — Chandigarh, Ludhiana, Amritsar and more.`,
+  path = "/",
+  schema,
+  image = "/og.jpg",
+  noindex = false,
+  transparentHeader = false,
+  ogType = "website",
+} = Astro.props;
+
+const site = SITE.url;
+let cpath = path;
+if (cpath !== "/" && !cpath.endsWith("/")) cpath += "/";
+const canonical = new URL(cpath, site).href;
+const ogImage = new URL(image, site).href;
+
+const business = {
+  "@context": "https://schema.org",
+  "@type": ["BeautySalon", "LocalBusiness"],
+  "@id": `${site}/#business`,
+  name: SITE.name,
+  description,
+  url: site,
+  image: ogImage,
+  logo: `${site}/icon-512.png`,
+  telephone: SITE.phoneE164,
+  email: SITE.email,
+  priceRange: "₹₹₹",
+  address: { "@type": "PostalAddress", addressLocality: SITE.city, addressRegion: SITE.state, addressCountry: "IN" },
+  areaServed: areas.map((a) => ({ "@type": "City", name: a.name })),
+  openingHoursSpecification: [
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "08:00", closes: "21:00" },
+  ],
+  sameAs: [SITE.instagram],
+  makesOffer: services.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.title, url: new URL(s.href, site).href } })),
+  foundingDate: String(SITE.foundedYear),
+};
+const website = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${site}/#website`,
+  name: SITE.name,
+  url: site,
+  publisher: { "@id": `${site}/#business` },
+};
+const schemas = [business, website, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : [])];
+---
+
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <meta name="theme-color" content="#6b0f1a" />
+    <meta name="geo.region" content="IN-PB" />
+    <meta name="geo.placename" content="Jalandhar" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_IN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&family=Pinyon+Script&display=swap"
+      rel="stylesheet"
+    />
+
+    {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+    {
+      SITE.ga4 && (
+        <>
+          <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4}`} />
+          <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','${SITE.ga4}');`} />
+        </>
+      )
+    }
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Header transparent={transparentHeader} />
+    <main class:list={["flex-1", !transparentHeader && "pt-[4.5rem]"]}>
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFloat />
+    <script is:inline>
+      // Reveal-on-scroll for .fade-up blocks.
+      (function () {
+        var els = document.querySelectorAll(".fade-up");
+        if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+        }, { rootMargin: "0px 0px -8% 0px" });
+        els.forEach(function (e) { io.observe(e); });
+      })();
+    </script>
+  </body>
+</html>

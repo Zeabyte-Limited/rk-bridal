@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /preview/
+
+Sitemap: https://rk-bridal.zeabyte.workers.dev/sitemap-index.xml

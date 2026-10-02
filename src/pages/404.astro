@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { WHATSAPP_URL } from "../config";
+---
+<Layout title="Page not found" path="/404/" noindex>
+  <section class="py-24 text-center">
+    <div class="mx-auto max-w-2xl px-4">
+      <p class="script text-5xl text-gold-600">Oops</p>
+      <h1 class="mt-2 text-5xl">That page isn’t here.</h1>
+      <p class="mt-5 text-[17px] leading-8 text-ink-soft">The link may be old. Try the home page, the portfolio, or just ask us on WhatsApp.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3"><a href="/" class="btn btn-maroon">Home</a><a href="/portfolio/" class="btn btn-ghost">Portfolio</a><a href={WHATSAPP_URL()} class="btn btn-whatsapp">WhatsApp</a></div>
+    </div>
+  </section>
+</Layout>

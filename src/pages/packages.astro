@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHead from "../components/SectionHead.astro";
+import Faq from "../components/Faq.astro";
+import CtaBand from "../components/CtaBand.astro";
+import BookingForm from "../components/BookingForm.astro";
+import { SITE, WHATSAPP_URL } from "../config";
+import { breadcrumbSchema, faqSchema } from "../lib/schema";
+
+const title = `Bridal Makeup Packages & Prices in Jalandhar, Punjab | ${SITE.name}`;
+const description = "Bridal makeup packages in Jalandhar: Classic HD, Luxe Airbrush, groom grooming, engagement and reception, family and multi-event wedding packages. Clear, upfront quotes on WhatsApp.";
+
+// Prices are DELIBERATELY blank until the studio confirms its rate card.
+// Fill `price` (e.g. "from ₹18,000") and it appears automatically.
+const packages = [
+  { name: "Classic HD Bridal", tag: "Most booked", price: "", for: "The wedding day", items: ["HD base, eyes, lips, contour, lashes", "Bridal hairstyle", "Dupatta / saree draping", "Trial at the studio", "Touch-up kit"] },
+  { name: "Luxe Airbrush Bridal", tag: "Long days & summer", price: "", for: "The wedding day", items: ["Airbrush base (12–16 hr wear)", "Everything in Classic HD", "Artist on standby through the ceremony", "Second look touch-up for the doli"] },
+  { name: "Groom Grooming", tag: "", price: "", for: "Wedding / reception / shoot", items: ["Invisible HD skin", "Beard + hair styling", "Sehra / dastaar-friendly finish", "30–45 minutes, on site"] },
+  { name: "Engagement / Reception", tag: "", price: "", for: "Per event", items: ["Soft-glam or evening glam", "Hair + draping", "Flash-tested finish", "Family add-ons available"] },
+  { name: "Mehndi · Sangeet · Haldi", tag: "", price: "", for: "Per event", items: ["Festive, sweat-proof makeup", "Open / floral hairstyles", "Haldi-safe skin prep", "Group rates for family"] },
+  { name: "Family & Party", tag: "", price: "", for: "Per person", items: ["Mothers, sisters, bhabhis, bridesmaids", "Makeup + hair", "At home or at the venue", "Group discounts for 5+"] },
+];
+
+const factors = [
+  ["Number of events", "Multi-event bookings (3+) are priced lower per event and keep the same team with you."],
+  ["Bride + groom together", "Groom grooming is an easy add-on when the bride is booked with us."],
+  ["Family size", "Each family member is a clear per-person line. Groups of 5+ get a group rate."],
+  ["Location", "No travel charge inside Jalandhar. Punjab towns are in simple zones; destination weddings include travel and stay."],
+  ["Timing", "Very early starts (before 5 am) may include an overnight stay near the venue, agreed upfront."],
+];
+
+const faqs = [
+  { q: "How do I get an exact price?", a: "Send the date, city, events and who needs makeup on WhatsApp. You get a written quote with every line item — usually within a few hours." },
+  { q: "Is the trial included?", a: "Yes, for every bridal package. The trial is at our Jalandhar studio." },
+  { q: "How much is the advance?", a: "A fixed advance reserves the date and is adjusted against the final bill. The balance is due before the wedding day." },
+  { q: "What is your cancellation policy?", a: "Advances are non-refundable close to the date because we turn other brides away for it. For earlier cancellations we are flexible, and we always try to reschedule instead." },
+  { q: "Do you charge for travel inside Punjab?", a: "Not inside Jalandhar. Elsewhere in Punjab a transparent travel line is added by zone; destination weddings include travel and stay for the team." },
+];
+const schema = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Packages", path: "/packages/" }]), faqSchema(faqs)];
+---
+
+<Layout title={title} description={description} path="/packages/" schema={schema}>
+  <section class="wash py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead center eyebrow="Packages" title="Clear packages. Honest quotes. No surprises on the day." sub="Every quote is written, itemised and sent on WhatsApp. Tell us the events and we’ll tailor it — most brides book a multi-event package." />
+      <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {packages.map((p) => (
+          <div class="card card-hover fade-up flex flex-col p-7">
+            {p.tag && <span class="mb-3 w-fit rounded-full bg-gold-300/70 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-ink">{p.tag}</span>}
+            <h2 class="text-3xl">{p.name}</h2>
+            <p class="mt-1 text-sm text-mute">{p.for}</p>
+            <p class="mt-4 font-display text-2xl font-semibold text-maroon">{p.price || "Ask for a quote"}</p>
+            <ul class="mt-5 flex-1 space-y-2">
+              {p.items.map((i) => (<li class="flex items-start gap-2.5 text-[15px] text-ink-soft"><span class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blush text-[11px] font-bold text-maroon">✓</span>{i}</li>))}
+            </ul>
+            <a href={WHATSAPP_URL(`Hi! Could you send me a quote for the ${p.name} package?`)} target="_blank" rel="noopener" class="btn btn-whatsapp mt-7">Get this quote on WhatsApp</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2">
+      <div>
+        <SectionHead eyebrow="What shapes the price" title="Five things that change a quote" />
+        <dl class="mt-8 space-y-5">
+          {factors.map(([t, d]) => (<div class="border-l-2 border-gold pl-5"><dt class="font-display text-xl font-semibold">{t}</dt><dd class="mt-1 text-[15px] leading-7 text-ink-soft">{d}</dd></div>))}
+        </dl>
+      </div>
+      <div>
+        <SectionHead eyebrow="Booking terms" title="Simple, written, fair" />
+        <Faq items={faqs} class="mt-8" />
+      </div>
+    </div>
+  </section>
+
+  <section class="wash py-16 sm:py-24">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6"><BookingForm title="Get a written quote" /></div>
+  </section>
+
+  <CtaBand image="bride-with-bridesmaids" title="Booking three or more events? Ask about the wedding-week package." />
+</Layout>

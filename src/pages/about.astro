@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VideoHero from "../components/VideoHero.astro";
+import SectionHead from "../components/SectionHead.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { SITE, WHATSAPP_URL } from "../config";
+import { breadcrumbSchema } from "../lib/schema";
+
+// TODO (owner): add the founder's name, training/certifications and a studio photo
+// (public/images/founder.webp) once confirmed. Keep every claim true.
+const title = `About ${SITE.name} — Jalandhar Bridal Makeup & Hair Team`;
+const description = "Meet the team behind RK Bridal Studio: a hair artist turned bridal makeup specialist and a travelling team of makeup, hair, draping and mehndi artists based in Jalandhar, Punjab.";
+
+const team = [
+  { r: "Lead makeup & hair artist", d: "Designs every bridal look, does the trial, and is with the bride on the morning." },
+  { r: "Second makeup artist", d: "Family, bridesmaids and the groom — so everyone is ready together." },
+  { r: "Hair stylist", d: "Buns, braids, florals and extensions that hold a heavy dupatta all day." },
+  { r: "Draping specialist", d: "Saree and lehenga draping, double-dupatta setting, kaleere and chooda." },
+  { r: "Mehndi artist", d: "Bridal and family mehndi for the mehndi night, on request." },
+  { r: "Assistant", d: "Lights, kit, timings and touch-ups — the calm behind the morning." },
+];
+const values = [
+  ["Skin first", "Prep is half the look. We treat skin like skin, not a canvas to cover."],
+  ["Written, not remembered", "Every trial is documented — shades, products, hair — so the day is a repeat, not a guess."],
+  ["On time, every time", "Punjabi wedding mornings do not wait. Neither do we."],
+  ["Honest", "Real reviews, real photos, real quotes. If we can’t do a date, we say so and help you find someone."],
+];
+---
+
+<Layout title={title} description={description} path="/about/" transparentHeader schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about/" }])} image="/images/v-hero-about.webp">
+  <VideoHero video="hero-about" poster="v-hero-about" eyebrow="About the studio" min="min-h-[70svh]">
+    <h1 class="max-w-4xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">A hair artist who fell in love with the <span class="text-gold-300">whole</span> bridal look</h1>
+    <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">{SITE.name} began at the hair station — and grew into a full bridal and groom team, based in Jalandhar and working across Punjab.</p>
+  </VideoHero>
+
+  <section class="py-20 sm:py-28">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:items-center">
+      <div class="lg:col-span-5">
+        <div class="img-frame aspect-[4/5]"><img src="/images/artist-at-work.webp" alt="Makeup artist at work on a bride" loading="lazy" class="h-full w-full object-cover" /></div>
+      </div>
+      <div class="prose-site lg:col-span-7">
+        <p class="eyebrow">Our story</p>
+        <h2 class="gold-rule !mt-2 text-4xl sm:text-5xl">Hair taught us where bridal looks go wrong.</h2>
+        <p>Most bridal disasters are not about makeup. They are the bun that slides by the laavan, the dupatta that drags the whole hairstyle down, the kaleere that tangle in the braid. Our founder spent years as a hair artist fixing exactly those things on other artists’ brides — and decided the only way to guarantee the whole look was to own the whole look.</p>
+        <p>So {SITE.name} does it all, with one team and one timeline: skin prep, HD or airbrush makeup, hair, draping and jewellery setting. Bride, groom and family. Trial first, written down, repeated perfectly on the morning.</p>
+        <p>We are based in {SITE.city} and travel across Punjab — Chandigarh, Ludhiana, Amritsar and every town between — and to destination weddings anywhere in India and abroad.</p>
+        <div class="mt-8 flex flex-wrap gap-3"><a href="/portfolio/" class="btn btn-maroon !no-underline">See the work</a><a href={WHATSAPP_URL("Hi! I'd like to talk about my wedding.")} target="_blank" rel="noopener" class="btn btn-ghost !no-underline">Say hello on WhatsApp</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wash py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead eyebrow="The team" title="A full team travels with every bride." sub="Makeup, hair, draping and mehndi together — so the bride, the groom and the family are ready at the same time, and nobody is waiting on a single pair of hands." />
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {team.map((t) => (<div class="card card-hover fade-up p-7"><h3 class="text-2xl">{t.r}</h3><p class="mt-2 text-[15px] leading-7 text-ink-soft">{t.d}</p></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="maroon-slab relative overflow-hidden py-20 text-ivory sm:py-28">
+    <div class="dotgrid absolute inset-0 opacity-40"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <SectionHead light eyebrow="What we stand for" title="Four promises to every bride" />
+      <div class="mt-12 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+        {values.map(([t, d]) => (<div class="fade-up border-t border-gold/40 pt-5"><h3 class="text-2xl text-gold-300">{t}</h3><p class="mt-2 text-[15.5px] leading-7 text-ivory/80">{d}</p></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-24">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="img-frame aspect-square"><img src="/images/makeup-kit.webp" alt="Professional makeup kit laid out" loading="lazy" class="h-full w-full object-cover" /></div>
+        <div class="img-frame aspect-square"><img src="/images/brushes.webp" alt="Makeup brushes" loading="lazy" class="h-full w-full object-cover" /></div>
+      </div>
+      <div>
+        <SectionHead eyebrow="The kit" title="Professional, long-wear, skin-safe." sub="We use professional, long-wear products chosen for Indian skin tones and the Punjab climate — tested for flash, sweat and a sixteen-hour day. Tell us about allergies or sensitive skin at the trial and we adapt the kit." />
+      </div>
+    </div>
+  </section>
+
+  <CtaBand image="couple-sikh-wide" />
+</Layout>

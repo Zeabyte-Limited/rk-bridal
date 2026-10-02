@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHead from "../components/SectionHead.astro";
+import BookingForm from "../components/BookingForm.astro";
+import { SITE, WHATSAPP_URL } from "../config";
+import { breadcrumbSchema } from "../lib/schema";
+
+const title = `Book Your Wedding Date — Contact ${SITE.name}, Jalandhar`;
+const description = "Check your wedding date and get a written quote from our Jalandhar bridal makeup team. WhatsApp, call or send the booking form — we reply within a few hours.";
+---
+
+<Layout title={title} description={description} path="/contact/" schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact/" }])}>
+  <section class="wash py-16 sm:py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <SectionHead eyebrow="Contact & booking" title="Let’s talk about your date." sub="The fastest way is WhatsApp — send the date, the city and the events, and we reply with availability and a written quote within a few hours, every day of the week." />
+        <div class="mt-8 space-y-4">
+          <a href={WHATSAPP_URL()} target="_blank" rel="noopener" class="card card-hover flex items-center gap-4 p-5">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-wa text-white"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7a11.9 11.9 0 0 0 5.7 1.5c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.4Z"/></svg></span>
+            <div><p class="font-semibold">WhatsApp</p><p class="text-sm text-mute">{SITE.phoneDisplay} · fastest reply</p></div>
+          </a>
+          <a href={`tel:${SITE.phoneE164}`} class="card card-hover flex items-center gap-4 p-5">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-maroon text-ivory">☎</span>
+            <div><p class="font-semibold">Call</p><p class="text-sm text-mute">{SITE.phoneDisplay} · {SITE.hours}</p></div>
+          </a>
+          <a href={`mailto:${SITE.email}`} class="card card-hover flex items-center gap-4 p-5">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gold text-ink">✉</span>
+            <div><p class="font-semibold">Email</p><p class="text-sm text-mute">{SITE.email}</p></div>
+          </a>
+          <a href={SITE.instagram} target="_blank" rel="noopener" class="card card-hover flex items-center gap-4 p-5">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] text-white">◎</span>
+            <div><p class="font-semibold">Instagram</p><p class="text-sm text-mute">{SITE.instagramHandle} · latest work and reels</p></div>
+          </a>
+        </div>
+        <div class="card mt-5 p-5">
+          <p class="font-semibold">Studio</p>
+          <p class="text-sm text-mute">{SITE.city}, {SITE.state}, {SITE.country} — trials by appointment. Wedding-day service at your home or venue, anywhere in Punjab.</p>
+        </div>
+      </div>
+      <div class="lg:col-span-7"><BookingForm title="Send your booking details" /></div>
+    </div>
+  </section>
+
+  <section class="pb-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="img-frame aspect-[16/7]">
+        <iframe title="Jalandhar, Punjab map" src="https://www.google.com/maps?q=Jalandhar,Punjab,India&z=11&output=embed" class="h-full w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</Layout>
