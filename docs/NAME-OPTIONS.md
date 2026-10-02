@@ -76,6 +76,14 @@ Makeup & Nail Studio in Amritsar. A copycat name confuses brides and Google.
 
 Taken on .com (not listed above): houseofkaur, kaurcouture, kaurandco, maisonkaur, kaurluxe.
 
+## Where to buy (checked 2026-10-03)
+
+- **.com → Cloudflare Registrar.** At-cost, about US$10.46/yr (≈ NZ$19 at 1 USD = 1.78 NZD), same price every
+  renewal, and it sits in the same Cloudflare account as the website, so connecting it is one click.
+- **.in → not sold by Cloudflare.** Buy at Namecheap, GoDaddy India or Hostinger (first year ₹1–550, renewal about
+  ₹900–1,200/yr ≈ NZ$17–22). Then point its nameservers to Cloudflare (free) so both domains are managed together.
+- Rechecked 2026-10-03: no change in availability since 2026-10-02.
+
 ## Next steps once a name is chosen
 
 1. Check the Instagram handle is free (more important than the domain for a bridal artist).
