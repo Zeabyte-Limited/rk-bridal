@@ -2,6 +2,15 @@
 
 Every production change, issue and fix goes here (newest first).
 
+## 2026-10-02 — CI fix + first live deploy via API
+
+- First two Actions runs failed in 0 s ("workflow file issue"): `secrets` is not allowed in a step `if`, and
+  `cloudflare/wrangler-action` was dropped in favour of plain `npx wrangler deploy`. Now: build always runs; deploy
+  step runs only when `CLOUDFLARE_API_TOKEN` is set (checked via a step output).
+- Live deploys so far were done from the dev box with `scripts/deploy-api.py` (wrangler cannot run on Windows-ARM).
+- Mobile header overflow fixed: `.btn`/`.card` etc. moved under `@layer components` so Tailwind's `hidden` wins.
+- Daily blog routine created: `trig_01DPXcFzeCLz5DkcwqPfZVo5`, 21:00 UTC daily.
+
 ## 2026-10-02 — Site built and first deploy
 
 - Built from scratch: Astro 6 + Tailwind v4, 36+ pages (home, bridal, groom, services, packages, portfolio, reviews,
