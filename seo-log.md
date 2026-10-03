@@ -12,6 +12,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - winter-wedding-makeup-punjab-skin-prep (Skin & Hair)
 - bridal-makeup-cost-punjab-2026 (Planning)
 - bridal-makeup-chandigarh-weddings-venues-timings (Local)
+- sikh-groom-grooming-dastaar-wedding (Groom)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Sikh Punjabi + Hindu Punjabi weddings ONLY.
@@ -19,7 +20,6 @@ AUDIENCE: Sikh Punjabi + Hindu Punjabi weddings ONLY.
 - Choora and kaleere: how to set them so they last from ceremony to doli (Bridal)
 - Maiyan / vatna skin prep: glowing, not stained (Skin & Hair)
 - Hindu Punjabi pheras at night: makeup for warm mandap light (Bridal)
-- Sardar groom grooming with a dastaar (Groom)
 - Sehra bandi and ghodi: groom grooming for the baraat (Groom)
 - Chunni chadana and roka looks (Bridal)
 - Paranda braids for Punjabi brides (Skin & Hair)
@@ -34,12 +34,14 @@ AUDIENCE: Sikh Punjabi + Hindu Punjabi weddings ONLY.
 - Chooda and kaleere: how we set them so they last (Bridal)
 - Dupatta draping styles for Punjabi brides (Bridal)
 - Groom's reception look: sharper, not shinier (Groom)
-- Sikh groom grooming with a dastaar (Groom)
 - Makeup for Ludhiana weddings (Local) · Amritsar weddings (Local) · Phagwara NRI weddings (Local)
 - 2026–27 bridal makeup trends in Punjab (Trends)
 - How long does bridal makeup take? A realistic timeline (Planning)
 - What to eat and avoid the week before the wedding for glowing skin (Skin & Hair)
+- Sagan and shagun ceremony makeup: simple daytime looks for family functions (Bridal)
+- Safa vs pagri vs dastaar: headgear differences and what they mean for groom grooming (Groom)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
 - 2026-10-02 — published "Bridal makeup for Chandigarh weddings: venues, light and timings that change your plan" (Local).
+- 2026-10-03 — published "Groom grooming with a dastaar: what changes for a Sikh wedding" (Groom).
