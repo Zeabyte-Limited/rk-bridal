@@ -2,6 +2,13 @@
 
 Every production change, issue and fix goes here (newest first).
 
+## 2026-10-03 — Hero videos v4: Sikh couples & families on every page (owner request)
+
+- Owner: all videos must show Sikh/Sardar couples and Sikh families, EXCEPT the Hindu Punjabi page.
+- v3 Hindu-looking reel kept as `hero-hindu` (Hindu Punjabi page only). All other reels rebuilt: Sikh couple / Sardar
+  groom / Sikh family photos (Magnific premium + Pexels, slow-zoom) + Sikh clips (bhangra, turban tying, groom in
+  turban, father-son, grandfather) + Golden Temple. Videos cache-busted with ?v=4.
+
 ## 2026-10-03 — Hero videos v3 from Magnific (Freepik) Premium footage
 
 - 26 real wedding clips (Punjabi/North Indian couples, safa/turban tying, ghodi, chooda bride, dhol, bhangra, artist doing
