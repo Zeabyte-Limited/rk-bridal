@@ -2,6 +2,12 @@
 
 Every production change, issue and fix goes here (newest first).
 
+## 2026-10-03 — Hero videos v3 from Magnific (Freepik) Premium footage
+
+- 26 real wedding clips (Punjabi/North Indian couples, safa/turban tying, ghodi, chooda bride, dhol, bhangra, artist doing
+  bridal makeup) downloaded via the Magnific API (stock downloads free on the Premium plan, 100/day), cut to 3.4 s,
+  crossfaded into 6 reels (desktop 1280x720 ≤4.1 MB, mobile 540x960 ≤2 MB). Areas reel unchanged (Golden Temple).
+
 ## 2026-10-03 — Sikh/Hindu Punjabi refocus + studio admin
 
 - Owner instruction: Sikh Punjabi and Hindu Punjabi weddings ONLY. Copy rewritten (rituals: chunni chadana, maiyan,

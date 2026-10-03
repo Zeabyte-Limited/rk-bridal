@@ -137,3 +137,33 @@ They are PLACEHOLDERS to show the design. Replace with the artist's own work as 
 - `19284377.webp` - https://www.pexels.com/photo/hair-centre-part-tikka/
 - `17521232.webp` - https://www.pexels.com/photo/hair-curly-updo/
 - `5589755.webp` - https://www.pexels.com/photo/hair-floral-bun/
+
+## Hero videos v3 (Magnific/Freepik Premium licence, downloaded via API 2026-10-03)
+
+- Magnific video 9642018 (0_Indian_Wedding_Bride_3840x2160.mov) - https://www.magnific.com/premium-video/_9642018
+- Magnific video 9642021 (0_Indian_Wedding_Bride_3840x2160.mov) - https://www.magnific.com/premium-video/_9642021
+- Magnific video 2433433 (4890479_Holi_Festival_3840x2160.mp4) - https://www.magnific.com/premium-video/_2433433
+- Magnific video 9642078 (0_Indian_Wedding_Bride_3840x2160.mov) - https://www.magnific.com/premium-video/_9642078
+- Magnific video 6444394 (0_Dhol_Drum_3840x2160.mp4) - https://www.magnific.com/premium-video/_6444394
+- Magnific video 9642069 (0_Wedding_Indian_3840x2160.mov) - https://www.magnific.com/premium-video/_9642069
+- Magnific video 3866924 (0_Indian_Wedding_Bride_3840x2160.mov) - https://www.magnific.com/premium-video/_3866924
+- Magnific video 9642028 (0_Bride_Indian_3840x2160.mov) - https://www.magnific.com/premium-video/_9642028
+- Magnific video 6611167 (0_Hand_Bride_3840x2160.mp4) - https://www.magnific.com/premium-video/_6611167
+- Magnific video 8266736 (0_Indian_Bride_Wedding_3840x2160.mov) - https://www.magnific.com/premium-video/_8266736
+- Magnific video 9729998 (0_Bride_Indian_3840x2160.mov) - https://www.magnific.com/premium-video/_9729998
+- Magnific video 9642007 (0_Groom_Wedding_3840x2160.mov) - https://www.magnific.com/premium-video/_9642007
+- Magnific video 9729783 (0_Groom_Wedding_3840x2160.mov) - https://www.magnific.com/premium-video/_9729783
+- Magnific video 9642016 (0_Groom_Wedding_3840x2160.mov) - https://www.magnific.com/premium-video/_9642016
+- Magnific video 9642080 (0_Groom_Indian_3840x2160.mov) - https://www.magnific.com/premium-video/_9642080
+- Magnific video 9888870 (0_Mother_Son_3840x2160.mov) - https://www.magnific.com/premium-video/_9888870
+- Magnific video 2791302 (5947530_Dynamic_Trio_1920x1080.mov) - https://www.magnific.com/premium-video/_2791302
+- Magnific video 2837934 (5949370_Sardar_Pagdi_3840x2160.mp4) - https://www.magnific.com/premium-video/_2837934
+- Magnific video 9395218 (0_Wedding_Couple_3840x2160.mov) - https://www.magnific.com/premium-video/_9395218
+- Magnific video 9642011 (0_Indian_Wedding_Bride_3840x2160.mov) - https://www.magnific.com/premium-video/_9642011
+- Magnific video 9642094 (0_Indian_Wedding_Bride_3840x2160.mov) - https://www.magnific.com/premium-video/_9642094
+- Magnific video 6611165 (0_Indian_Wedding_3840x2160.mp4) - https://www.magnific.com/premium-video/_6611165
+- Magnific video 9642036 (0_Indian_Wedding_Bride_3840x2160.mov) - https://www.magnific.com/premium-video/_9642036
+- Magnific video 8192005 (0_Couple_Wedding_3840x2160.mov) - https://www.magnific.com/premium-video/_8192005
+- Magnific video 3866908 (0_Wedding_Bride_3840x2160.mov) - https://www.magnific.com/premium-video/_3866908
+- Magnific video 3866925 (0_Indian_Wedding_Bride_3840x2160.mov) - https://www.magnific.com/premium-video/_3866925
+- Magnific video 9888776 (0_Bride_Mehndi_3840x2160.mov) - https://www.magnific.com/premium-video/_9888776
