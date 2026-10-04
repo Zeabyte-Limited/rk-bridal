@@ -13,6 +13,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - bridal-makeup-cost-punjab-2026 (Planning)
 - bridal-makeup-chandigarh-weddings-venues-timings (Local)
 - sikh-groom-grooming-dastaar-wedding (Groom)
+- bridal-makeup-trends-punjab-2026-27 (Trends)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -35,13 +36,15 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Dupatta draping styles for Punjabi brides (Bridal)
 - Groom's reception look: sharper, not shinier (Groom)
 - Makeup for Ludhiana weddings (Local) · Amritsar weddings (Local) · Phagwara NRI weddings (Local)
-- 2026–27 bridal makeup trends in Punjab (Trends)
 - How long does bridal makeup take? A realistic timeline (Planning)
 - What to eat and avoid the week before the wedding for glowing skin (Skin & Hair)
 - Sagan and shagun ceremony makeup: simple daytime looks for family functions (Bridal)
 - Safa vs pagri vs dastaar: headgear differences and what they mean for groom grooming (Groom)
+- Makeup for Amritsar weddings: Golden Temple visits, venue light and timing (Local)
+- Lehenga colour and bridal makeup: choosing eyes and lips that match, not fight, your outfit (Bridal)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
 - 2026-10-02 — published "Bridal makeup for Chandigarh weddings: venues, light and timings that change your plan" (Local).
 - 2026-10-03 — published "Groom grooming with a dastaar: what changes for a Sikh wedding" (Groom).
+- 2026-10-04 — published "Bridal makeup trends for Punjab weddings in 2026–27: what's actually changing" (Trends).
