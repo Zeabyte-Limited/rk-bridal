@@ -44,7 +44,7 @@ We arrive about 90 minutes before you need to be ready. Here is what groom groom
 
 1. **Skin:** cleanse, moisturise, a sheer matte base matched to your neck. Dark circles and razor marks evened out. Shine controlled for the lights and the dhol-side sweat.
 2. **Beard and brows:** lined, conditioned, tidy.
-3. **Hair:** styled to last. Dastaar-ready for Sikh grooms; sehra-safe for everyone else — we style around the headgear, not under it.
+3. **Hair:** styled to last. Dastaar-ready or sehra-safe — we style around the headgear, not under it.
 4. **The sherwani check:** collar, kalgi, brooch and dupatta straight. The back too — the photographer will shoot it.
 5. **A touch-up kit** for your brother or best friend: blotting sheets, a comb, lip balm.
 

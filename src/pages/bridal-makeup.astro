@@ -9,7 +9,7 @@ import { SITE, WHATSAPP_URL } from "../config";
 import { faqSchema, serviceSchema, breadcrumbSchema } from "../lib/schema";
 
 const title = `Bridal Makeup Artist in Jalandhar — HD & Airbrush Bridal Makeup | ${SITE.name}`;
-const description = "Bridal makeup in Jalandhar for Sikh and Hindu Punjabi brides: HD and airbrush looks for roka, mehndi, jaggo, Anand Karaj or pheras and reception, with hair, chunni and kaleere setting. Trial included.";
+const description = "Bridal makeup in Jalandhar for Punjabi brides: HD and airbrush looks for roka, mehndi, jaggo, Anand Karaj or pheras and reception, with hair, chunni and kaleere setting. Trial included.";
 
 const ceremonies = [
   { t: "Roka, Chunni & Shagun", img: "couple-sikh-ring", d: "Fresh, natural and photo-ready for the first family functions — soft skin, defined eyes, a lip that matches the suit, and the chunni set beautifully for the chunni chadana." },
@@ -58,7 +58,7 @@ const schema = [
 <Layout title={title} description={description} path="/bridal-makeup/" transparentHeader schema={schema} image="/images/v-hero-bridal.webp">
   <VideoHero video="hero-bridal" poster="v-hero-bridal" eyebrow="For the bride" min="min-h-[80svh]">
     <h1 class="max-w-4xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">Bridal Makeup in Jalandhar that lasts till the <span class="text-gold-300">doli</span></h1>
-    <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">HD and airbrush bridal makeup with hair and draping — designed at a trial, repeated perfectly on the morning — for Sikh and Hindu Punjabi brides.</p>
+    <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">HD and airbrush bridal makeup with hair and draping — designed at a trial, repeated perfectly on the morning — built for Punjabi weddings.</p>
     <div slot="actions" class="mt-8 flex flex-wrap gap-3">
       <a href={WHATSAPP_URL("Hi! I'd like to enquire about bridal makeup for my wedding.")} target="_blank" rel="noopener" class="btn btn-whatsapp !px-7 !py-3.5 !text-[15px]">Enquire on WhatsApp</a>
       <a href="#ceremonies" class="btn btn-ghost-light !px-7 !py-3.5 !text-[15px]">Looks by ceremony</a>
@@ -94,7 +94,7 @@ const schema = [
   <section class="maroon-slab relative overflow-hidden py-20 text-ivory sm:py-28">
     <div class="dotgrid absolute inset-0 opacity-40"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
-      <SectionHead light eyebrow="For Sikh & Hindu Punjabi brides" title="We know what a Punjabi wedding morning actually looks like." />
+      <SectionHead light eyebrow="For the Punjabi bride" title="We know what a Punjabi wedding morning actually looks like." />
       <div class="mt-12 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
         {punjabi.map((p) => (<div class="fade-up border-t border-gold/40 pt-5"><h3 class="text-2xl text-gold-300">{p.t}</h3><p class="mt-2 text-[15.5px] leading-7 text-ivory/80">{p.d}</p></div>))}
       </div>

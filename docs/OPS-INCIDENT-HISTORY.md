@@ -2,6 +2,14 @@
 
 Every production change, issue and fix goes here (newest first).
 
+## 2026-10-04 — Back to v2 videos; no community labels (owner + sister feedback)
+
+- Magnific (v3/v4) footage judged AI-looking and "terrible"; restored the v2 photo-reel hero videos (Sardar grooms,
+  Sikh/Punjabi couples, dhol/bhangra clips) from commit 275ea00. ?v=5 cache-bust.
+- Sister's rule: never separate or label Sikh vs Hindu. Deleted /sikh-wedding-makeup/ and /hindu-punjabi-wedding-makeup/
+  (301 → /bridal-makeup/), removed the homepage Communities block, rewrote all "Sikh and Hindu Punjabi" copy to
+  "Punjabi". Rituals still named naturally. Imagery target ~80% Sikh. CLAUDE.md audience rule updated.
+
 ## 2026-10-03 — Hero videos v4: Sikh couples & families on every page (owner request)
 
 - Owner: all videos must show Sikh/Sardar couples and Sikh families, EXCEPT the Hindu Punjabi page.

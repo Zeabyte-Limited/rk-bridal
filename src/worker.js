@@ -67,7 +67,7 @@ const DEFAULT_SETTINGS = {
     { key: "travel", label: "Travel", price: 0, unit: "per trip" },
   ],
   templates: [
-    { id: "thanks", title: "Thank you for enquiring", text: "Sat Sri Akal {name} ji! 🙏 Thank you for contacting {studio}. Congratulations on your wedding! Could you share your wedding date, city and which events you need makeup for? We'll send you a full quote." },
+    { id: "thanks", title: "Thank you for enquiring", text: "Hello {name} ji! 🙏 Thank you for contacting {studio}. Congratulations on your wedding! Could you share your wedding date, city and which events you need makeup for? We'll send you a full quote." },
     { id: "quote", title: "Send the quote", text: "Hi {name} ji, here is your quote from {studio} 💐\n{link}\nTotal: {total}\nTo confirm your date, the advance is {advance}. Any questions, just reply here." },
     { id: "trial", title: "Trial reminder", text: "Hi {name} ji, a reminder of your bridal trial with {studio}. Please bring your outfit (or photos), jewellery and come with a clean, moisturised face. See you soon! 💄" },
     { id: "advance", title: "Advance received", text: "Hi {name} ji, we've received your advance — your date {date} is confirmed with {studio}! 🎉 We'll be in touch before the wedding with timings." },
@@ -405,7 +405,8 @@ const REDIRECTS = {
   "/book": "/contact/", "/booking": "/contact/", "/enquire": "/contact/",
   "/bride": "/bridal-makeup/", "/bridal": "/bridal-makeup/", "/groom": "/groom-makeup/",
   "/prices": "/packages/", "/pricing": "/packages/", "/gallery": "/portfolio/",
-  "/reviews": "/testimonials/", "/locations": "/areas/", "/login": "/admin/", "/studio": "/admin/",
+  "/reviews": "/testimonials/", "/locations": "/areas/",
+  "/sikh-wedding-makeup": "/bridal-makeup/", "/hindu-punjabi-wedding-makeup": "/bridal-makeup/", "/login": "/admin/", "/studio": "/admin/",
 };
 
 export default {

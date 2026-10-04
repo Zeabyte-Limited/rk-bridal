@@ -11,7 +11,7 @@ export const services: Service[] = [
   {
     slug: "bridal-makeup",
     title: "Bridal Makeup",
-    short: "HD and airbrush bridal looks for Sikh and Hindu Punjabi brides — from the morning Anand Karaj or pheras right through the doli, with hair, chunni and kaleere setting.",
+    short: "HD and airbrush bridal looks for Punjabi brides — from the morning Anand Karaj or pheras right through the doli, with hair, chunni and kaleere setting.",
     image: "bride-pink-kaleere",
     href: "/bridal-makeup/",
     includes: ["Skin prep + primer", "HD or airbrush base", "Eyes, lashes, contour, lips", "Bridal hairstyle", "Dupatta / chunni setting", "Touch-up kit for the day"],
@@ -19,7 +19,7 @@ export const services: Service[] = [
   {
     slug: "groom-makeup",
     title: "Groom Makeup & Grooming",
-    short: "Natural, camera-ready grooming for Sardar and Hindu Punjabi grooms: skin, beard, dastaar- and sehra-friendly hair, and a finish nobody can tell is makeup.",
+    short: "Natural, camera-ready grooming for Punjabi grooms: skin, beard, dastaar- and sehra-friendly hair, and a finish nobody can tell is makeup.",
     image: "groom-sikh-red-turban",
     href: "/groom-makeup/",
     includes: ["Skin prep + light HD base", "Under-eye + blemish correction", "Beard shaping + hair styling", "Sehra / turban-friendly finish", "Pre-wedding + reception options"],

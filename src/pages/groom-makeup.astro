@@ -9,11 +9,11 @@ import { SITE, WHATSAPP_URL } from "../config";
 import { faqSchema, serviceSchema, breadcrumbSchema } from "../lib/schema";
 
 const title = `Groom Makeup & Grooming in Jalandhar — Natural, Camera-Ready | ${SITE.name}`;
-const description = "Groom makeup in Jalandhar for Sardar and Hindu Punjabi grooms: invisible HD grooming, beard shaping, dastaar- and sehra-friendly hair, pre-wedding and reception looks. Travelling across Punjab.";
+const description = "Groom makeup in Jalandhar for Punjabi grooms: invisible HD grooming, beard shaping, dastaar- and sehra-friendly hair, pre-wedding and reception looks. Travelling across Punjab.";
 
 const what = [
   { t: "Skin that looks rested", d: "Light HD base matched to your neck, dark circles and razor marks evened out, oil controlled for a full day under lights. Nobody can tell — they just think you look great." },
-  { t: "Beard & hair", d: "Beard lined and conditioned, hair styled to last — dastaar-ready for Sikh grooms, sehra-safe for everyone else, and photographed from every angle." },
+  { t: "Beard & hair", d: "Beard lined and conditioned, hair styled to last — dastaar-ready or sehra-safe, and photographed from every angle." },
   { t: "The sherwani check", d: "Collar, kalgi, safa, brooch and dupatta set straight before you walk out. We check the back too — the photographer will." },
   { t: "Pre-wedding shoot", d: "Natural, outdoor-proof grooming for the shoot — matte skin, tidy brows, hair that holds in the wind." },
   { t: "Reception", d: "A sharper evening look: sculpted matte skin, defined beard, hair reset — ready for the stage and the flash." },
@@ -28,7 +28,7 @@ const steps = [
 
 const faqs = [
   { q: "Will people be able to tell I’m wearing makeup?", a: "No. Groom grooming is matte, sheer and colour-matched. The goal is ‘rested and sharp’, not ‘made up’. Photographers love it because there is nothing to retouch." },
-  { q: "Do you do grooming for Sikh grooms with a dastaar?", a: "Yes. We work around the dastaar — skin, beard, brows and the hairline — and set the kalgi and safa so the whole look is clean in photos." },
+  { q: "Do you do grooming for grooms who wear a dastaar?", a: "Yes. We work around the dastaar — skin, beard, brows and the hairline — and set the kalgi and safa so the whole look is clean in photos." },
   { q: "How long does groom makeup take?", a: "30–45 minutes, done where you are getting ready. Pre-wedding and reception looks take about the same." },
   { q: "Can you do the bride and the groom at the same time?", a: "Yes — a second artist handles the groom while the bride is being done, so both are ready together and the finish matches." },
   { q: "Do you travel for groom bookings?", a: "Yes, anywhere in Punjab and for destination weddings. If the bride is booked with us, the groom is usually an easy add-on." },
@@ -44,7 +44,7 @@ const schema = [
 <Layout title={title} description={description} path="/groom-makeup/" transparentHeader schema={schema} image="/images/v-hero-groom.webp">
   <VideoHero video="hero-groom" poster="v-hero-groom" eyebrow="For the groom" min="min-h-[80svh]">
     <h1 class="max-w-4xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">Groom Makeup &amp; Grooming in Jalandhar — <span class="text-gold-300">invisible</span>, camera-ready</h1>
-    <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">For Sardar and Hindu Punjabi grooms: rested skin, a sharp beard, a perfect dastaar line or hair that holds under the sehra. For the sehra bandi, the milni, the wedding and the reception.</p>
+    <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">Rested skin, a sharp beard, a perfect dastaar line or hair that holds under the sehra. For the sehra bandi, the milni, the wedding and the reception.</p>
     <div slot="actions" class="mt-8 flex flex-wrap gap-3">
       <a href={WHATSAPP_URL("Hi! I'd like to enquire about groom makeup and grooming.")} target="_blank" rel="noopener" class="btn btn-whatsapp !px-7 !py-3.5 !text-[15px]">Enquire on WhatsApp</a>
       <a href="/portfolio/" class="btn btn-ghost-light !px-7 !py-3.5 !text-[15px]">See groom looks</a>
@@ -70,8 +70,8 @@ const schema = [
         <a href="/blog/groom-grooming-checklist-4-weeks/" class="btn btn-ghost mt-8">Read the full groom checklist</a>
       </div>
       <div class="grid grid-cols-2 gap-4">
-        <div class="img-frame aspect-[3/4]"><img src="/images/groom-sikh-ivory.webp" alt="Sikh groom in ivory sherwani and red turban" loading="lazy" class="h-full w-full object-cover" /></div>
-        <div class="img-frame mt-10 aspect-[3/4]"><img src="/images/groom-pink-safa.webp" alt="Hindu Punjabi groom in a pink safa, natural grooming" loading="lazy" class="h-full w-full object-cover" /></div>
+        <div class="img-frame aspect-[3/4]"><img src="/images/groom-sikh-ivory.webp" alt="Groom in ivory sherwani and red turban" loading="lazy" class="h-full w-full object-cover" /></div>
+        <div class="img-frame mt-10 aspect-[3/4]"><img src="/images/groom-pink-safa.webp" alt="Groom in a pink safa, natural grooming" loading="lazy" class="h-full w-full object-cover" /></div>
       </div>
     </div>
   </section>

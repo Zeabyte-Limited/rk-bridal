@@ -4,7 +4,7 @@ description: "Roka, sagan, engagement, mehndi, haldi, sangeet, Anand Karaj or ph
 date: 2026-09-16
 category: "Planning"
 image: "couple-sikh-wide"
-imageAlt: "Sikh couple after the Anand Karaj"
+imageAlt: "Couple after the Anand Karaj"
 tags: ["timeline", "ceremonies", "punjabi wedding"]
 faqs:
   - q: "Do I need a different look for every event?"

@@ -15,11 +15,11 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - sikh-groom-grooming-dastaar-wedding (Groom)
 
 ## Candidate queue (pick the best, mark done when published)
-AUDIENCE: Sikh Punjabi + Hindu Punjabi weddings ONLY.
+AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
 - Jaggo night makeup and hair for the bride and her sisters (Bridal)
 - Choora and kaleere: how to set them so they last from ceremony to doli (Bridal)
 - Maiyan / vatna skin prep: glowing, not stained (Skin & Hair)
-- Hindu Punjabi pheras at night: makeup for warm mandap light (Bridal)
+- Night pheras: makeup for warm mandap light (Bridal)
 - Sehra bandi and ghodi: groom grooming for the baraat (Groom)
 - Chunni chadana and roka looks (Bridal)
 - Paranda braids for Punjabi brides (Skin & Hair)

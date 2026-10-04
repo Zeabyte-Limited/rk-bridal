@@ -3,12 +3,14 @@
 Bridal & groom makeup artist website, Jalandhar, Punjab. Astro 6 + Tailwind v4 → Cloudflare Worker. **Push to `main` deploys.**
 Owner: Parminder (Zeabyte) manages it for his sister's studio. Read `README.md` and `docs/` first.
 
-## Audience (owner instruction 2026-10-03)
+## Audience (owner instruction 2026-10-04)
 
-The site serves **Sikh Punjabi and Hindu Punjabi families and weddings ONLY**. Every page, post, photo and video must
-be about Sikh or Hindu Punjabi weddings (Anand Karaj, pheras, roka, chunni, mehndi, maiyan/vatna, jaggo, choora,
-kaleere, sehra bandi, ghodi, milni, doli, reception). No South Indian, Bengali, Gujarati, Christian or generic-Western
-wedding content or imagery.
+The site serves **Punjabi weddings** — Jalandhar first, then all of Punjab. Do **NOT** label or separate communities:
+never write "Sikh and Hindu", never make separate Sikh / Hindu pages. Talk about the rituals naturally (roka, chunni,
+mehndi, maiyan/vatna, jaggo, choora, kaleere, sehra bandi, ghodi, Anand Karaj, laavan, pheras, doli, reception).
+Imagery mix: roughly **80% Sikh / Sardar** (turbans, chooda, Anand Karaj) and 20% other Punjabi. No South Indian,
+Bengali, Gujarati, Christian or Western wedding imagery. Owner prefers the photo-reel hero videos (v2) over the
+Magnific AI-looking footage.
 
 ## Non-negotiable truth rules
 
@@ -23,7 +25,7 @@ wedding content or imagery.
 Goal: one strong, genuinely useful post per day that a Punjabi bride/groom would search for, driving WhatsApp enquiries.
 
 1. Read `src/content/blog/` first; **never duplicate a topic**. Keep a candidate queue + done list in `seo-log.md`.
-2. Topic must be for Sikh or Hindu Punjabi brides/grooms/families (see Audience). Write `src/content/blog/<kebab-slug>.md` with the frontmatter in `README.md`. 700–1,200 words, specific to Punjab
+2. Topic must be for Punjabi brides/grooms/families (see Audience; don't label communities). Write `src/content/blog/<kebab-slug>.md` with the frontmatter in `README.md`. 700–1,200 words, specific to Punjab
    (Jalandhar, Chandigarh, Ludhiana, Amritsar, weather, ceremonies: roka, sagan, mehndi, haldi, sangeet, Anand Karaj,
    pheras, reception, doli). 2–4 FAQs in frontmatter. Link to 2+ existing pages (`/bridal-makeup/`, `/groom-makeup/`,
    `/packages/`, `/areas/<city>/`, another post). Use an existing image key from `public/images/`.

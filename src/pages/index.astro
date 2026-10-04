@@ -30,19 +30,19 @@ const why = [
   { t: "Hair is where bridal looks fail. Ours don't.", d: "Our founder is a hair artist first — the bun that holds a 2-kg dupatta, the braid that survives giddha, the setting that keeps a maang tikka straight." },
   { t: "HD and airbrush, chosen for your skin", d: "Not one base for everyone. At the trial we test what your skin loves and what the venue lighting needs." },
   { t: "A full team, not a solo artist", d: "Makeup, hair, draping and mehndi travel together, so the bride, the groom and the family are ready at the same time." },
-  { t: "Only Sikh & Hindu Punjabi weddings", d: "Anand Karaj mornings, late-night pheras, choora and kaleere, jaggo nights, December fog and May heat — this is all we do, and we plan the timeline around all of it." },
+  { t: "Built for Punjabi weddings", d: "Early Anand Karaj mornings, late-night pheras, choora and kaleere, jaggo nights, December fog and May heat — we plan the timeline around all of it." },
   { t: "Travel anywhere in Punjab", d: "Jalandhar is home; Chandigarh, Ludhiana, Amritsar and every town between is a short drive — and we travel with Punjabi families marrying elsewhere." },
   { t: "Honest quotes on WhatsApp", d: "Clear line items — events, family, travel. No surprises on the day." },
 ];
 ---
 
 <Layout path="/" transparentHeader schema={faqSchema(homeFaqs)}>
-  <VideoHero video="hero-home" poster="v-hero-home" eyebrow="For Sikh & Hindu Punjabi weddings">
+  <VideoHero video="hero-home" poster="v-hero-home" eyebrow="Punjabi bridal & groom makeup artistry">
     <h1 class="max-w-4xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">
       Bridal &amp; Groom Makeup Artist in <span class="text-gold-300">Jalandhar</span>, Punjab
     </h1>
     <p class="mt-5 max-w-2xl text-[17px] leading-8 text-ivory/90 sm:text-lg">
-      HD and airbrush bridal makeup, hair, chunni and kaleere setting for Sikh and Hindu Punjabi brides and grooms — roka to reception. {SITE.baseLine}.
+      HD and airbrush bridal makeup, hair, chunni and kaleere setting for Punjabi brides and grooms — roka to reception. {SITE.baseLine}.
     </p>
     <div slot="actions" class="mt-8 flex flex-wrap gap-3">
       <a href={WHATSAPP_URL("Hi! I'd like to check your availability for my wedding date.")} target="_blank" rel="noopener" class="btn btn-whatsapp !px-7 !py-3.5 !text-[15px]">Check your date on WhatsApp</a>
@@ -84,35 +84,6 @@ const why = [
             </div>
           </a>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Communities -->
-  <section class="py-20 sm:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <SectionHead center eyebrow="Our families" title="Sikh and Hindu Punjabi weddings — that’s all we do." sub="Every ritual has its own timing, light and outfit. We know them by heart." />
-      <div class="mt-12 grid gap-6 md:grid-cols-2">
-        <a href="/sikh-wedding-makeup/" class="group relative isolate block overflow-hidden rounded-3xl">
-          <img src="/images/anand-karaj-laavan.webp" alt="Sikh couple at the Anand Karaj" loading="lazy" class="absolute inset-0 -z-20 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
-          <div class="absolute inset-0 -z-10 bg-gradient-to-t from-maroon-900/90 via-maroon-900/30 to-transparent"></div>
-          <div class="flex min-h-[26rem] flex-col justify-end p-8 text-ivory">
-            <p class="script text-3xl text-gold-300">Anand Karaj</p>
-            <h3 class="text-4xl">Sikh weddings</h3>
-            <p class="mt-2 max-w-md text-[15px] leading-7 text-ivory/85">Chunni chadana, jaggo, choora, the laavan and the doli — plus dastaar-ready grooming for the Sardar groom.</p>
-            <span class="btn btn-gold mt-5 w-fit">Sikh wedding makeup →</span>
-          </div>
-        </a>
-        <a href="/hindu-punjabi-wedding-makeup/" class="group relative isolate block overflow-hidden rounded-3xl">
-          <img src="/images/couple-punjabi-steps-red.webp" alt="Hindu Punjabi bride and groom" loading="lazy" class="absolute inset-0 -z-20 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
-          <div class="absolute inset-0 -z-10 bg-gradient-to-t from-maroon-900/90 via-maroon-900/30 to-transparent"></div>
-          <div class="flex min-h-[26rem] flex-col justify-end p-8 text-ivory">
-            <p class="script text-3xl text-gold-300">Pheras</p>
-            <h3 class="text-4xl">Hindu Punjabi weddings</h3>
-            <p class="mt-2 max-w-md text-[15px] leading-7 text-ivory/85">Roka, maiyan, choora, sehra bandi, ghodi and the pheras — and a fresh new look for the reception.</p>
-            <span class="btn btn-gold mt-5 w-fit">Hindu Punjabi makeup →</span>
-          </div>
-        </a>
       </div>
     </div>
   </section>

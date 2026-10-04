@@ -114,7 +114,7 @@ export const areas: Area[] = [
     venues: "Palaces on the GT Road and Ajnala Road, heritage hotels near the walled city and gurdwara mornings.",
     tip: "If the morning includes a gurdwara visit before the ceremony, we design a look that stays modest under a dupatta and still shines for the pheras.",
     faqs: [
-      { q: "Do you do traditional Sikh bridal looks?", a: "Yes — it is one of our specialities: red or maroon tones, strong eyes, modest-yet-glowing skin and a dupatta set to stay through matha tek and laavan." },
+      { q: "Do you do traditional Punjabi bridal looks?", a: "Yes — it is one of our specialities: red or maroon tones, strong eyes, modest-yet-glowing skin and a dupatta set to stay through matha tek, the laavan or the pheras." },
     ],
   },
   {

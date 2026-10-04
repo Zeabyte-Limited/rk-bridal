@@ -1,11 +1,11 @@
 ---
-title: "Sikh bride makeup for the Anand Karaj: a look that lasts from matha tek to the doli"
+title: "Anand Karaj bridal makeup: a look that lasts from matha tek to the doli"
 description: "What makes an Anand Karaj morning different for makeup and hair — early starts, the dupatta, chooda and kaleere, gurdwara light — and how we design a look for it."
 date: 2026-09-12
 category: "Bridal"
 image: "anand-karaj"
 imageAlt: "Anand Karaj ceremony in a gurdwara"
-tags: ["sikh wedding", "anand karaj", "punjabi bride"]
+tags: ["anand karaj", "punjabi bride"]
 faqs:
   - q: "What time does makeup start for a morning Anand Karaj?"
     a: "Usually 4–5 am for an 8–9 am ceremony. Hair, makeup and draping take about three hours, and the photographer wants you ready before you leave."
@@ -15,7 +15,7 @@ faqs:
     a: "After the base is set and before the dupatta is pinned. We build it into the morning timeline so nothing smudges."
 ---
 
-An Anand Karaj morning has its own rhythm: an early start, a bright daylight hall, hours of sitting and bowing, a heavy dupatta, and then the doli at the end of a very long day. Here is how we design a Sikh bride's look around all of it.
+An Anand Karaj morning has its own rhythm: an early start, a bright daylight hall, hours of sitting and bowing, a heavy dupatta, and then the doli at the end of a very long day. Here is how we design an Anand Karaj bride's look around all of it.
 
 ## The start time
 
@@ -39,7 +39,7 @@ The chooda ceremony usually happens in the middle of our timeline. We set the ba
 
 ## Hair
 
-Sikh bridal hair has to carry weight: dupatta, tikka, sometimes a passa or a mathapatti. A structured braid or a pinned low bun holds all of it. Open hair looks lovely in a reel and is a problem by hour three.
+Anand Karaj bridal hair has to carry weight: dupatta, tikka, sometimes a passa or a mathapatti. A structured braid or a pinned low bun holds all of it. Open hair looks lovely in a reel and is a problem by hour three.
 
 ## The long day
 
