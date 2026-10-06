@@ -15,11 +15,11 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - sikh-groom-grooming-dastaar-wedding (Groom)
 - bridal-makeup-trends-punjab-2026-27 (Trends)
 - maiyan-vatna-skin-prep-glowing-not-stained (Skin & Hair)
+- choora-kaleere-set-last-ceremony-to-doli (Bridal)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
 - Jaggo night makeup and hair for the bride and her sisters (Bridal)
-- Choora and kaleere: how to set them so they last from ceremony to doli (Bridal)
 - Night pheras: makeup for warm mandap light (Bridal)
 - Sehra bandi and ghodi: groom grooming for the baraat (Groom)
 - Chunni chadana and roka looks (Bridal)
@@ -32,7 +32,6 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Wedding makeup for the mother of the bride (Bridal)
 - Pre-wedding shoot makeup: outdoor, daylight, wind (Bridal)
 - Bridal skin prep 8 weeks out: the routine we give every bride (Skin & Hair)
-- Chooda and kaleere: how we set them so they last (Bridal)
 - Dupatta draping styles for Punjabi brides (Bridal)
 - Groom's reception look: sharper, not shinier (Groom)
 - Makeup for Ludhiana weddings (Local) · Amritsar weddings (Local) · Phagwara NRI weddings (Local)
@@ -44,6 +43,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Lehenga colour and bridal makeup: choosing eyes and lips that match, not fight, your outfit (Bridal)
 - Monsoon wedding makeup in Punjab: humidity-proofing for July–September functions (Skin & Hair)
 - Groom's sangeet look: makeup-free grooming that still holds up on camera (Groom)
+- Chooda and kaleere removal: when and how brides take them off after the wedding (Bridal)
+- Makeup for Jalandhar weddings: local venues, winter fog and timing (Local)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -51,3 +52,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-03 — published "Groom grooming with a dastaar: what changes for a Sikh wedding" (Groom).
 - 2026-10-04 — published "Bridal makeup trends for Punjab weddings in 2026–27: what's actually changing" (Trends).
 - 2026-10-05 — published "Maiyan and vatna: getting the glow without the turmeric stains" (Skin & Hair).
+- 2026-10-06 — published "Choora and kaleere: how to set them so they last from ceremony to doli" (Bridal).
