@@ -16,6 +16,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - bridal-makeup-trends-punjab-2026-27 (Trends)
 - maiyan-vatna-skin-prep-glowing-not-stained (Skin & Hair)
 - choora-kaleere-set-last-ceremony-to-doli (Bridal)
+- bridal-makeup-nri-brides-planning-punjab-wedding (Planning)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -28,7 +29,6 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Jaggo and sangeet hairstyles that survive giddha and bhangra (Skin & Hair)
 - Engagement makeup: soft glam that photographs the ring (Bridal)
 - Reception makeup vs wedding makeup: why it must be a new look (Bridal)
-- Bridal makeup for NRI brides: planning a Punjab wedding from Canada/UK/Australia (Planning)
 - Wedding makeup for the mother of the bride (Bridal)
 - Pre-wedding shoot makeup: outdoor, daylight, wind (Bridal)
 - Bridal skin prep 8 weeks out: the routine we give every bride (Skin & Hair)
@@ -45,6 +45,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Groom's sangeet look: makeup-free grooming that still holds up on camera (Groom)
 - Chooda and kaleere removal: when and how brides take them off after the wedding (Bridal)
 - Makeup for Jalandhar weddings: local venues, winter fog and timing (Local)
+- Hairstyles for dupatta vs chunni: what holds under a heavy veil (Skin & Hair)
+- Groom's roka and engagement look: smart-casual grooming before the wedding (Groom)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -53,3 +55,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-04 — published "Bridal makeup trends for Punjab weddings in 2026–27: what's actually changing" (Trends).
 - 2026-10-05 — published "Maiyan and vatna: getting the glow without the turmeric stains" (Skin & Hair).
 - 2026-10-06 — published "Choora and kaleere: how to set them so they last from ceremony to doli" (Bridal).
+- 2026-10-07 — published "Bridal makeup for NRI brides: planning a Punjab wedding from Canada, UK or Australia" (Planning).
