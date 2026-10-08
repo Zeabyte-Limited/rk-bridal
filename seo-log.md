@@ -17,10 +17,10 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - maiyan-vatna-skin-prep-glowing-not-stained (Skin & Hair)
 - choora-kaleere-set-last-ceremony-to-doli (Bridal)
 - bridal-makeup-nri-brides-planning-punjab-wedding (Planning)
+- jaggo-night-makeup-hair-bride-sisters (Bridal)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
-- Jaggo night makeup and hair for the bride and her sisters (Bridal)
 - Night pheras: makeup for warm mandap light (Bridal)
 - Sehra bandi and ghodi: groom grooming for the baraat (Groom)
 - Chunni chadana and roka looks (Bridal)
@@ -47,6 +47,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Makeup for Jalandhar weddings: local venues, winter fog and timing (Local)
 - Hairstyles for dupatta vs chunni: what holds under a heavy veil (Skin & Hair)
 - Groom's roka and engagement look: smart-casual grooming before the wedding (Groom)
+- Bridesmaid and sister-of-the-bride makeup: coordinated but not matching (Bridal)
+- Makeup for indoor banquet-hall weddings vs outdoor lawn weddings in Punjab (Planning)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -56,3 +58,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-05 — published "Maiyan and vatna: getting the glow without the turmeric stains" (Skin & Hair).
 - 2026-10-06 — published "Choora and kaleere: how to set them so they last from ceremony to doli" (Bridal).
 - 2026-10-07 — published "Bridal makeup for NRI brides: planning a Punjab wedding from Canada, UK or Australia" (Planning).
+- 2026-10-08 — published "Jaggo night makeup and hair for the bride and her sisters" (Bridal).
