@@ -18,11 +18,11 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - choora-kaleere-set-last-ceremony-to-doli (Bridal)
 - bridal-makeup-nri-brides-planning-punjab-wedding (Planning)
 - jaggo-night-makeup-hair-bride-sisters (Bridal)
+- sehra-bandi-ghodi-groom-grooming-baraat (Groom)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
 - Night pheras: makeup for warm mandap light (Bridal)
-- Sehra bandi and ghodi: groom grooming for the baraat (Groom)
 - Chunni chadana and roka looks (Bridal)
 - Paranda braids for Punjabi brides (Skin & Hair)
 - Summer wedding makeup in Punjab: sweat-proof looks for May–June (Skin & Hair)
@@ -49,6 +49,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Groom's roka and engagement look: smart-casual grooming before the wedding (Groom)
 - Bridesmaid and sister-of-the-bride makeup: coordinated but not matching (Bridal)
 - Makeup for indoor banquet-hall weddings vs outdoor lawn weddings in Punjab (Planning)
+- Milni and welcome-ceremony looks: what the groom's and bride's families wear for the first meeting (Planning)
+- Hairstyles that survive a dastaar removal and re-tie later in the day (Skin & Hair)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -59,3 +61,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-06 — published "Choora and kaleere: how to set them so they last from ceremony to doli" (Bridal).
 - 2026-10-07 — published "Bridal makeup for NRI brides: planning a Punjab wedding from Canada, UK or Australia" (Planning).
 - 2026-10-08 — published "Jaggo night makeup and hair for the bride and her sisters" (Bridal).
+- 2026-10-09 — published "Sehra bandi and ghodi: groom grooming for baraat day" (Groom).
