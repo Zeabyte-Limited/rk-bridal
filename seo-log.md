@@ -19,6 +19,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - bridal-makeup-nri-brides-planning-punjab-wedding (Planning)
 - jaggo-night-makeup-hair-bride-sisters (Bridal)
 - sehra-bandi-ghodi-groom-grooming-baraat (Groom)
+- bridal-makeup-jalandhar-weddings-venues-fog-timing (Local)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -44,13 +45,14 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Monsoon wedding makeup in Punjab: humidity-proofing for July–September functions (Skin & Hair)
 - Groom's sangeet look: makeup-free grooming that still holds up on camera (Groom)
 - Chooda and kaleere removal: when and how brides take them off after the wedding (Bridal)
-- Makeup for Jalandhar weddings: local venues, winter fog and timing (Local)
 - Hairstyles for dupatta vs chunni: what holds under a heavy veil (Skin & Hair)
 - Groom's roka and engagement look: smart-casual grooming before the wedding (Groom)
 - Bridesmaid and sister-of-the-bride makeup: coordinated but not matching (Bridal)
 - Makeup for indoor banquet-hall weddings vs outdoor lawn weddings in Punjab (Planning)
 - Milni and welcome-ceremony looks: what the groom's and bride's families wear for the first meeting (Planning)
 - Hairstyles that survive a dastaar removal and re-tie later in the day (Skin & Hair)
+- Makeup for Hoshiarpur and Kapurthala weddings: smaller towns, same big-day timeline (Local)
+- Lip colour and bindi choices that actually suit Punjabi bridal lehenga shades (Trends)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -62,3 +64,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-07 — published "Bridal makeup for NRI brides: planning a Punjab wedding from Canada, UK or Australia" (Planning).
 - 2026-10-08 — published "Jaggo night makeup and hair for the bride and her sisters" (Bridal).
 - 2026-10-09 — published "Sehra bandi and ghodi: groom grooming for baraat day" (Groom).
+- 2026-10-10 — published "Bridal makeup for Jalandhar weddings: venues, winter fog and timing" (Local).
