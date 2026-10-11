@@ -20,6 +20,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - jaggo-night-makeup-hair-bride-sisters (Bridal)
 - sehra-bandi-ghodi-groom-grooming-baraat (Groom)
 - bridal-makeup-jalandhar-weddings-venues-fog-timing (Local)
+- how-long-does-bridal-makeup-take-timeline (Planning)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -36,7 +37,6 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Dupatta draping styles for Punjabi brides (Bridal)
 - Groom's reception look: sharper, not shinier (Groom)
 - Makeup for Ludhiana weddings (Local) · Amritsar weddings (Local) · Phagwara NRI weddings (Local)
-- How long does bridal makeup take? A realistic timeline (Planning)
 - What to eat and avoid the week before the wedding for glowing skin (Skin & Hair)
 - Sagan and shagun ceremony makeup: simple daytime looks for family functions (Bridal)
 - Safa vs pagri vs dastaar: headgear differences and what they mean for groom grooming (Groom)
@@ -53,6 +53,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Hairstyles that survive a dastaar removal and re-tie later in the day (Skin & Hair)
 - Makeup for Hoshiarpur and Kapurthala weddings: smaller towns, same big-day timeline (Local)
 - Lip colour and bindi choices that actually suit Punjabi bridal lehenga shades (Trends)
+- Destination weddings from Punjab: packing and planning bridal makeup for an outstation venue (Planning)
+- Oily skin vs dry skin bridal makeup: getting the base right for Punjab's weather swings (Skin & Hair)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -65,3 +67,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-08 — published "Jaggo night makeup and hair for the bride and her sisters" (Bridal).
 - 2026-10-09 — published "Sehra bandi and ghodi: groom grooming for baraat day" (Groom).
 - 2026-10-10 — published "Bridal makeup for Jalandhar weddings: venues, winter fog and timing" (Local).
+- 2026-10-11 — published "How long does bridal makeup take? A realistic timeline for your wedding morning" (Planning).
