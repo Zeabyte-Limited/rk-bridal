@@ -22,6 +22,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - bridal-makeup-jalandhar-weddings-venues-fog-timing (Local)
 - how-long-does-bridal-makeup-take-timeline (Planning)
 - bridal-skin-prep-8-weeks-routine (Skin & Hair)
+- engagement-makeup-soft-glam-ring-photos (Bridal)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -30,7 +31,6 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Paranda braids for Punjabi brides (Skin & Hair)
 - Summer wedding makeup in Punjab: sweat-proof looks for May–June (Skin & Hair)
 - Jaggo and sangeet hairstyles that survive giddha and bhangra (Skin & Hair)
-- Engagement makeup: soft glam that photographs the ring (Bridal)
 - Reception makeup vs wedding makeup: why it must be a new look (Bridal)
 - Wedding makeup for the mother of the bride (Bridal)
 - Pre-wedding shoot makeup: outdoor, daylight, wind (Bridal)
@@ -57,6 +57,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Oily skin vs dry skin bridal makeup: getting the base right for Punjab's weather swings (Skin & Hair)
 - Bridal makeup for an evening sangeet vs daytime mehndi: how the look should change (Trends)
 - Makeup for Bathinda and Patiala weddings: venues and timing (Local)
+- Sagan-day saree vs lehenga: how the makeup and hair brief changes with the outfit (Trends)
+- Makeup for a haldi function: yellow-proof base and a look that still photographs clean (Skin & Hair)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -71,3 +73,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-10 — published "Bridal makeup for Jalandhar weddings: venues, winter fog and timing" (Local).
 - 2026-10-11 — published "How long does bridal makeup take? A realistic timeline for your wedding morning" (Planning).
 - 2026-10-12 — published "Bridal skin prep: the 8-week routine we give every Punjab bride" (Skin & Hair).
+- 2026-10-13 — published "Engagement makeup for Punjabi brides: soft glam that photographs the ring" (Bridal).
