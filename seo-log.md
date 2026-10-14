@@ -23,6 +23,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - how-long-does-bridal-makeup-take-timeline (Planning)
 - bridal-skin-prep-8-weeks-routine (Skin & Hair)
 - engagement-makeup-soft-glam-ring-photos (Bridal)
+- lip-colour-bindi-punjabi-bridal-lehenga (Trends)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -52,13 +53,14 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Milni and welcome-ceremony looks: what the groom's and bride's families wear for the first meeting (Planning)
 - Hairstyles that survive a dastaar removal and re-tie later in the day (Skin & Hair)
 - Makeup for Hoshiarpur and Kapurthala weddings: smaller towns, same big-day timeline (Local)
-- Lip colour and bindi choices that actually suit Punjabi bridal lehenga shades (Trends)
 - Destination weddings from Punjab: packing and planning bridal makeup for an outstation venue (Planning)
 - Oily skin vs dry skin bridal makeup: getting the base right for Punjab's weather swings (Skin & Hair)
 - Bridal makeup for an evening sangeet vs daytime mehndi: how the look should change (Trends)
 - Makeup for Bathinda and Patiala weddings: venues and timing (Local)
 - Sagan-day saree vs lehenga: how the makeup and hair brief changes with the outfit (Trends)
 - Makeup for a haldi function: yellow-proof base and a look that still photographs clean (Skin & Hair)
+- Jewellery and makeup: planning your look around a heavy necklace, jhoomar or nath (Trends)
+- Groom's Anand Karaj look: what to wear under the sehra and how grooming should match (Groom)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -74,3 +76,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-11 — published "How long does bridal makeup take? A realistic timeline for your wedding morning" (Planning).
 - 2026-10-12 — published "Bridal skin prep: the 8-week routine we give every Punjab bride" (Skin & Hair).
 - 2026-10-13 — published "Engagement makeup for Punjabi brides: soft glam that photographs the ring" (Bridal).
+- 2026-10-14 — published "Lip colour and bindi: choosing shades that actually suit your bridal lehenga" (Trends).
