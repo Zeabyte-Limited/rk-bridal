@@ -24,6 +24,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - bridal-skin-prep-8-weeks-routine (Skin & Hair)
 - engagement-makeup-soft-glam-ring-photos (Bridal)
 - lip-colour-bindi-punjabi-bridal-lehenga (Trends)
+- groom-reception-look-sharper-not-shinier (Groom)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -36,7 +37,6 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Wedding makeup for the mother of the bride (Bridal)
 - Pre-wedding shoot makeup: outdoor, daylight, wind (Bridal)
 - Dupatta draping styles for Punjabi brides (Bridal)
-- Groom's reception look: sharper, not shinier (Groom)
 - Makeup for Ludhiana weddings (Local) · Amritsar weddings (Local) · Phagwara NRI weddings (Local)
 - What to eat and avoid the week before the wedding for glowing skin (Skin & Hair)
 - Sagan and shagun ceremony makeup: simple daytime looks for family functions (Bridal)
@@ -61,6 +61,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Makeup for a haldi function: yellow-proof base and a look that still photographs clean (Skin & Hair)
 - Jewellery and makeup: planning your look around a heavy necklace, jhoomar or nath (Trends)
 - Groom's Anand Karaj look: what to wear under the sehra and how grooming should match (Groom)
+- Makeup for a Punjabi wedding in peak summer heat: touch-up kit and timing for outdoor ceremonies (Skin & Hair)
+- Choosing between a saree and lehenga for the reception: how the makeup and hair brief should change (Trends)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -77,3 +79,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-12 — published "Bridal skin prep: the 8-week routine we give every Punjab bride" (Skin & Hair).
 - 2026-10-13 — published "Engagement makeup for Punjabi brides: soft glam that photographs the ring" (Bridal).
 - 2026-10-14 — published "Lip colour and bindi: choosing shades that actually suit your bridal lehenga" (Trends).
+- 2026-10-15 — published "Groom's reception look: sharper, not shinier" (Groom).
