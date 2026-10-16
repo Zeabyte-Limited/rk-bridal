@@ -25,6 +25,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - engagement-makeup-soft-glam-ring-photos (Bridal)
 - lip-colour-bindi-punjabi-bridal-lehenga (Trends)
 - groom-reception-look-sharper-not-shinier (Groom)
+- bridal-makeup-amritsar-weddings-golden-temple-timing (Local)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -37,11 +38,10 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Wedding makeup for the mother of the bride (Bridal)
 - Pre-wedding shoot makeup: outdoor, daylight, wind (Bridal)
 - Dupatta draping styles for Punjabi brides (Bridal)
-- Makeup for Ludhiana weddings (Local) · Amritsar weddings (Local) · Phagwara NRI weddings (Local)
+- Makeup for Ludhiana weddings (Local) · Phagwara NRI weddings (Local)
 - What to eat and avoid the week before the wedding for glowing skin (Skin & Hair)
 - Sagan and shagun ceremony makeup: simple daytime looks for family functions (Bridal)
 - Safa vs pagri vs dastaar: headgear differences and what they mean for groom grooming (Groom)
-- Makeup for Amritsar weddings: Golden Temple visits, venue light and timing (Local)
 - Lehenga colour and bridal makeup: choosing eyes and lips that match, not fight, your outfit (Bridal)
 - Monsoon wedding makeup in Punjab: humidity-proofing for July–September functions (Skin & Hair)
 - Groom's sangeet look: makeup-free grooming that still holds up on camera (Groom)
@@ -63,6 +63,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Groom's Anand Karaj look: what to wear under the sehra and how grooming should match (Groom)
 - Makeup for a Punjabi wedding in peak summer heat: touch-up kit and timing for outdoor ceremonies (Skin & Hair)
 - Choosing between a saree and lehenga for the reception: how the makeup and hair brief should change (Trends)
+- Makeup for a milni and ring ceremony held the same day as the wedding: a two-look morning (Planning)
+- Groom's mehndi and haldi look: what actually needs grooming before the main event (Groom)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -80,3 +82,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-13 — published "Engagement makeup for Punjabi brides: soft glam that photographs the ring" (Bridal).
 - 2026-10-14 — published "Lip colour and bindi: choosing shades that actually suit your bridal lehenga" (Trends).
 - 2026-10-15 — published "Groom's reception look: sharper, not shinier" (Groom).
+- 2026-10-16 — published "Bridal makeup for Amritsar weddings: Golden Temple visits, venue light and timing" (Local).
