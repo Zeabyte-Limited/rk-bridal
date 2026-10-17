@@ -26,12 +26,12 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - lip-colour-bindi-punjabi-bridal-lehenga (Trends)
 - groom-reception-look-sharper-not-shinier (Groom)
 - bridal-makeup-amritsar-weddings-golden-temple-timing (Local)
+- paranda-braids-punjabi-brides (Skin & Hair)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
 - Night pheras: makeup for warm mandap light (Bridal)
 - Chunni chadana and roka looks (Bridal)
-- Paranda braids for Punjabi brides (Skin & Hair)
 - Summer wedding makeup in Punjab: sweat-proof looks for May–June (Skin & Hair)
 - Jaggo and sangeet hairstyles that survive giddha and bhangra (Skin & Hair)
 - Reception makeup vs wedding makeup: why it must be a new look (Bridal)
@@ -65,6 +65,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Choosing between a saree and lehenga for the reception: how the makeup and hair brief should change (Trends)
 - Makeup for a milni and ring ceremony held the same day as the wedding: a two-look morning (Planning)
 - Groom's mehndi and haldi look: what actually needs grooming before the main event (Groom)
+- Hairstyles for a Punjabi bride with a heavy dupatta drape: pinning that holds through pheras and photos (Skin & Hair)
+- Choosing your bridal lip shade for warm vs cool-toned gold jewellery (Trends)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -83,3 +85,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-14 — published "Lip colour and bindi: choosing shades that actually suit your bridal lehenga" (Trends).
 - 2026-10-15 — published "Groom's reception look: sharper, not shinier" (Groom).
 - 2026-10-16 — published "Bridal makeup for Amritsar weddings: Golden Temple visits, venue light and timing" (Local).
+- 2026-10-17 — published "Paranda braids for Punjabi brides: when they work and how to make them last" (Skin & Hair).
