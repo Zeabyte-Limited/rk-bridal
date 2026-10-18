@@ -1,4 +1,4 @@
-# CLAUDE.md — rk-bridal (RK Bridal Studio website)
+# CLAUDE.md — rk-bridal (Kaur Bridal Studio website)
 
 Bridal & groom makeup artist website, Jalandhar, Punjab. Astro 6 + Tailwind v4 → Cloudflare Worker. **Push to `main` deploys.**
 Owner: Parminder (Zeabyte) manages it for his sister's studio. Read `README.md` and `docs/` first.

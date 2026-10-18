@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   // Switch to the custom domain once it is bought + attached to the Worker.
-  site: 'https://rk-bridal.zeabyte.workers.dev',
+  site: 'https://kaurbridalstudio.com',
   trailingSlash: 'always',
   integrations: [
     sitemap({

@@ -41,7 +41,7 @@ jobs:
         run: |
           sleep 10
           for p in / /bridal-makeup/ /groom-makeup/ /areas/chandigarh/ /blog/ /sitemap-index.xml; do
-            code=$(curl -s -o /dev/null -w "%{http_code}" "https://rk-bridal.zeabyte.workers.dev$p")
+            code=$(curl -s -o /dev/null -w "%{http_code}" "https://kaurbridalstudio.com$p")
             echo "$code $p"; [ "$code" = "200" ] || exit 1
           done
 

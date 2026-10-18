@@ -4,11 +4,11 @@
 // Working name until the final business name is chosen (see docs/NAME-OPTIONS.md).
 // ============================================================================
 export const SITE = {
-  name: "RK Bridal Studio",
-  shortName: "RK Bridal",
+  name: "Kaur Bridal Studio",
+  shortName: "Kaur Bridal",
   tagline: "Bridal & Groom Makeup Artistry",
   // Public URL. Switch to the custom domain once it is bought and attached.
-  url: "https://rk-bridal.zeabyte.workers.dev",
+  url: "https://kaurbridalstudio.com",
   city: "Jalandhar",
   state: "Punjab",
   country: "India",
@@ -17,9 +17,9 @@ export const SITE = {
   phoneDisplay: "+91 98XXX XXXXX",
   phoneE164: "+919800000000",
   whatsappNumber: "919800000000", // digits only, country code first
-  email: "hello@rkbridalstudio.in", // PLACEHOLDER
+  email: "hello@kaurbridalstudio.com", // PLACEHOLDER
   instagram: "https://www.instagram.com/", // PLACEHOLDER — add the real profile URL
-  instagramHandle: "@rkbridalstudio",
+  instagramHandle: "@kaurbridalstudio",
   foundedYear: 2026,
   baseLine: "Based in Jalandhar · travelling across Punjab",
   hours: "Mon–Sun 8:00 am – 9:00 pm (wedding days: any hour)",

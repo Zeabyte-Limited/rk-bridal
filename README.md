@@ -1,9 +1,9 @@
-# RK Bridal Studio — website
+# Kaur Bridal Studio — website
 
 Bridal & groom makeup artist website for Jalandhar, Punjab. Built with **Astro 6 + Tailwind v4**, hosted on a
 **Cloudflare Worker** (free plan) that serves the static build and handles the booking-form email backup.
 
-- **Live:** https://rk-bridal.zeabyte.workers.dev (custom domain to be attached once bought — see `docs/NAME-OPTIONS.md`)
+- **Live:** https://kaurbridalstudio.com (Worker `rk-bridal`; the old rk-bridal.zeabyte.workers.dev and www 301 to it). kaurbridalstudio.co.in bought at GoDaddy (owner) — forward it to the .com.
 - **Repo:** `Zeabyte-Limited/rk-bridal` — **push to `main` = live** in ~90 s (`.github/workflows/deploy.yml`)
 - **Owner:** Parminder (Zeabyte) manages the site for the studio.
 

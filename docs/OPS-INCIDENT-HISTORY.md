@@ -2,6 +2,17 @@
 
 Every production change, issue and fix goes here (newest first).
 
+## 2026-10-18 — Renamed to Kaur Bridal Studio, live on kaurbridalstudio.com
+
+- Owner chose the name **Kaur Bridal Studio**. Bought kaurbridalstudio.com (Cloudflare Registrar, renews 18 Oct 2027)
+  and kaurbridalstudio.co.in (GoDaddy). Checked first: .com/.in/.co.in were all unregistered and no Punjab business used the name.
+- Site renamed everywhere (config, manifest, llms.txt, booking WhatsApp text, about/privacy, worker emails), monogram RK → KB
+  (header, footer, admin, favicon + all icon PNGs regenerated), OG image text replaced (old text erased by masked fill).
+- Worker custom domains attached via API: kaurbridalstudio.com + www. Worker now 301s workers.dev and www to the apex
+  (308 for non-GET) so Google sees one address. astro `site`, sitemap and robots point at the new domain.
+- Verified live: apex 200 with new title, www and workers.dev 301 path-preserving, og.jpg + sitemap 200.
+- Email/Instagram in config are still placeholders (hello@kaurbridalstudio.com, @kaurbridalstudio) — no mailbox or handle yet.
+
 ## 2026-10-04 — Back to v2 videos; no community labels (owner + sister feedback)
 
 - Magnific (v3/v4) footage judged AI-looking and "terrible"; restored the v2 photo-reel hero videos (Sardar grooms,

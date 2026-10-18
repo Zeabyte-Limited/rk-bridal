@@ -81,7 +81,7 @@ const events = ["Roka / Sagan", "Engagement", "Mehndi", "Haldi", "Sangeet", "Wed
       if (!name || !phone) { note.textContent = "Please add your name and phone number."; note.classList.remove("hidden"); return; }
       var events = fd.getAll("events").join(", ");
       var payload = { name: name, phone: phone, date: fd.get("date") || "", city: fd.get("city") || "", who: fd.get("who") || "", events: events, message: fd.get("message") || "", botcheck: fd.get("botcheck") || "" };
-      var text = "Hi RK Bridal Studio! I'd like to check a date.\n" +
+      var text = "Hi Kaur Bridal Studio! I'd like to check a date.\n" +
         "Name: " + name + "\nPhone: " + phone +
         (payload.date ? "\nWedding date: " + payload.date : "") +
         (payload.city ? "\nCity/venue: " + payload.city : "") +

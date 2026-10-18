@@ -19,7 +19,8 @@ import { AwsClient } from "aws4fetch";
 
 const FROM_ADDRESS = "noreply@zeabyte.co.nz";
 const DEFAULT_TO = "parminder@zeabyte.co.nz";
-const STUDIO = "RK Bridal Studio";
+const STUDIO = "Kaur Bridal Studio";
+const CANONICAL_HOST = "kaurbridalstudio.com";
 const DEFAULT_WA = "919800000000";
 
 // ---------------------------------------------------------------- helpers
@@ -413,6 +414,11 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
+    // One address for Google and customers: the old workers.dev URL and www both forward to the real domain.
+    if (url.hostname !== CANONICAL_HOST && (url.hostname.endsWith(".workers.dev") || url.hostname === "www." + CANONICAL_HOST)) {
+      const to = "https://" + CANONICAL_HOST + url.pathname + url.search;
+      return Response.redirect(to, request.method === "GET" || request.method === "HEAD" ? 301 : 308);
+    }
     try {
       if (path === "/api/lead" && request.method === "POST") return await handleLead(request, env);
       if (path.startsWith("/api/admin/")) return await admin(request, env, path);

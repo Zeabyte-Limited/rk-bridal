@@ -5,4 +5,4 @@ Disallow: /admin/
 Disallow: /q/
 Disallow: /api/
 
-Sitemap: https://rk-bridal.zeabyte.workers.dev/sitemap-index.xml
+Sitemap: https://kaurbridalstudio.com/sitemap-index.xml
