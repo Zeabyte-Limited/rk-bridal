@@ -69,3 +69,7 @@ Every production change, issue and fix goes here (newest first).
 - Placeholders still live: WhatsApp number, email, Instagram URL (all in `src/config.ts`); business name "RK Bridal Studio".
 - Decision: NO fabricated testimonials. Reviews page ships with an honest empty state; `/preview/testimonials/` (noindex)
   shows the filled design with labelled samples.
+
+## 2026-10-18 — Instagram link = @roop_hair_artist
+
+- Owner confirmed his sister's current Instagram is @roop_hair_artist (423 followers). config.ts instagram + handle set; deployed and verified on /contact/.

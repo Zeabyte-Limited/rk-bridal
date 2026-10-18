@@ -18,8 +18,8 @@ export const SITE = {
   phoneE164: "+919800000000",
   whatsappNumber: "919800000000", // digits only, country code first
   email: "hello@kaurbridalstudio.com", // PLACEHOLDER
-  instagram: "https://www.instagram.com/", // PLACEHOLDER — add the real profile URL
-  instagramHandle: "@kaurbridalstudio",
+  instagram: "https://www.instagram.com/roop_hair_artist/", // owner's sister's real account (confirmed 18 Oct 2026)
+  instagramHandle: "@roop_hair_artist",
   foundedYear: 2026,
   baseLine: "Based in Jalandhar · travelling across Punjab",
   hours: "Mon–Sun 8:00 am – 9:00 pm (wedding days: any hour)",
