@@ -21,7 +21,7 @@ const FROM_ADDRESS = "noreply@zeabyte.co.nz";
 const DEFAULT_TO = "parminder@zeabyte.co.nz";
 const STUDIO = "Kaur Bridal Studio";
 const CANONICAL_HOST = "kaurbridalstudio.com";
-const DEFAULT_WA = "919800000000";
+const DEFAULT_WA = "919815448775";
 
 // ---------------------------------------------------------------- helpers
 const json = (data, status = 200, headers = {}) =>
@@ -356,7 +356,7 @@ async function quotePage(env, token) {
   const ask = `https://wa.me/${s.studioWhatsapp}?text=${encodeURIComponent(`Hi ${STUDIO}, I have a question about quote ${q.number}.`)}`;
   const rows = q.items.map((i) => `<tr><td>${esc(i.label)}${i.note ? `<div class="n">${esc(i.note)}</div>` : ""}</td><td class="r">${i.qty}</td><td class="r">${inr(i.price)}</td><td class="r">${inr(i.qty * i.price)}</td></tr>`).join("");
   const html = `<!doctype html><html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Quote ${esc(q.number)} — ${STUDIO}</title>
-<link rel="icon" href="/favicon.svg"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon-32.png" type="image/png"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
 :root{--m:#6b0f1a;--g:#c9a24a;--iv:#fbf7f2;--ink:#1e1419;--mute:#6f5f66}*{box-sizing:border-box}body{margin:0;background:var(--iv);color:var(--ink);font:16px/1.6 Manrope,system-ui,sans-serif}
 .wrap{max-width:820px;margin:0 auto;padding:24px 16px 60px}.top{background:linear-gradient(160deg,#560c15,#3a070e);color:var(--iv);border-radius:24px;padding:28px 24px;position:relative;overflow:hidden}

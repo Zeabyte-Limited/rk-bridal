@@ -14,9 +14,9 @@ export const SITE = {
   country: "India",
   // Phone + WhatsApp. PLACEHOLDER until the real number is supplied —
   // WhatsApp links will not reach anyone until this is a real number.
-  phoneDisplay: "+91 98XXX XXXXX",
-  phoneE164: "+919800000000",
-  whatsappNumber: "919800000000", // digits only, country code first
+  phoneDisplay: "+91 98154 48775",
+  phoneE164: "+919815448775",
+  whatsappNumber: "919815448775", // digits only, country code first (owner, 18 Oct 2026)
   email: "hello@kaurbridalstudio.com", // PLACEHOLDER
   instagram: "https://www.instagram.com/roop_hair_artist/", // owner's sister's real account (confirmed 18 Oct 2026)
   instagramHandle: "@roop_hair_artist",

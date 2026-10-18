@@ -2,6 +2,14 @@
 
 Every production change, issue and fix goes here (newest first).
 
+## 2026-10-18 — Real WhatsApp number + illustrated logo (L3)
+
+- Owner gave the studio's WhatsApp/phone: +91 98154 48775. config.ts (display, E.164, wa.me) + worker DEFAULT_WA updated
+  (KV had no saved `settings`, so the default is what /api/public/settings serves). Verified live: settings API and all wa.me links.
+- Owner chose the illustrated logo "L3" (bride with red dupatta + rose, Magnific art + typeset name). Round head crop
+  `public/brand/logo-mark*.webp` replaces the KB square in header, footer and admin; favicon/app icons regenerated from it;
+  favicon.svg removed (admin + quote page now use favicon-32.png). Verified on desktop + mobile header screenshots.
+
 ## 2026-10-18 — Instagram link = @roop_hair_artist
 
 - Owner confirmed his sister's current Instagram is @roop_hair_artist (423 followers). config.ts instagram + handle set; deployed and verified on /contact/.
