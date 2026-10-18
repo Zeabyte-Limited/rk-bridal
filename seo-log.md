@@ -27,6 +27,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - groom-reception-look-sharper-not-shinier (Groom)
 - bridal-makeup-amritsar-weddings-golden-temple-timing (Local)
 - paranda-braids-punjabi-brides (Skin & Hair)
+- bridal-reception-makeup-different-look (Bridal)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -34,8 +35,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Chunni chadana and roka looks (Bridal)
 - Summer wedding makeup in Punjab: sweat-proof looks for May–June (Skin & Hair)
 - Jaggo and sangeet hairstyles that survive giddha and bhangra (Skin & Hair)
-- Reception makeup vs wedding makeup: why it must be a new look (Bridal)
 - Wedding makeup for the mother of the bride (Bridal)
+- Makeup for a court marriage or simple registry ceremony: a shorter, lighter brief (Planning)
 - Pre-wedding shoot makeup: outdoor, daylight, wind (Bridal)
 - Dupatta draping styles for Punjabi brides (Bridal)
 - Makeup for Ludhiana weddings (Local) · Phagwara NRI weddings (Local)
@@ -86,3 +87,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-15 — published "Groom's reception look: sharper, not shinier" (Groom).
 - 2026-10-16 — published "Bridal makeup for Amritsar weddings: Golden Temple visits, venue light and timing" (Local).
 - 2026-10-17 — published "Paranda braids for Punjabi brides: when they work and how to make them last" (Skin & Hair).
+- 2026-10-18 — published "Reception makeup vs wedding-day makeup: why the bride needs a new look" (Bridal).
