@@ -28,6 +28,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - bridal-makeup-amritsar-weddings-golden-temple-timing (Local)
 - paranda-braids-punjabi-brides (Skin & Hair)
 - bridal-reception-makeup-different-look (Bridal)
+- court-marriage-registry-makeup-punjab (Planning)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -36,7 +37,6 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Summer wedding makeup in Punjab: sweat-proof looks for May–June (Skin & Hair)
 - Jaggo and sangeet hairstyles that survive giddha and bhangra (Skin & Hair)
 - Wedding makeup for the mother of the bride (Bridal)
-- Makeup for a court marriage or simple registry ceremony: a shorter, lighter brief (Planning)
 - Pre-wedding shoot makeup: outdoor, daylight, wind (Bridal)
 - Dupatta draping styles for Punjabi brides (Bridal)
 - Makeup for Ludhiana weddings (Local) · Phagwara NRI weddings (Local)
@@ -68,6 +68,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Groom's mehndi and haldi look: what actually needs grooming before the main event (Groom)
 - Hairstyles for a Punjabi bride with a heavy dupatta drape: pinning that holds through pheras and photos (Skin & Hair)
 - Choosing your bridal lip shade for warm vs cool-toned gold jewellery (Trends)
+- Booking your bridal makeup trial: how far ahead to schedule it, what to bring, and what to ask (Planning)
+- Flower jewellery for mehndi: what to tell your makeup and hair artist when florals are involved (Trends)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -88,3 +90,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-16 — published "Bridal makeup for Amritsar weddings: Golden Temple visits, venue light and timing" (Local).
 - 2026-10-17 — published "Paranda braids for Punjabi brides: when they work and how to make them last" (Skin & Hair).
 - 2026-10-18 — published "Reception makeup vs wedding-day makeup: why the bride needs a new look" (Bridal).
+- 2026-10-19 — published "Makeup for a court marriage or registry wedding: a shorter, lighter brief" (Planning).
