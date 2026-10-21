@@ -30,6 +30,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - bridal-reception-makeup-different-look (Bridal)
 - court-marriage-registry-makeup-punjab (Planning)
 - safa-pagri-dastaar-groom-headgear-grooming (Groom)
+- jewellery-makeup-necklace-jhoomar-nath (Trends)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -60,7 +61,6 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Makeup for Bathinda and Patiala weddings: venues and timing (Local)
 - Sagan-day saree vs lehenga: how the makeup and hair brief changes with the outfit (Trends)
 - Makeup for a haldi function: yellow-proof base and a look that still photographs clean (Skin & Hair)
-- Jewellery and makeup: planning your look around a heavy necklace, jhoomar or nath (Trends)
 - Groom's Anand Karaj look: what to wear under the sehra and how grooming should match (Groom)
 - Makeup for a Punjabi wedding in peak summer heat: touch-up kit and timing for outdoor ceremonies (Skin & Hair)
 - Choosing between a saree and lehenga for the reception: how the makeup and hair brief should change (Trends)
@@ -72,6 +72,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Flower jewellery for mehndi: what to tell your makeup and hair artist when florals are involved (Trends)
 - Makeup for a Punjabi wedding held at a historic haveli or heritage venue: lighting and logistics (Local)
 - Groom's turban colour vs the bride's lehenga: coordinating without matching outfits exactly (Trends)
+- Mehndi design and makeup: planning an easy, giddha-friendly look when hands are busy with henna all day (Local)
+- Winter wedding hair: keeping updos and braids from frizzing in Punjab's fog and dew (Skin & Hair)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -94,3 +96,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-18 — published "Reception makeup vs wedding-day makeup: why the bride needs a new look" (Bridal).
 - 2026-10-19 — published "Makeup for a court marriage or registry wedding: a shorter, lighter brief" (Planning).
 - 2026-10-20 — published "Safa, pagri or dastaar: what the groom's headgear means for grooming" (Groom).
+- 2026-10-21 — published "Planning your bridal makeup around a heavy necklace, jhoomar or nath" (Trends).
