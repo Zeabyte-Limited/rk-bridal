@@ -31,6 +31,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - court-marriage-registry-makeup-punjab (Planning)
 - safa-pagri-dastaar-groom-headgear-grooming (Groom)
 - jewellery-makeup-necklace-jhoomar-nath (Trends)
+- bridal-makeup-ludhiana-weddings-palace-lighting-camera (Local)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -41,7 +42,7 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Wedding makeup for the mother of the bride (Bridal)
 - Pre-wedding shoot makeup: outdoor, daylight, wind (Bridal)
 - Dupatta draping styles for Punjabi brides (Bridal)
-- Makeup for Ludhiana weddings (Local) · Phagwara NRI weddings (Local)
+- Phagwara NRI weddings (Local)
 - What to eat and avoid the week before the wedding for glowing skin (Skin & Hair)
 - Sagan and shagun ceremony makeup: simple daytime looks for family functions (Bridal)
 - Lehenga colour and bridal makeup: choosing eyes and lips that match, not fight, your outfit (Bridal)
@@ -74,6 +75,8 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Groom's turban colour vs the bride's lehenga: coordinating without matching outfits exactly (Trends)
 - Mehndi design and makeup: planning an easy, giddha-friendly look when hands are busy with henna all day (Local)
 - Winter wedding hair: keeping updos and braids from frizzing in Punjab's fog and dew (Skin & Hair)
+- Makeup for Patiala weddings: palace heritage venues and timing (Local)
+- Bridal makeup for a Jalandhar-to-Mohali or Chandigarh tricity wedding: planning a two-city schedule (Planning)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -97,3 +100,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-19 — published "Makeup for a court marriage or registry wedding: a shorter, lighter brief" (Planning).
 - 2026-10-20 — published "Safa, pagri or dastaar: what the groom's headgear means for grooming" (Groom).
 - 2026-10-21 — published "Planning your bridal makeup around a heavy necklace, jhoomar or nath" (Trends).
+- 2026-10-22 — published "Bridal makeup for Ludhiana weddings: palace lighting, camera-ready looks and timing" (Local).
