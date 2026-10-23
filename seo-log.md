@@ -32,6 +32,7 @@ Daily blog agent: append one line per run. Keep the topic lists current to avoid
 - safa-pagri-dastaar-groom-headgear-grooming (Groom)
 - jewellery-makeup-necklace-jhoomar-nath (Trends)
 - bridal-makeup-ludhiana-weddings-palace-lighting-camera (Local)
+- winter-bridal-hairstyles-fog-frizz-punjab (Skin & Hair)
 
 ## Candidate queue (pick the best, mark done when published)
 AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in titles; rituals are fine.
@@ -74,9 +75,10 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - Makeup for a Punjabi wedding held at a historic haveli or heritage venue: lighting and logistics (Local)
 - Groom's turban colour vs the bride's lehenga: coordinating without matching outfits exactly (Trends)
 - Mehndi design and makeup: planning an easy, giddha-friendly look when hands are busy with henna all day (Local)
-- Winter wedding hair: keeping updos and braids from frizzing in Punjab's fog and dew (Skin & Hair)
 - Makeup for Patiala weddings: palace heritage venues and timing (Local)
 - Bridal makeup for a Jalandhar-to-Mohali or Chandigarh tricity wedding: planning a two-city schedule (Planning)
+- Veil and matha patti styling: how a heavy headpiece changes the hairstyle brief (Trends)
+- Touch-up kit essentials: what we actually carry for a Punjabi wedding day and why (Skin & Hair)
 
 ## Run log
 - 2026-10-02 — site launched with 8 seed posts.
@@ -101,3 +103,4 @@ AUDIENCE: Punjabi weddings only — do not label/separate Sikh vs Hindu in title
 - 2026-10-20 — published "Safa, pagri or dastaar: what the groom's headgear means for grooming" (Groom).
 - 2026-10-21 — published "Planning your bridal makeup around a heavy necklace, jhoomar or nath" (Trends).
 - 2026-10-22 — published "Bridal makeup for Ludhiana weddings: palace lighting, camera-ready looks and timing" (Local).
+- 2026-10-23 — published "Winter wedding hair for Punjabi brides: updos and braids that survive fog and dew" (Skin & Hair).
